@@ -8,8 +8,8 @@ The use of OpenGL facilitates the creation of high-quality 3D graphics. The engi
 
 ## XNE's Tools 
 XNEngine comes with development tools :
-- [XNE Model Converter](tools/xne.model/README.md)
-<br>XNE Model Converter is a tool that allows you to transform various formats (such as ```.fbx```, ```.dae```or ```.obj```) into a single format that can be loaded into XNEngine.
+- [XNE Assets](tools/)
+<br>XNE Assets is a tool used for converting 3d file formats (such as ```.fbx```, ```.dae```or ```.obj```) into a custom format that can be loaded into XNEngine.
 
 ## Third Party
 - [CGLM](https://github.com/recp/cglm)
