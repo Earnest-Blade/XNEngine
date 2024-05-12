@@ -1,0 +1,47 @@
+﻿<Window x:Class="xne.tools.editor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:editor="clr-namespace:xne.tools.editor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="409*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.RowSpan="2">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" Click="_NewButtonClick" />
+                    <MenuItem Header="_Open" Click="_OpenButtonClick"/>                    
+                    <MenuItem Header="_Export" Click="_ExportButtonClick"/>
+                    <MenuItem Header="_Exit" Click="_ExitButtonClick"/>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="_Update" Click="_UpdateClick"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+        
+        <Grid Margin="0,25,0,0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Background="GhostWhite" BorderBrush="Silver" BorderThickness="1">
+                <TextBox Name="_JsonTextBox" TextWrapping="NoWrap" FontSize="13" VerticalScrollBarVisibility="Visible"></TextBox>
+            </Border>
+            <Border Grid.Column="1" Name="_ObjectViewer">
+                <Grid Margin="10">
+                    <StackPanel>
+                        <Button Content="Apply" Margin="0,0,0,10" Click="_UpdateClick"></Button>
+                        <editor:AssetController x:Name="_AssetControllerViewer"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

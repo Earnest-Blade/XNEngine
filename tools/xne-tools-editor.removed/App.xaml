@@ -1,0 +1,9 @@
+﻿<Application x:Class="xne.tools.editor.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:xne.tools.editor"
+             Startup="ApplicationStartup">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

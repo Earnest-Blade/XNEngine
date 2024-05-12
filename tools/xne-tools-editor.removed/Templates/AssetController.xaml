@@ -1,0 +1,49 @@
+<UserControl x:Class="xne.tools.editor.AssetController"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:xne.tools.editor"
+             xmlns:assets="clr-namespace:xne.tools.assets;assembly=xne-tools-assets"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="800">
+    <Grid Margin="2" Background="GhostWhite">
+        <StackPanel>
+            <TextBlock Text="Shaders" FontWeight="Bold"></TextBlock>
+            <ListView Name="_ShaderViewer" Margin="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type assets:Shader}">
+                        <Expander>
+                            <StackPanel>
+                                <WrapPanel Margin="10,1,1,1">
+                                    <TextBlock Text="Name" Margin="0,0,5,0"></TextBlock>
+                                    <TextBox Text="{Binding Name}" Width="100"/>
+                                </WrapPanel>
+                                <WrapPanel Margin="10,1,1,1">
+                                    <TextBlock Text="File" Margin="0,0,5,0"></TextBlock>
+                                    <Button Content="Select File"></Button>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Expander>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock Text="Textures" FontWeight="Bold"></TextBlock>
+            <ListView Name="_TexturesViewer">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type assets:Texture}">
+                        <Expander>
+                            <StackPanel>
+                                <WrapPanel Margin="10,1,1,1">
+                                    <TextBlock Text="File" Margin="0,0,5,0"></TextBlock>
+                                    <Button Content="Select File"></Button>
+                                </WrapPanel>
+                            </StackPanel>
+                        </Expander>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>

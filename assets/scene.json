@@ -1,0 +1,15 @@
+{
+    "asset": {
+        "Name": "scene",
+        "Version": "0.0.0",
+        "Root": {
+            "Name": "Root",
+            "Childs": {
+
+            },
+            "Components": {
+                
+            }
+        }
+    }
+}

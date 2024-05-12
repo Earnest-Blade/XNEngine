@@ -1,0 +1,11 @@
+E:/Code/XNEngine/CMakeFiles/xne.dir
+E:/Code/XNEngine/CMakeFiles/edit_cache.dir
+E:/Code/XNEngine/CMakeFiles/rebuild_cache.dir
+E:/Code/XNEngine/src/core/CMakeFiles/edit_cache.dir
+E:/Code/XNEngine/src/core/CMakeFiles/rebuild_cache.dir
+E:/Code/XNEngine/src/graphics/CMakeFiles/edit_cache.dir
+E:/Code/XNEngine/src/graphics/CMakeFiles/rebuild_cache.dir
+E:/Code/XNEngine/src/graphics/ui/CMakeFiles/edit_cache.dir
+E:/Code/XNEngine/src/graphics/ui/CMakeFiles/rebuild_cache.dir
+E:/Code/XNEngine/src/engine/CMakeFiles/edit_cache.dir
+E:/Code/XNEngine/src/engine/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,12 @@
+E:\Code\XNEngine\tools\xne-tools-assets\bin\Debug\net7.0\xne-tools-assets.deps.json
+E:\Code\XNEngine\tools\xne-tools-assets\bin\Debug\net7.0\xne-tools-assets.dll
+E:\Code\XNEngine\tools\xne-tools-assets\bin\Debug\net7.0\xne-tools-assets.pdb
+E:\Code\XNEngine\tools\xne-tools-assets\obj\Debug\net7.0\xne-tools-assets.csproj.AssemblyReference.cache
+E:\Code\XNEngine\tools\xne-tools-assets\obj\Debug\net7.0\xne-tools-assets.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\XNEngine\tools\xne-tools-assets\obj\Debug\net7.0\xne-tools-assets.AssemblyInfoInputs.cache
+E:\Code\XNEngine\tools\xne-tools-assets\obj\Debug\net7.0\xne-tools-assets.AssemblyInfo.cs
+E:\Code\XNEngine\tools\xne-tools-assets\obj\Debug\net7.0\xne-tools-assets.csproj.CoreCompileInputs.cache
+E:\Code\XNEngine\tools\xne-tools-assets\obj\Debug\net7.0\xne-tools-assets.dll
+E:\Code\XNEngine\tools\xne-tools-assets\obj\Debug\net7.0\refint\xne-tools-assets.dll
+E:\Code\XNEngine\tools\xne-tools-assets\obj\Debug\net7.0\xne-tools-assets.pdb
+E:\Code\XNEngine\tools\xne-tools-assets\obj\Debug\net7.0\ref\xne-tools-assets.dll
