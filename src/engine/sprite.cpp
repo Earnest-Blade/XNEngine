@@ -168,30 +168,6 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
 
         xne_link_shader_uniforms(&sprite->shader, uniform_desc);
         free(uniform_desc);
-
-        /*xne__object_create_vec4(json_object_object_get(json_material, "AmbientColor"), material->ambient_color);
-        xne__object_create_vec4(json_object_object_get(json_material, "DiffuseColor"), material->diffuse_color);
-
-        material->ambient_texture = NULL;
-        material->diffuse_texture = NULL;
-
-        if(json_object_get_type(json_object_object_get(json_material, "AmbientTexture")) != json_type_null){
-            material->ambient_texture = (xne_Texture_t*) xne_vector_get(&model->textures, json_object_get_int(json_object_object_get(json_material, "AmbientTexture")));
-            xne_link_texture(
-                material->ambient_texture,
-                json_object_get_string(json_object_object_get(json_object_array_get_idx(json_texture_array, json_object_get_int(json_object_object_get(json_material, "AmbientTexture"))), "Name")), 
-                material->shader.program
-            );
-        }
-
-        if(json_object_get_type(json_object_object_get(json_material, "DiffuseTexture")) != json_type_null){
-            material->diffuse_texture = (xne_Texture_t*) xne_vector_get(&model->textures, json_object_get_int(json_object_object_get(json_material, "DiffuseTexture")));
-            xne_link_texture(
-                material->diffuse_texture,
-                json_object_get_string(json_object_object_get(json_object_array_get_idx(json_texture_array, json_object_get_int(json_object_object_get(json_material, "DiffuseTexture"))), "Name")), 
-                material->shader.program
-            );
-        }*/
     }
     else{
         fprintf(stdout, "cannot find material object!\n");
@@ -200,7 +176,6 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
         
         return XNE_FAILURE;
     }
-    GL_NEAREST
 
     if(json_object_get_type(json_atlas) != json_type_null){
         xne_create_texture_atlas(

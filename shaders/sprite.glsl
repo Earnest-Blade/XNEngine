@@ -37,8 +37,6 @@ void main() {
     int layer = 0;
     int face = 1;
 
-    
-
     vec4 frag = texture(texture0, vec3(vertex.uvs, layer * row + face));
     if(frag.a < 0.1){
         discard;
