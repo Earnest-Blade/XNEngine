@@ -57,8 +57,8 @@ CMakeFiles/xne.dir/src/core/file.c.obj: src/core/file.c \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/core/str.c.obj: src/core/str.c \
-  src/core/str.h \
+CMakeFiles/xne.dir/src/core/string.c.obj: src/core/string.c \
+  src/core/string.h \
   C:/MinGW/include/_mingw.h \
   C:/MinGW/include/ctype.h \
   C:/MinGW/include/malloc.h \
@@ -77,7 +77,7 @@ CMakeFiles/xne.dir/src/core/str.c.obj: src/core/str.c \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/engine/engine.cpp.obj: src/engine/engine.cpp \
+CMakeFiles/xne.dir/src/engine/engine.c.obj: src/engine/engine.c \
   src/core/core.h \
   src/core/types.h \
   src/graphics/camera.h \
@@ -94,16 +94,11 @@ CMakeFiles/xne.dir/src/engine/engine.cpp.obj: src/engine/engine.cpp \
   C:/MinGW/include/strings.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/engine/model.cpp.obj: src/engine/model.cpp \
+CMakeFiles/xne.dir/src/engine/model.c.obj: src/engine/model.c \
   include/cglm/affine-mat.h \
   include/cglm/affine-post.h \
   include/cglm/affine-pre.h \
@@ -179,99 +174,20 @@ CMakeFiles/xne.dir/src/engine/model.cpp.obj: src/engine/model.cpp \
   src/engine/transform.h \
   C:/MinGW/include/_mingw.h \
   C:/MinGW/include/assert.h \
-  C:/MinGW/include/ctype.h \
-  C:/MinGW/include/direct.h \
-  C:/MinGW/include/errno.h \
   C:/MinGW/include/float.h \
   C:/MinGW/include/inttypes.h \
-  C:/MinGW/include/io.h \
-  C:/MinGW/include/locale.h \
   C:/MinGW/include/math.h \
   C:/MinGW/include/memory.h \
   C:/MinGW/include/msvcrtver.h \
-  C:/MinGW/include/process.h \
   C:/MinGW/include/sdkddkver.h \
   C:/MinGW/include/stdint.h \
   C:/MinGW/include/stdio.h \
   C:/MinGW/include/stdlib.h \
   C:/MinGW/include/string.h \
   C:/MinGW/include/strings.h \
-  C:/MinGW/include/sys/stat.h \
   C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/time.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/include/wctype.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_uninitialized.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_vector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/vector.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cmath \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/math.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/vector \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/float.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
@@ -283,7 +199,49 @@ CMakeFiles/xne.dir/src/engine/model.cpp.obj: src/engine/model.cpp \
   include/cglm/vec3.h \
   include/cglm/vec4.h
 
-CMakeFiles/xne.dir/src/engine/sprite.cpp.obj: src/engine/sprite.cpp \
+CMakeFiles/xne.dir/src/engine/sprite.c.obj: src/engine/sprite.c \
+  include/cglm/affine-mat.h \
+  include/cglm/affine-post.h \
+  include/cglm/affine-pre.h \
+  include/cglm/affine.h \
+  include/cglm/affine2d.h \
+  include/cglm/bezier.h \
+  include/cglm/box.h \
+  include/cglm/cam.h \
+  include/cglm/cglm.h \
+  include/cglm/clipspace/ortho_rh_no.h \
+  include/cglm/clipspace/persp.h \
+  include/cglm/clipspace/persp_rh_no.h \
+  include/cglm/clipspace/project_no.h \
+  include/cglm/clipspace/view_rh.h \
+  include/cglm/clipspace/view_rh_no.h \
+  include/cglm/color.h \
+  include/cglm/common.h \
+  include/cglm/curve.h \
+  include/cglm/ease.h \
+  include/cglm/euler.h \
+  include/cglm/frustum.h \
+  include/cglm/io.h \
+  include/cglm/ivec2.h \
+  include/cglm/ivec3.h \
+  include/cglm/ivec4.h \
+  include/cglm/mat2.h \
+  include/cglm/mat3.h \
+  include/cglm/mat4.h \
+  include/cglm/plane.h \
+  include/cglm/project.h \
+  include/cglm/quat.h \
+  include/cglm/ray.h \
+  include/cglm/simd/intrin.h \
+  include/cglm/sphere.h \
+  include/cglm/types.h \
+  include/cglm/util.h \
+  include/cglm/vec2-ext.h \
+  include/cglm/vec2.h \
+  include/cglm/vec3-ext.h \
+  include/cglm/vec3.h \
+  include/cglm/vec4-ext.h \
+  include/cglm/vec4.h \
   include/GL/glew.h \
   include/json-c/arraylist.h \
   include/json-c/debug.h \
@@ -316,103 +274,34 @@ CMakeFiles/xne.dir/src/engine/sprite.cpp.obj: src/engine/sprite.cpp \
   src/engine/transform.h \
   C:/MinGW/include/_mingw.h \
   C:/MinGW/include/assert.h \
-  C:/MinGW/include/ctype.h \
-  C:/MinGW/include/direct.h \
-  C:/MinGW/include/errno.h \
+  C:/MinGW/include/float.h \
   C:/MinGW/include/GL/gl.h \
   C:/MinGW/include/GL/glu.h \
   C:/MinGW/include/inttypes.h \
-  C:/MinGW/include/io.h \
-  C:/MinGW/include/locale.h \
+  C:/MinGW/include/math.h \
   C:/MinGW/include/memory.h \
   C:/MinGW/include/msvcrtver.h \
-  C:/MinGW/include/process.h \
   C:/MinGW/include/sdkddkver.h \
   C:/MinGW/include/stdint.h \
   C:/MinGW/include/stdio.h \
   C:/MinGW/include/stdlib.h \
   C:/MinGW/include/string.h \
   C:/MinGW/include/strings.h \
-  C:/MinGW/include/sys/stat.h \
   C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/time.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/include/wctype.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_uninitialized.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_vector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/vector.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/vector \
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/float.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
+  C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h \
+  include/cglm/common.h \
+  include/cglm/mat4.h \
+  include/cglm/plane.h \
+  include/cglm/vec3.h \
+  include/cglm/vec4.h
 
-CMakeFiles/xne.dir/src/engine/transform.cpp.obj: src/engine/transform.cpp \
+CMakeFiles/xne.dir/src/engine/transform.c.obj: src/engine/transform.c \
   include/cglm/affine-mat.h \
   include/cglm/affine-post.h \
   include/cglm/affine-pre.h \
@@ -470,15 +359,6 @@ CMakeFiles/xne.dir/src/engine/transform.cpp.obj: src/engine/transform.cpp \
   C:/MinGW/include/sys/types.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cmath \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/math.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/float.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
@@ -490,7 +370,7 @@ CMakeFiles/xne.dir/src/engine/transform.cpp.obj: src/engine/transform.cpp \
   include/cglm/vec3.h \
   include/cglm/vec4.h
 
-CMakeFiles/xne.dir/src/graphics/camera.cpp.obj: src/graphics/camera.cpp \
+CMakeFiles/xne.dir/src/graphics/camera.c.obj: src/graphics/camera.c \
   include/cglm/affine-mat.h \
   include/cglm/affine-post.h \
   include/cglm/affine-pre.h \
@@ -550,16 +430,6 @@ CMakeFiles/xne.dir/src/graphics/camera.cpp.obj: src/graphics/camera.cpp \
   C:/MinGW/include/sys/types.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cmath \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstring \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/math.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/float.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
@@ -571,125 +441,29 @@ CMakeFiles/xne.dir/src/graphics/camera.cpp.obj: src/graphics/camera.cpp \
   include/cglm/vec3.h \
   include/cglm/vec4.h
 
-CMakeFiles/xne.dir/src/graphics/device.cpp.obj: src/graphics/device.cpp \
+CMakeFiles/xne.dir/src/graphics/device.c.obj: src/graphics/device.c \
   include/GLFW/glfw3.h \
   src/core/core.h \
   src/core/types.h \
   src/graphics/device.h \
   C:/MinGW/include/_mingw.h \
   C:/MinGW/include/assert.h \
-  C:/MinGW/include/ctype.h \
-  C:/MinGW/include/direct.h \
-  C:/MinGW/include/errno.h \
   C:/MinGW/include/GL/gl.h \
-  C:/MinGW/include/io.h \
-  C:/MinGW/include/locale.h \
   C:/MinGW/include/malloc.h \
   C:/MinGW/include/memory.h \
   C:/MinGW/include/msvcrtver.h \
-  C:/MinGW/include/process.h \
   C:/MinGW/include/sdkddkver.h \
   C:/MinGW/include/stdint.h \
-  C:/MinGW/include/stdio.h \
   C:/MinGW/include/stdlib.h \
   C:/MinGW/include/string.h \
   C:/MinGW/include/strings.h \
-  C:/MinGW/include/sys/stat.h \
-  C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/time.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/include/wctype.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/array \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/auto_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocated_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_atomic.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_raw_storage_iter.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_relops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_tempbuf.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_uninitialized.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/unique_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/uses_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/aligned_buffer.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/concurrence.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/functional \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/memory \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdexcept \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tuple \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/typeinfo \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/utility \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj: src/graphics/framebuffer.cpp \
+CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj: src/graphics/framebuffer.c \
   include/GL/glew.h \
   src/core/core.h \
   src/core/types.h \
@@ -706,16 +480,12 @@ CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj: src/graphics/framebuffer.cp
   C:/MinGW/include/stdio.h \
   C:/MinGW/include/sys/types.h \
   C:/MinGW/include/w32api.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj: src/graphics/graphics.cpp \
+CMakeFiles/xne.dir/src/graphics/graphics.c.obj: src/graphics/graphics.c \
   include/GL/glew.h \
   include/GLFW/glfw3.h \
   include/GLFW/glfw3native.h \
@@ -737,20 +507,16 @@ CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj: src/graphics/graphics.cpp \
   C:/MinGW/include/cderr.h \
   C:/MinGW/include/cguid.h \
   C:/MinGW/include/commdlg.h \
-  C:/MinGW/include/ctype.h \
   C:/MinGW/include/dbt.h \
   C:/MinGW/include/dde.h \
   C:/MinGW/include/ddeml.h \
-  C:/MinGW/include/direct.h \
   C:/MinGW/include/dlgs.h \
-  C:/MinGW/include/errno.h \
   C:/MinGW/include/GL/gl.h \
   C:/MinGW/include/GL/glu.h \
   C:/MinGW/include/imm.h \
   C:/MinGW/include/inttypes.h \
-  C:/MinGW/include/io.h \
-  C:/MinGW/include/locale.h \
   C:/MinGW/include/lzexpand.h \
+  C:/MinGW/include/memory.h \
   C:/MinGW/include/mmsystem.h \
   C:/MinGW/include/msvcrtver.h \
   C:/MinGW/include/nb30.h \
@@ -764,7 +530,6 @@ CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj: src/graphics/graphics.cpp \
   C:/MinGW/include/olectlid.h \
   C:/MinGW/include/oleidl.h \
   C:/MinGW/include/poppack.h \
-  C:/MinGW/include/process.h \
   C:/MinGW/include/prsht.h \
   C:/MinGW/include/pshpack2.h \
   C:/MinGW/include/pshpack4.h \
@@ -782,16 +547,12 @@ CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj: src/graphics/graphics.cpp \
   C:/MinGW/include/stdlib.h \
   C:/MinGW/include/string.h \
   C:/MinGW/include/strings.h \
-  C:/MinGW/include/sys/stat.h \
   C:/MinGW/include/sys/types.h \
   C:/MinGW/include/sys/bsdtypes.h \
   C:/MinGW/include/sys/time.h \
-  C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/time.h \
   C:/MinGW/include/unknwn.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/include/wctype.h \
   C:/MinGW/include/winbase.h \
   C:/MinGW/include/wincon.h \
   C:/MinGW/include/windef.h \
@@ -810,120 +571,12 @@ CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj: src/graphics/graphics.cpp \
   C:/MinGW/include/winuser.h \
   C:/MinGW/include/winver.h \
   C:/MinGW/include/wtypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/array \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/auto_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocated_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_ios.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_ios.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ios_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/istream.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/locale_classes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/locale_classes.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/locale_facets.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/locale_facets.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_atomic.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_raw_storage_iter.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_relops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_tempbuf.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_uninitialized.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_vector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/streambuf.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/streambuf_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/unique_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/uses_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/vector.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/aligned_buffer.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/concurrence.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/functional \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ios \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iostream \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/istream \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/memory \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/ctype_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/ctype_inline.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/error_constants.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ostream \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdexcept \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/streambuf \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/system_error \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tuple \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/typeinfo \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/utility \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/vector \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj: src/graphics/mesh.cpp \
+CMakeFiles/xne.dir/src/graphics/mesh.c.obj: src/graphics/mesh.c \
   include/GL/glew.h \
   include/json-c/arraylist.h \
   include/json-c/debug.h \
@@ -951,205 +604,57 @@ CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj: src/graphics/mesh.cpp \
   src/graphics/texture.h \
   C:/MinGW/include/_mingw.h \
   C:/MinGW/include/assert.h \
-  C:/MinGW/include/ctype.h \
-  C:/MinGW/include/direct.h \
-  C:/MinGW/include/errno.h \
   C:/MinGW/include/GL/gl.h \
   C:/MinGW/include/GL/glu.h \
   C:/MinGW/include/inttypes.h \
-  C:/MinGW/include/io.h \
   C:/MinGW/include/limits.h \
-  C:/MinGW/include/locale.h \
   C:/MinGW/include/msvcrtver.h \
-  C:/MinGW/include/process.h \
   C:/MinGW/include/sdkddkver.h \
   C:/MinGW/include/stdint.h \
   C:/MinGW/include/stdio.h \
   C:/MinGW/include/stdlib.h \
   C:/MinGW/include/string.h \
   C:/MinGW/include/strings.h \
-  C:/MinGW/include/sys/stat.h \
   C:/MinGW/include/sys/types.h \
   C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/time.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/include/wctype.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_uninitialized.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_vector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/vector.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstring \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/vector \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/graphics/shader.cpp.obj: src/graphics/shader.cpp \
+CMakeFiles/xne.dir/src/graphics/shader.c.obj: src/graphics/shader.c \
   include/GL/glew.h \
   src/core/core.h \
   src/core/file.h \
-  src/core/str.h \
+  src/core/string.h \
   src/core/types.h \
   src/graphics/shader.h \
   src/graphics/texture.h \
   C:/MinGW/include/_mingw.h \
   C:/MinGW/include/assert.h \
-  C:/MinGW/include/ctype.h \
-  C:/MinGW/include/direct.h \
-  C:/MinGW/include/errno.h \
   C:/MinGW/include/GL/gl.h \
   C:/MinGW/include/GL/glu.h \
   C:/MinGW/include/inttypes.h \
-  C:/MinGW/include/io.h \
-  C:/MinGW/include/locale.h \
   C:/MinGW/include/malloc.h \
   C:/MinGW/include/memory.h \
   C:/MinGW/include/msvcrtver.h \
-  C:/MinGW/include/process.h \
   C:/MinGW/include/sdkddkver.h \
   C:/MinGW/include/stdint.h \
   C:/MinGW/include/stdio.h \
   C:/MinGW/include/stdlib.h \
   C:/MinGW/include/string.h \
   C:/MinGW/include/strings.h \
-  C:/MinGW/include/sys/stat.h \
   C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/time.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/include/wctype.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/graphics/texture.cpp.obj: src/graphics/texture.cpp \
+CMakeFiles/xne.dir/src/graphics/texture.c.obj: src/graphics/texture.c \
   include/GL/glew.h \
   include/png.h \
   include/pngconf.h \
@@ -1161,18 +666,12 @@ CMakeFiles/xne.dir/src/graphics/texture.cpp.obj: src/graphics/texture.cpp \
   src/graphics/texture.h \
   C:/MinGW/include/_mingw.h \
   C:/MinGW/include/assert.h \
-  C:/MinGW/include/ctype.h \
-  C:/MinGW/include/direct.h \
-  C:/MinGW/include/errno.h \
   C:/MinGW/include/GL/gl.h \
   C:/MinGW/include/GL/glu.h \
   C:/MinGW/include/inttypes.h \
-  C:/MinGW/include/io.h \
   C:/MinGW/include/limits.h \
-  C:/MinGW/include/locale.h \
   C:/MinGW/include/memory.h \
   C:/MinGW/include/msvcrtver.h \
-  C:/MinGW/include/process.h \
   C:/MinGW/include/sdkddkver.h \
   C:/MinGW/include/setjmp.h \
   C:/MinGW/include/stdint.h \
@@ -1180,79 +679,17 @@ CMakeFiles/xne.dir/src/graphics/texture.cpp.obj: src/graphics/texture.cpp \
   C:/MinGW/include/stdlib.h \
   C:/MinGW/include/string.h \
   C:/MinGW/include/strings.h \
-  C:/MinGW/include/sys/stat.h \
   C:/MinGW/include/sys/types.h \
   C:/MinGW/include/sys/types.h \
   C:/MinGW/include/time.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/include/wctype.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj: src/graphics/ui/ui.cpp \
+CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj: src/graphics/ui/ui.c \
   include/GL/glew.h \
   include/GLFW/glfw3.h \
   include/nuklear.h \
@@ -1263,116 +700,26 @@ CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj: src/graphics/ui/ui.cpp \
   src/graphics/ui/ui.h \
   C:/MinGW/include/_mingw.h \
   C:/MinGW/include/assert.h \
-  C:/MinGW/include/ctype.h \
-  C:/MinGW/include/direct.h \
-  C:/MinGW/include/errno.h \
   C:/MinGW/include/GL/gl.h \
   C:/MinGW/include/GL/glu.h \
   C:/MinGW/include/inttypes.h \
-  C:/MinGW/include/io.h \
-  C:/MinGW/include/locale.h \
+  C:/MinGW/include/memory.h \
   C:/MinGW/include/msvcrtver.h \
-  C:/MinGW/include/process.h \
   C:/MinGW/include/sdkddkver.h \
   C:/MinGW/include/stdint.h \
   C:/MinGW/include/stdio.h \
   C:/MinGW/include/stdlib.h \
-  C:/MinGW/include/sys/stat.h \
+  C:/MinGW/include/string.h \
+  C:/MinGW/include/strings.h \
   C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/time.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/include/wctype.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/array \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/auto_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocated_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_atomic.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_raw_storage_iter.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_relops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_tempbuf.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_uninitialized.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/unique_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/uses_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/aligned_buffer.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/concurrence.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/functional \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/memory \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdexcept \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tuple \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/typeinfo \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/utility \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h
 
-CMakeFiles/xne.dir/src/main.cpp.obj: src/main.cpp \
+CMakeFiles/xne.dir/src/main.c.obj: src/main.c \
   src/core/buffer.h \
   src/core/core.h \
   src/core/types.h \
@@ -1391,110 +738,16 @@ CMakeFiles/xne.dir/src/main.cpp.obj: src/main.cpp \
   src/graphics/ui/ui.h \
   src/xne.h \
   C:/MinGW/include/_mingw.h \
-  C:/MinGW/include/ctype.h \
-  C:/MinGW/include/direct.h \
-  C:/MinGW/include/errno.h \
-  C:/MinGW/include/io.h \
-  C:/MinGW/include/locale.h \
+  C:/MinGW/include/memory.h \
   C:/MinGW/include/msvcrtver.h \
-  C:/MinGW/include/process.h \
   C:/MinGW/include/sdkddkver.h \
   C:/MinGW/include/stdint.h \
   C:/MinGW/include/stdio.h \
-  C:/MinGW/include/stdlib.h \
-  C:/MinGW/include/sys/stat.h \
+  C:/MinGW/include/string.h \
+  C:/MinGW/include/strings.h \
   C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/sys/types.h \
-  C:/MinGW/include/time.h \
   C:/MinGW/include/w32api.h \
   C:/MinGW/include/wchar.h \
-  C:/MinGW/include/wctype.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/array \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/auto_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocated_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_atomic.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_base.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_raw_storage_iter.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_relops.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_tempbuf.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_uninitialized.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_vector.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/unique_ptr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/uses_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/vector.tcc \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/aligned_buffer.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/concurrence.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/functional \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/memory \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdexcept \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tuple \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/typeinfo \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/utility \
-  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/vector \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdbool.h \
   C:/MinGW/lib/gcc/mingw32/6.3.0/include/stddef.h \
@@ -1504,8 +757,6 @@ CMakeFiles/xne.dir/src/main.cpp.obj: src/main.cpp \
 include/GLFW/glfw3native.h:
 
 C:/MinGW/include/assert.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++config.h:
 
 src/core/buffer.c:
 
@@ -1523,23 +774,15 @@ include/cglm/clipspace/ortho_rh_no.h:
 
 src/core/buffer.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ios:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdlib:
-
 C:/MinGW/include/_mingw.h:
 
 C:/MinGW/include/msvcrtver.h:
 
-src/engine/model.cpp:
+src/engine/model.c:
 
 src/engine/objects.h:
 
 C:/MinGW/include/malloc.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_lockfree_defines.h:
-
-src/core/str.c:
 
 C:/MinGW/include/memory.h:
 
@@ -1548,8 +791,6 @@ C:/MinGW/include/sdkddkver.h:
 src/graphics/shader.h:
 
 C:/MinGW/include/stdint.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdint:
 
 include/cglm/ease.h:
 
@@ -1569,23 +810,17 @@ C:/MinGW/include/strings.h:
 
 C:/MinGW/include/sys/types.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/ctype_base.h:
+src/core/string.h:
 
 C:/MinGW/include/poppack.h:
 
 C:/MinGW/include/w32api.h:
 
-C:/MinGW/include/process.h:
-
 src/core/compression.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++allocator.h:
 
 C:/MinGW/include/wchar.h:
 
 include/cglm/frustum.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hash_bytes.h:
 
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdarg.h:
 
@@ -1595,19 +830,9 @@ include/cglm/color.h:
 
 include/cglm/bezier.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_uninitialized.h:
-
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/stdint.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_tempbuf.h:
-
 src/core/compression.c:
-
-C:/MinGW/include/errno.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/cpu_defines.h:
 
 C:/MinGW/include/wctype.h:
 
@@ -1623,11 +848,9 @@ C:/MinGW/include/ctype.h:
 
 src/core/file.h:
 
-src/core/str.h:
+src/core/string.c:
 
-src/engine/engine.cpp:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/c++locale.h:
+src/engine/engine.c:
 
 src/core/core.h:
 
@@ -1637,19 +860,9 @@ include/cglm/euler.h:
 
 src/graphics/camera.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstdio:
-
 include/cglm/cglm.h:
 
 src/engine/engine.h:
-
-C:/MinGW/include/inttypes.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/os_defines.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdlib.h:
-
-include/cglm/common.h:
 
 include/cglm/affine-mat.h:
 
@@ -1665,8 +878,6 @@ include/cglm/clipspace/view_rh_no.h:
 
 include/cglm/affine.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/postypes.h:
-
 include/json-c/linkhash.h:
 
 include/cglm/box.h:
@@ -1675,35 +886,29 @@ include/cglm/clipspace/persp.h:
 
 include/cglm/clipspace/persp_rh_no.h:
 
+C:/MinGW/include/rpcdcep.h:
+
+include/cglm/ivec3.h:
+
 include/cglm/clipspace/project_no.h:
 
 C:/MinGW/include/winnt.h:
 
 include/cglm/clipspace/view_rh.h:
 
+include/cglm/common.h:
+
 include/cglm/io.h:
 
 include/cglm/ivec2.h:
-
-C:/MinGW/include/rpcdcep.h:
-
-src/graphics/framebuffer.cpp:
-
-include/cglm/ivec3.h:
 
 include/cglm/ivec4.h:
 
 C:/MinGW/include/_winsock.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/memory:
-
 include/cglm/mat2.h:
 
 include/cglm/mat3.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/istream:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/alloc_traits.h:
 
 include/cglm/mat4.h:
 
@@ -1723,8 +928,6 @@ src/graphics/framebuffer.h:
 
 include/cglm/sphere.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cctype:
-
 include/cglm/types.h:
 
 include/cglm/util.h:
@@ -1739,15 +942,11 @@ include/cglm/vec2.h:
 
 include/cglm/vec3-ext.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iostream:
-
 include/cglm/vec3.h:
 
 include/cglm/vec4-ext.h:
 
 include/json-c/arraylist.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/array:
 
 include/json-c/debug.h:
 
@@ -1757,15 +956,7 @@ include/json-c/json_c_version.h:
 
 include/json-c/json_config.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/error_constants.h:
-
 include/json-c/json_inttypes.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/locale_classes.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/math.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/move.h:
 
 include/json-c/json_object.h:
 
@@ -1775,11 +966,7 @@ include/json-c/json_object_iterator.h:
 
 include/json-c/json_patch.h:
 
-src/graphics/mesh.cpp:
-
 include/json-c/json_tokener.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/localefwd.h:
 
 include/json-c/json_types.h:
 
@@ -1793,11 +980,7 @@ C:/MinGW/include/pshpack4.h:
 
 src/graphics/mesh.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/streambuf.tcc:
-
 src/graphics/texture.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/functional:
 
 src/engine/material.h:
 
@@ -1807,149 +990,13 @@ C:/MinGW/include/cderr.h:
 
 src/engine/transform.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cpp_type_traits.h:
-
-C:/MinGW/include/direct.h:
-
-C:/MinGW/include/sys/bsdtypes.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_construct.h:
-
-C:/MinGW/include/io.h:
-
-C:/MinGW/include/dlgs.h:
-
-C:/MinGW/include/locale.h:
+C:/MinGW/include/inttypes.h:
 
 C:/MinGW/include/math.h:
 
-C:/MinGW/include/sys/stat.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_pair.h:
-
-C:/MinGW/include/time.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/binders.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/locale_classes.tcc:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/alloc_traits.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocator.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.tcc:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/char_traits.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/concept_check.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ios_base.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/cxxabi_forced.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_defines.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/exception_ptr.h:
-
-C:/MinGW/include/rpcnterr.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functexcept.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/functional_hash.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/memoryfwd.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/nested_exception.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream_insert.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/predefined_ops.h:
-
-C:/MinGW/include/oleidl.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ptr_traits.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/range_access.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/string_conversions.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_algobase.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_bvector.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_function.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_funcs.h:
-
-C:/MinGW/include/dde.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_iterator_base_types.h:
-
-include/pngconf.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_vector.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stringfwd.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/locale_facets.tcc:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/vector.tcc:
-
-include/nuklear.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cerrno:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/clocale:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cmath:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwchar:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/assertions.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_ios.tcc:
-
-C:/MinGW/include/winnls.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/debug/debug.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/exception:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/atomicity.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/new_allocator.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/numeric_traits.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/type_traits.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/initializer_list:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/iosfwd:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/atomic_word.h:
-
-C:/MinGW/include/wincon.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/gthr-default.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/new:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/string:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/type_traits:
-
-src/graphics/camera.cpp:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/vector:
-
 C:/MinGW/lib/gcc/mingw32/6.3.0/include/float.h:
 
-src/engine/sprite.cpp:
+src/engine/sprite.c:
 
 include/GL/glew.h:
 
@@ -1959,15 +1006,13 @@ C:/MinGW/include/GL/gl.h:
 
 C:/MinGW/include/GL/glu.h:
 
-src/main.cpp:
+src/main.c:
 
-src/engine/transform.cpp:
+src/engine/transform.c:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cstring:
+src/graphics/camera.c:
 
-C:/MinGW/include/ddeml.h:
-
-src/graphics/device.cpp:
+src/graphics/device.c:
 
 C:/MinGW/include/prsht.h:
 
@@ -1975,57 +1020,27 @@ include/GLFW/glfw3.h:
 
 src/graphics/device.h:
 
+src/graphics/framebuffer.c:
+
+src/graphics/graphics.c:
+
 C:/MinGW/include/basetsd.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/backward/auto_ptr.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocated_ptr.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/atomic_base.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_ios.h:
-
-C:/MinGW/include/commdlg.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_atomic.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/shared_ptr_base.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_raw_storage_iter.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/stl_relops.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/unique_ptr.h:
-
-C:/MinGW/include/rpcndr.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/uses_allocator.h:
-
-src/graphics/shader.cpp:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/aligned_buffer.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ext/concurrence.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/stdexcept:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/tuple:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/typeinfo:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/utility:
-
-src/graphics/graphics.cpp:
 
 C:/MinGW/include/basetyps.h:
 
 C:/MinGW/include/cguid.h:
 
+C:/MinGW/include/commdlg.h:
+
 C:/MinGW/include/winsock.h:
 
 C:/MinGW/include/dbt.h:
+
+C:/MinGW/include/dde.h:
+
+C:/MinGW/include/ddeml.h:
+
+C:/MinGW/include/dlgs.h:
 
 C:/MinGW/include/imm.h:
 
@@ -2047,6 +1062,8 @@ C:/MinGW/include/oleauto.h:
 
 C:/MinGW/include/olectlid.h:
 
+C:/MinGW/include/oleidl.h:
+
 C:/MinGW/include/pshpack2.h:
 
 C:/MinGW/include/winspool.h:
@@ -2055,15 +1072,25 @@ C:/MinGW/include/rpc.h:
 
 C:/MinGW/include/rpcdce.h:
 
+C:/MinGW/include/rpcndr.h:
+
 C:/MinGW/include/rpcnsi.h:
 
 C:/MinGW/include/rpcnsip.h:
+
+C:/MinGW/include/rpcnterr.h:
+
+C:/MinGW/include/sys/bsdtypes.h:
 
 C:/MinGW/include/unknwn.h:
 
 C:/MinGW/include/winbase.h:
 
+C:/MinGW/include/wincon.h:
+
 C:/MinGW/include/windef.h:
+
+src/graphics/mesh.c:
 
 C:/MinGW/include/windows.h:
 
@@ -2073,43 +1100,35 @@ C:/MinGW/include/wingdi.h:
 
 C:/MinGW/include/winnetwk.h:
 
-C:/MinGW/include/winperf.h:
+C:/MinGW/include/winnls.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/mingw32/bits/ctype_inline.h:
+C:/MinGW/include/winperf.h:
 
 C:/MinGW/include/winreg.h:
 
 C:/MinGW/include/winsock2.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/ostream.tcc:
-
 C:/MinGW/include/winsvc.h:
-
-src/graphics/ui/ui.cpp:
 
 C:/MinGW/include/winuser.h:
 
 C:/MinGW/include/winver.h:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/istream.tcc:
+src/graphics/shader.c:
 
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/locale_facets.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/streambuf_iterator.h:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/cwctype:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/ostream:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/streambuf:
-
-C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/system_error:
-
-src/graphics/texture.cpp:
+src/graphics/texture.c:
 
 include/png.h:
 
+include/pngconf.h:
+
 include/pnglibconf.h:
+
+C:/MinGW/include/time.h:
+
+src/graphics/ui/ui.c:
+
+include/nuklear.h:
 
 src/graphics/ui/nk.h:
 

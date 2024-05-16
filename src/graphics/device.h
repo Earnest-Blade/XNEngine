@@ -6,14 +6,14 @@
 
 #include "core/core.h"
 
-#include <memory>
-#include <string>
+#include <memory.h>
+#include <string.h>
 
 #ifndef xne_SkipIfNotFocus
     #define xne_skip_if_not_focus() { if(!xne_is_focus()) continue; }
 #endif
 
-typedef enum xne_Keys : xne_Enum_t {
+typedef enum xne_Keys {
     XNE_KEY_UNKNOWN      = 0,
     XNE_KEY_SPACE        = 32,
     XNE_KEY_MENU         = 34, 
@@ -137,7 +137,7 @@ typedef enum xne_Keys : xne_Enum_t {
     XNE_KEY_RIGHT_SUPER  = 347,
 } xne_Keys_t;
 
-typedef enum xne_MouseButtons : xne_Enum_t {
+typedef enum xne_MouseButtons {
     XNE_MOUSE_BUTTON_1      = 0,
     XNE_MOUSE_BUTTON_2      = 1,
     XNE_MOUSE_BUTTON_3      = 2,
@@ -152,7 +152,7 @@ typedef enum xne_MouseButtons : xne_Enum_t {
     XNE_MOUSE_BUTTON_MIDDLE = XNE_MOUSE_BUTTON_3,
 } xne_MouseButtons_t;
 
-typedef enum xne_DeviceFlags : xne_Enum_t {
+typedef enum xne_DeviceFlags {
     XNE_WINDOW_NONE = 0x000,
     XNE_WINDOW_FULLSCREEN = 0x001,
     XNE_WINDOW_RESIZABLE = 0x002,

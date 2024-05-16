@@ -15,7 +15,7 @@ extern "C" {
 #endif
 
 #ifdef XNE_CORE_STRING
-    #include "str.h"
+    #include "string.h"
 #endif
 
 #ifdef XNE_CORE_COMPRESSION

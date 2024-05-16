@@ -2,6 +2,12 @@
     "files.associations": {
         "ios": "cpp",
         "xiosbase": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "core.h": "c",
+        "types.h": "c",
+        "file.h": "c",
+        "buffer.h": "c",
+        "xlocinfo": "c",
+        "xstring": "c"
     }
 }

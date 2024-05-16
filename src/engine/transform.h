@@ -57,4 +57,5 @@ inline static float* xne_transform_direction_left(xne_Transform_t* transform, fl
 inline static float* xne_transform_matrix(xne_Transform_t* transform) { return &transform->matrix[0][0]; }
 float* xne_transform_lookat(xne_Transform_t* transform, float eye[3]);
 
+
 #endif

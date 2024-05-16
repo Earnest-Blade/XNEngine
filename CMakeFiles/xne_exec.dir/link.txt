@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\xne_exec.dir/objects.a
-C:\MinGW\bin\ar.exe qc CMakeFiles\xne_exec.dir/objects.a @CMakeFiles\xne_exec.dir\objects1.rsp
-C:\MinGW\bin\c++.exe -Wl,--whole-archive CMakeFiles\xne_exec.dir/objects.a -Wl,--no-whole-archive -o bin\xne_exec.exe -Wl,--out-implib,build\libxne_exec.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\xne_exec.dir\linkLibs.rsp

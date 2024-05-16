@@ -19,13 +19,13 @@ typedef struct xne_GraphicDeviceDesc {
     uint32_t bufferWidth, bufferHeight;
 } xne_GraphicDeviceDesc_t;
 
-typedef enum xne_ClearFlags : xne_Enum_t {
+typedef enum xne_ClearFlags {
     XNE_CLEAR_COLOR = 0x00004000,
     XNE_CLEAR_DEPTH = 0x00000100
 } xne_ClearFlags_t;
 
 typedef struct xne_DrawContext {
-    xne_Framebuffer framebuffer;
+    xne_Framebuffer_t framebuffer;
     xne_ClearFlags_t clearf;
     float clearc[3];
 } xne_DrawContext_t;

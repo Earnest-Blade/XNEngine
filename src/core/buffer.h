@@ -44,11 +44,11 @@ struct xne_Buffer {
 /*
     Buffer use to save graphic data pointer.
 */
-typedef struct xne_GraphicBufferPtr {
+typedef struct xne_GraphicBuffer {
     struct xne_Buffer memory;
     uint32_t buffer;
     xne_Enum_t usage, acces, target;
-} xne_GraphicBufferPtr_t;
+} xne_GraphicBuffer_t;
 
 /*
     Linear data structure that follows the 'Last In, First Out' principle.

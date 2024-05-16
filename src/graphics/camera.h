@@ -7,7 +7,7 @@
 
 #define XNE_DISABLE_PITCH_FLIP
 
-typedef enum xne_Camera_Projection : xne_Enum_t {
+typedef enum xne_Camera_Projection {
     XNE_CAMERA_PERSPECTIVE,
     XNE_CAMERA_ORTHO
 } xne_Camera_Projection_t;
@@ -38,8 +38,8 @@ typedef struct xne_Camera {
 void xne_create_camera(xne_Camera_t* camera, xne_Camera_Desc_t desc);
 void xne_camera_moveat(xne_Camera_t* camera, float x, float y, float z);
 void xne_camera_moveto(xne_Camera_t* camera, float x, float y, float z);
-void xne_camera_rotateat(xne_Camera* camera, float roll, float yaw, float pitch);
-void xne_camera_rotateto(xne_Camera* camera, float roll, float yaw, float pitch);
+void xne_camera_rotateat(xne_Camera_t* camera, float roll, float yaw, float pitch);
+void xne_camera_rotateto(xne_Camera_t* camera, float roll, float yaw, float pitch);
 float* xne_get_camera_projection(xne_Camera_t* camera);
 
 #endif

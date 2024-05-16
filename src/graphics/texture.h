@@ -8,25 +8,25 @@
 #include "core/core.h"
 
 #include <stdio.h>
-#include <string>
+#include <string.h>
 
-typedef enum xne_TextureFilter : xne_Enum_t {
+typedef enum xne_TextureFilter {
     XNE_TEXTURE_FILTER_NEAREST = 0x2600,
     XNE_TEXTURE_FILTER_LINEAR = 0x2601
 } xne_TextureFilter_t;
 
-typedef enum xne_TextureWrap : xne_Enum_t {
+typedef enum xne_TextureWrap {
     XNE_TEXTURE_WRAP_REPEAT = 0x2901,
     XNE_TEXTURE_WRAP_CLAMP_TO_EDGE = 0x812F
 } xne_TextureWrap_t;
 
-typedef enum xne_TextureSrc : xne_Enum_t {
+typedef enum xne_TextureSrc {
     XNE_UNKNOW = 0,
     XNE_BMP = 1,
     XNE_PNG = 2
 } xne_TextureSrc_t;
 
-typedef enum xne_TextureFormat : xne_Enum_t {
+typedef enum xne_TextureFormat {
     XNE_RED = 0x1903,
     XNE_RG = 0x8227,
     XNE_RGB = 0x1907,
@@ -35,7 +35,7 @@ typedef enum xne_TextureFormat : xne_Enum_t {
     XNE_BGRA = 0x80E1
 } xne_TextureFormat_t;
 
-typedef enum xne_TextureSizedFormat : xne_Enum_t {
+typedef enum xne_TextureSizedFormat {
     XNE_RED8 = 0x8229,
     XNE_RG8 = 0x822B,
     XNE_RGB8 = 0x8051,
@@ -44,7 +44,7 @@ typedef enum xne_TextureSizedFormat : xne_Enum_t {
     XNE_BGRA8 = 0x8058
 } xne_TextureSizedFormat_t;
 
-typedef enum xne_TextureUnit : xne_Enum_t {
+typedef enum xne_TextureUnit {
     XNE_TEXTURE_UNIT0 = 0x84C0,
     XNE_TEXTURE_UNIT1 = 0x84C1,
     XNE_TEXTURE_UNIT2 = 0x84C2,
@@ -136,10 +136,10 @@ typedef struct xne_TextureAtlas {
     xne_Image_t image;
     
     uint32_t target;
-    uint32_t texLocation, layerLocation;
+    uint32_t texture_location, layer_location;
     xne_Enum_t filter, wrap;
 
-    uint32_t tileWidth, tileHeight;
+    uint32_t tile_width, tile_height;
 } xne_TextureAtlas_t;
 
 int xne_create_texture_atlasf(xne_TextureAtlas_t* texture, FILE* file, const uint32_t tilex, const uint32_t tiley,

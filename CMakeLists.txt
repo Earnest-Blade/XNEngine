@@ -8,7 +8,7 @@ set(LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
 set(BIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
-set(MAIN "${SOURCE_DIR}/main.cpp")
+set(MAIN "${SOURCE_DIR}/main.c")
 
 include_directories(${INCLUDE_DIR})
 

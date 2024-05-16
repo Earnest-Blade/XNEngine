@@ -200,341 +200,341 @@ src/core/file.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/file.c.s
 .PHONY : src/core/file.c.s
 
-src/core/str.obj: src/core/str.c.obj
-.PHONY : src/core/str.obj
+src/core/string.obj: src/core/string.c.obj
+.PHONY : src/core/string.obj
 
 # target to build an object file
-src/core/str.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/str.c.obj
-.PHONY : src/core/str.c.obj
+src/core/string.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/string.c.obj
+.PHONY : src/core/string.c.obj
 
-src/core/str.i: src/core/str.c.i
-.PHONY : src/core/str.i
+src/core/string.i: src/core/string.c.i
+.PHONY : src/core/string.i
 
 # target to preprocess a source file
-src/core/str.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/str.c.i
-.PHONY : src/core/str.c.i
+src/core/string.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/string.c.i
+.PHONY : src/core/string.c.i
 
-src/core/str.s: src/core/str.c.s
-.PHONY : src/core/str.s
+src/core/string.s: src/core/string.c.s
+.PHONY : src/core/string.s
 
 # target to generate assembly for a file
-src/core/str.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/str.c.s
-.PHONY : src/core/str.c.s
+src/core/string.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/string.c.s
+.PHONY : src/core/string.c.s
 
-src/engine/engine.obj: src/engine/engine.cpp.obj
+src/engine/engine.obj: src/engine/engine.c.obj
 .PHONY : src/engine/engine.obj
 
 # target to build an object file
-src/engine/engine.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/engine.cpp.obj
-.PHONY : src/engine/engine.cpp.obj
+src/engine/engine.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/engine.c.obj
+.PHONY : src/engine/engine.c.obj
 
-src/engine/engine.i: src/engine/engine.cpp.i
+src/engine/engine.i: src/engine/engine.c.i
 .PHONY : src/engine/engine.i
 
 # target to preprocess a source file
-src/engine/engine.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/engine.cpp.i
-.PHONY : src/engine/engine.cpp.i
+src/engine/engine.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/engine.c.i
+.PHONY : src/engine/engine.c.i
 
-src/engine/engine.s: src/engine/engine.cpp.s
+src/engine/engine.s: src/engine/engine.c.s
 .PHONY : src/engine/engine.s
 
 # target to generate assembly for a file
-src/engine/engine.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/engine.cpp.s
-.PHONY : src/engine/engine.cpp.s
+src/engine/engine.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/engine.c.s
+.PHONY : src/engine/engine.c.s
 
-src/engine/model.obj: src/engine/model.cpp.obj
+src/engine/model.obj: src/engine/model.c.obj
 .PHONY : src/engine/model.obj
 
 # target to build an object file
-src/engine/model.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/model.cpp.obj
-.PHONY : src/engine/model.cpp.obj
+src/engine/model.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/model.c.obj
+.PHONY : src/engine/model.c.obj
 
-src/engine/model.i: src/engine/model.cpp.i
+src/engine/model.i: src/engine/model.c.i
 .PHONY : src/engine/model.i
 
 # target to preprocess a source file
-src/engine/model.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/model.cpp.i
-.PHONY : src/engine/model.cpp.i
+src/engine/model.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/model.c.i
+.PHONY : src/engine/model.c.i
 
-src/engine/model.s: src/engine/model.cpp.s
+src/engine/model.s: src/engine/model.c.s
 .PHONY : src/engine/model.s
 
 # target to generate assembly for a file
-src/engine/model.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/model.cpp.s
-.PHONY : src/engine/model.cpp.s
+src/engine/model.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/model.c.s
+.PHONY : src/engine/model.c.s
 
-src/engine/sprite.obj: src/engine/sprite.cpp.obj
+src/engine/sprite.obj: src/engine/sprite.c.obj
 .PHONY : src/engine/sprite.obj
 
 # target to build an object file
-src/engine/sprite.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/sprite.cpp.obj
-.PHONY : src/engine/sprite.cpp.obj
+src/engine/sprite.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/sprite.c.obj
+.PHONY : src/engine/sprite.c.obj
 
-src/engine/sprite.i: src/engine/sprite.cpp.i
+src/engine/sprite.i: src/engine/sprite.c.i
 .PHONY : src/engine/sprite.i
 
 # target to preprocess a source file
-src/engine/sprite.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/sprite.cpp.i
-.PHONY : src/engine/sprite.cpp.i
+src/engine/sprite.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/sprite.c.i
+.PHONY : src/engine/sprite.c.i
 
-src/engine/sprite.s: src/engine/sprite.cpp.s
+src/engine/sprite.s: src/engine/sprite.c.s
 .PHONY : src/engine/sprite.s
 
 # target to generate assembly for a file
-src/engine/sprite.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/sprite.cpp.s
-.PHONY : src/engine/sprite.cpp.s
+src/engine/sprite.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/sprite.c.s
+.PHONY : src/engine/sprite.c.s
 
-src/engine/transform.obj: src/engine/transform.cpp.obj
+src/engine/transform.obj: src/engine/transform.c.obj
 .PHONY : src/engine/transform.obj
 
 # target to build an object file
-src/engine/transform.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/transform.cpp.obj
-.PHONY : src/engine/transform.cpp.obj
+src/engine/transform.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/transform.c.obj
+.PHONY : src/engine/transform.c.obj
 
-src/engine/transform.i: src/engine/transform.cpp.i
+src/engine/transform.i: src/engine/transform.c.i
 .PHONY : src/engine/transform.i
 
 # target to preprocess a source file
-src/engine/transform.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/transform.cpp.i
-.PHONY : src/engine/transform.cpp.i
+src/engine/transform.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/transform.c.i
+.PHONY : src/engine/transform.c.i
 
-src/engine/transform.s: src/engine/transform.cpp.s
+src/engine/transform.s: src/engine/transform.c.s
 .PHONY : src/engine/transform.s
 
 # target to generate assembly for a file
-src/engine/transform.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/transform.cpp.s
-.PHONY : src/engine/transform.cpp.s
+src/engine/transform.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/transform.c.s
+.PHONY : src/engine/transform.c.s
 
-src/graphics/camera.obj: src/graphics/camera.cpp.obj
+src/graphics/camera.obj: src/graphics/camera.c.obj
 .PHONY : src/graphics/camera.obj
 
 # target to build an object file
-src/graphics/camera.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/camera.cpp.obj
-.PHONY : src/graphics/camera.cpp.obj
+src/graphics/camera.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/camera.c.obj
+.PHONY : src/graphics/camera.c.obj
 
-src/graphics/camera.i: src/graphics/camera.cpp.i
+src/graphics/camera.i: src/graphics/camera.c.i
 .PHONY : src/graphics/camera.i
 
 # target to preprocess a source file
-src/graphics/camera.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/camera.cpp.i
-.PHONY : src/graphics/camera.cpp.i
+src/graphics/camera.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/camera.c.i
+.PHONY : src/graphics/camera.c.i
 
-src/graphics/camera.s: src/graphics/camera.cpp.s
+src/graphics/camera.s: src/graphics/camera.c.s
 .PHONY : src/graphics/camera.s
 
 # target to generate assembly for a file
-src/graphics/camera.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/camera.cpp.s
-.PHONY : src/graphics/camera.cpp.s
+src/graphics/camera.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/camera.c.s
+.PHONY : src/graphics/camera.c.s
 
-src/graphics/device.obj: src/graphics/device.cpp.obj
+src/graphics/device.obj: src/graphics/device.c.obj
 .PHONY : src/graphics/device.obj
 
 # target to build an object file
-src/graphics/device.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/device.cpp.obj
-.PHONY : src/graphics/device.cpp.obj
+src/graphics/device.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/device.c.obj
+.PHONY : src/graphics/device.c.obj
 
-src/graphics/device.i: src/graphics/device.cpp.i
+src/graphics/device.i: src/graphics/device.c.i
 .PHONY : src/graphics/device.i
 
 # target to preprocess a source file
-src/graphics/device.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/device.cpp.i
-.PHONY : src/graphics/device.cpp.i
+src/graphics/device.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/device.c.i
+.PHONY : src/graphics/device.c.i
 
-src/graphics/device.s: src/graphics/device.cpp.s
+src/graphics/device.s: src/graphics/device.c.s
 .PHONY : src/graphics/device.s
 
 # target to generate assembly for a file
-src/graphics/device.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/device.cpp.s
-.PHONY : src/graphics/device.cpp.s
+src/graphics/device.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/device.c.s
+.PHONY : src/graphics/device.c.s
 
-src/graphics/framebuffer.obj: src/graphics/framebuffer.cpp.obj
+src/graphics/framebuffer.obj: src/graphics/framebuffer.c.obj
 .PHONY : src/graphics/framebuffer.obj
 
 # target to build an object file
-src/graphics/framebuffer.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj
-.PHONY : src/graphics/framebuffer.cpp.obj
+src/graphics/framebuffer.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj
+.PHONY : src/graphics/framebuffer.c.obj
 
-src/graphics/framebuffer.i: src/graphics/framebuffer.cpp.i
+src/graphics/framebuffer.i: src/graphics/framebuffer.c.i
 .PHONY : src/graphics/framebuffer.i
 
 # target to preprocess a source file
-src/graphics/framebuffer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.i
-.PHONY : src/graphics/framebuffer.cpp.i
+src/graphics/framebuffer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/framebuffer.c.i
+.PHONY : src/graphics/framebuffer.c.i
 
-src/graphics/framebuffer.s: src/graphics/framebuffer.cpp.s
+src/graphics/framebuffer.s: src/graphics/framebuffer.c.s
 .PHONY : src/graphics/framebuffer.s
 
 # target to generate assembly for a file
-src/graphics/framebuffer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.s
-.PHONY : src/graphics/framebuffer.cpp.s
+src/graphics/framebuffer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/framebuffer.c.s
+.PHONY : src/graphics/framebuffer.c.s
 
-src/graphics/graphics.obj: src/graphics/graphics.cpp.obj
+src/graphics/graphics.obj: src/graphics/graphics.c.obj
 .PHONY : src/graphics/graphics.obj
 
 # target to build an object file
-src/graphics/graphics.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj
-.PHONY : src/graphics/graphics.cpp.obj
+src/graphics/graphics.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/graphics.c.obj
+.PHONY : src/graphics/graphics.c.obj
 
-src/graphics/graphics.i: src/graphics/graphics.cpp.i
+src/graphics/graphics.i: src/graphics/graphics.c.i
 .PHONY : src/graphics/graphics.i
 
 # target to preprocess a source file
-src/graphics/graphics.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/graphics.cpp.i
-.PHONY : src/graphics/graphics.cpp.i
+src/graphics/graphics.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/graphics.c.i
+.PHONY : src/graphics/graphics.c.i
 
-src/graphics/graphics.s: src/graphics/graphics.cpp.s
+src/graphics/graphics.s: src/graphics/graphics.c.s
 .PHONY : src/graphics/graphics.s
 
 # target to generate assembly for a file
-src/graphics/graphics.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/graphics.cpp.s
-.PHONY : src/graphics/graphics.cpp.s
+src/graphics/graphics.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/graphics.c.s
+.PHONY : src/graphics/graphics.c.s
 
-src/graphics/mesh.obj: src/graphics/mesh.cpp.obj
+src/graphics/mesh.obj: src/graphics/mesh.c.obj
 .PHONY : src/graphics/mesh.obj
 
 # target to build an object file
-src/graphics/mesh.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj
-.PHONY : src/graphics/mesh.cpp.obj
+src/graphics/mesh.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/mesh.c.obj
+.PHONY : src/graphics/mesh.c.obj
 
-src/graphics/mesh.i: src/graphics/mesh.cpp.i
+src/graphics/mesh.i: src/graphics/mesh.c.i
 .PHONY : src/graphics/mesh.i
 
 # target to preprocess a source file
-src/graphics/mesh.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/mesh.cpp.i
-.PHONY : src/graphics/mesh.cpp.i
+src/graphics/mesh.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/mesh.c.i
+.PHONY : src/graphics/mesh.c.i
 
-src/graphics/mesh.s: src/graphics/mesh.cpp.s
+src/graphics/mesh.s: src/graphics/mesh.c.s
 .PHONY : src/graphics/mesh.s
 
 # target to generate assembly for a file
-src/graphics/mesh.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/mesh.cpp.s
-.PHONY : src/graphics/mesh.cpp.s
+src/graphics/mesh.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/mesh.c.s
+.PHONY : src/graphics/mesh.c.s
 
-src/graphics/shader.obj: src/graphics/shader.cpp.obj
+src/graphics/shader.obj: src/graphics/shader.c.obj
 .PHONY : src/graphics/shader.obj
 
 # target to build an object file
-src/graphics/shader.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/shader.cpp.obj
-.PHONY : src/graphics/shader.cpp.obj
+src/graphics/shader.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/shader.c.obj
+.PHONY : src/graphics/shader.c.obj
 
-src/graphics/shader.i: src/graphics/shader.cpp.i
+src/graphics/shader.i: src/graphics/shader.c.i
 .PHONY : src/graphics/shader.i
 
 # target to preprocess a source file
-src/graphics/shader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/shader.cpp.i
-.PHONY : src/graphics/shader.cpp.i
+src/graphics/shader.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/shader.c.i
+.PHONY : src/graphics/shader.c.i
 
-src/graphics/shader.s: src/graphics/shader.cpp.s
+src/graphics/shader.s: src/graphics/shader.c.s
 .PHONY : src/graphics/shader.s
 
 # target to generate assembly for a file
-src/graphics/shader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/shader.cpp.s
-.PHONY : src/graphics/shader.cpp.s
+src/graphics/shader.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/shader.c.s
+.PHONY : src/graphics/shader.c.s
 
-src/graphics/texture.obj: src/graphics/texture.cpp.obj
+src/graphics/texture.obj: src/graphics/texture.c.obj
 .PHONY : src/graphics/texture.obj
 
 # target to build an object file
-src/graphics/texture.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/texture.cpp.obj
-.PHONY : src/graphics/texture.cpp.obj
+src/graphics/texture.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/texture.c.obj
+.PHONY : src/graphics/texture.c.obj
 
-src/graphics/texture.i: src/graphics/texture.cpp.i
+src/graphics/texture.i: src/graphics/texture.c.i
 .PHONY : src/graphics/texture.i
 
 # target to preprocess a source file
-src/graphics/texture.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/texture.cpp.i
-.PHONY : src/graphics/texture.cpp.i
+src/graphics/texture.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/texture.c.i
+.PHONY : src/graphics/texture.c.i
 
-src/graphics/texture.s: src/graphics/texture.cpp.s
+src/graphics/texture.s: src/graphics/texture.c.s
 .PHONY : src/graphics/texture.s
 
 # target to generate assembly for a file
-src/graphics/texture.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/texture.cpp.s
-.PHONY : src/graphics/texture.cpp.s
+src/graphics/texture.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/texture.c.s
+.PHONY : src/graphics/texture.c.s
 
-src/graphics/ui/ui.obj: src/graphics/ui/ui.cpp.obj
+src/graphics/ui/ui.obj: src/graphics/ui/ui.c.obj
 .PHONY : src/graphics/ui/ui.obj
 
 # target to build an object file
-src/graphics/ui/ui.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj
-.PHONY : src/graphics/ui/ui.cpp.obj
+src/graphics/ui/ui.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj
+.PHONY : src/graphics/ui/ui.c.obj
 
-src/graphics/ui/ui.i: src/graphics/ui/ui.cpp.i
+src/graphics/ui/ui.i: src/graphics/ui/ui.c.i
 .PHONY : src/graphics/ui/ui.i
 
 # target to preprocess a source file
-src/graphics/ui/ui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.i
-.PHONY : src/graphics/ui/ui.cpp.i
+src/graphics/ui/ui.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/ui/ui.c.i
+.PHONY : src/graphics/ui/ui.c.i
 
-src/graphics/ui/ui.s: src/graphics/ui/ui.cpp.s
+src/graphics/ui/ui.s: src/graphics/ui/ui.c.s
 .PHONY : src/graphics/ui/ui.s
 
 # target to generate assembly for a file
-src/graphics/ui/ui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.s
-.PHONY : src/graphics/ui/ui.cpp.s
+src/graphics/ui/ui.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/ui/ui.c.s
+.PHONY : src/graphics/ui/ui.c.s
 
-src/main.obj: src/main.cpp.obj
+src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
 # target to build an object file
-src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/main.cpp.obj
-.PHONY : src/main.cpp.obj
+src/main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/main.c.obj
+.PHONY : src/main.c.obj
 
-src/main.i: src/main.cpp.i
+src/main.i: src/main.c.i
 .PHONY : src/main.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+src/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/main.c.i
+.PHONY : src/main.c.i
 
-src/main.s: src/main.cpp.s
+src/main.s: src/main.c.s
 .PHONY : src/main.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+src/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/main.c.s
+.PHONY : src/main.c.s
 
 # Help Target
 help:
@@ -554,9 +554,9 @@ help:
 	@echo ... src/core/file.obj
 	@echo ... src/core/file.i
 	@echo ... src/core/file.s
-	@echo ... src/core/str.obj
-	@echo ... src/core/str.i
-	@echo ... src/core/str.s
+	@echo ... src/core/string.obj
+	@echo ... src/core/string.i
+	@echo ... src/core/string.s
 	@echo ... src/engine/engine.obj
 	@echo ... src/engine/engine.i
 	@echo ... src/engine/engine.s

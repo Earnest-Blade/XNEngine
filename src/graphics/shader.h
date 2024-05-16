@@ -3,15 +3,17 @@
 #ifndef XNE_SHADER_IMPL
 #define XNE_SHADER_IMPL
 
-#include "core/types.h"
+#define XNE_CORE_FILE
+#define XNE_CORE_STRING
+#include "core/core.h"
 
-#include <cstdio>
+#include <stdio.h>
 
-typedef enum xne_UniformAttrib : xne_Enum_t {
+typedef enum xne_UniformAttrib {
     XNE_UNIFORM_ATTRIB_UNIFORM = 1,
 } xne_UniformAttrib_t;
 
-typedef enum xne_UniformType : xne_Enum_t {
+typedef enum xne_UniformType {
     XNE_UNIFORM_FLOAT,
     XNE_UNIFORM_INT,
     XNE_UNIFORM_VEC2,
@@ -20,7 +22,7 @@ typedef enum xne_UniformType : xne_Enum_t {
     XNE_UNIFORM_MAT4
 } xne_UniformType_t;
 
-typedef enum xne_ShaderType : xne_Enum_t {
+typedef enum xne_ShaderType {
     XNE_VERTEX_SHADER = 0x8B31,
     XNE_FRAGMENT_SHADER = 0x8B30,
     XNE_GEOMETRY_SHADER = 0x8DD9
@@ -95,9 +97,20 @@ void xne_shader_disable(xne_Shader_t* shader);
     @param shader Pointer to the shader.
 */
 void xne_destroy_shader(xne_Shader_t* shader);
+
+/*
+    Return if a shader is sucessfully compiled, linked and if it can be use.
+    @param shader Pointer to the shader.
+*/
 int xne_shader_is_valid(xne_Shader_t* shader);
 
+/*
+    Return a pointer to the active shader.
+*/
+xne_Shader_t* xne_get_active_shader();
+
 int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t* uniforms);
+
 void xne_shader_use_uniform(xne_Shader_t* shader, uint32_t index, const void* value);
 
 #endif

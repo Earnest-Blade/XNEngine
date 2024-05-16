@@ -3,21 +3,22 @@
 #ifndef XNE_MESH_IMPL
 #define XNE_MESH_IMPL
 
+#define XNE_CORE_BUFFER
+#define XNE_CORE_FILE
+#include "core/core.h"
 #include "core/buffer.h"
 
 #include "texture.h"
 #include "shader.h"
 
-#include <vector>
-
-enum xne_MeshPrimitive : xne_Enum_t {
+enum xne_MeshPrimitive  {
     XNE_MESH_PRIMITIVE_POINT = 0,
     XNE_MESH_PRIMITIVE_LINE = 1,
     XNE_MESH_PRIMITIVE_TRIANGLE = 4,
     XNE_MESH_PRIMITIVE_QUAD = 7
 };
 
-enum xne_VertexLayoutAttrib : xne_Enum_t {
+enum xne_VertexLayoutAttrib  {
     XNE_VERTEX_POSITION,
     XNE_VERTEX_TEXCOORD,
     XNE_VERTEX_NORMAL,
@@ -48,7 +49,7 @@ typedef struct xne_MeshDesc {
 
 typedef struct xne_Mesh {
     uint32_t target, attrib_count;
-    xne_GraphicBufferPtr vertices, elements;
+    xne_GraphicBuffer_t vertices, elements;
     xne_Enum_t primitive;
 } xne_Mesh_t;
 
@@ -101,7 +102,7 @@ inline static void xne_create_plane(xne_Mesh_t* dest, const float width, const f
     };
     const uint32_t elems[6] = { 0, 1, 2, 0, 2, 3 };
 
-    xne_MeshDesc_t mdesc = {};
+    xne_MeshDesc_t mdesc;
     mdesc.vertices = vertices;
     mdesc.elements = elems;
     mdesc.primitive = XNE_MESH_PRIMITIVE_TRIANGLE;

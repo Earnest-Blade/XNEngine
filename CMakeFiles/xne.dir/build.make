@@ -68,20 +68,20 @@ include CMakeFiles/xne.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/xne.dir/flags.make
 
-CMakeFiles/xne.dir/src/main.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/main.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/main.cpp.obj: src/main.cpp
-CMakeFiles/xne.dir/src/main.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/xne.dir/src/main.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/main.cpp.obj -MF CMakeFiles\xne.dir\src\main.cpp.obj.d -o CMakeFiles\xne.dir\src\main.cpp.obj -c E:\Code\XNEngine\src\main.cpp
+CMakeFiles/xne.dir/src/main.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/main.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/main.c.obj: src/main.c
+CMakeFiles/xne.dir/src/main.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/xne.dir/src/main.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/main.c.obj -MF CMakeFiles\xne.dir\src\main.c.obj.d -o CMakeFiles\xne.dir\src\main.c.obj -c E:\Code\XNEngine\src\main.c
 
-CMakeFiles/xne.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/main.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\main.cpp > CMakeFiles\xne.dir\src\main.cpp.i
+CMakeFiles/xne.dir/src/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/main.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\main.c > CMakeFiles\xne.dir\src\main.c.i
 
-CMakeFiles/xne.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/main.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\main.cpp -o CMakeFiles\xne.dir\src\main.cpp.s
+CMakeFiles/xne.dir/src/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/main.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\main.c -o CMakeFiles\xne.dir\src\main.c.s
 
 CMakeFiles/xne.dir/src/core/buffer.c.obj: CMakeFiles/xne.dir/flags.make
 CMakeFiles/xne.dir/src/core/buffer.c.obj: CMakeFiles/xne.dir/includes_C.rsp
@@ -128,241 +128,241 @@ CMakeFiles/xne.dir/src/core/file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/core/file.c.s"
 	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\core\file.c -o CMakeFiles\xne.dir\src\core\file.c.s
 
-CMakeFiles/xne.dir/src/core/str.c.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/core/str.c.obj: CMakeFiles/xne.dir/includes_C.rsp
-CMakeFiles/xne.dir/src/core/str.c.obj: src/core/str.c
-CMakeFiles/xne.dir/src/core/str.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/xne.dir/src/core/str.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/core/str.c.obj -MF CMakeFiles\xne.dir\src\core\str.c.obj.d -o CMakeFiles\xne.dir\src\core\str.c.obj -c E:\Code\XNEngine\src\core\str.c
+CMakeFiles/xne.dir/src/core/string.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/core/string.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/core/string.c.obj: src/core/string.c
+CMakeFiles/xne.dir/src/core/string.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/xne.dir/src/core/string.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/core/string.c.obj -MF CMakeFiles\xne.dir\src\core\string.c.obj.d -o CMakeFiles\xne.dir\src\core\string.c.obj -c E:\Code\XNEngine\src\core\string.c
 
-CMakeFiles/xne.dir/src/core/str.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/core/str.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\core\str.c > CMakeFiles\xne.dir\src\core\str.c.i
+CMakeFiles/xne.dir/src/core/string.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/core/string.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\core\string.c > CMakeFiles\xne.dir\src\core\string.c.i
 
-CMakeFiles/xne.dir/src/core/str.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/core/str.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\core\str.c -o CMakeFiles\xne.dir\src\core\str.c.s
+CMakeFiles/xne.dir/src/core/string.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/core/string.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\core\string.c -o CMakeFiles\xne.dir\src\core\string.c.s
 
-CMakeFiles/xne.dir/src/graphics/camera.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/graphics/camera.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/graphics/camera.cpp.obj: src/graphics/camera.cpp
-CMakeFiles/xne.dir/src/graphics/camera.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/xne.dir/src/graphics/camera.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/camera.cpp.obj -MF CMakeFiles\xne.dir\src\graphics\camera.cpp.obj.d -o CMakeFiles\xne.dir\src\graphics\camera.cpp.obj -c E:\Code\XNEngine\src\graphics\camera.cpp
+CMakeFiles/xne.dir/src/graphics/camera.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/graphics/camera.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/graphics/camera.c.obj: src/graphics/camera.c
+CMakeFiles/xne.dir/src/graphics/camera.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/xne.dir/src/graphics/camera.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/camera.c.obj -MF CMakeFiles\xne.dir\src\graphics\camera.c.obj.d -o CMakeFiles\xne.dir\src\graphics\camera.c.obj -c E:\Code\XNEngine\src\graphics\camera.c
 
-CMakeFiles/xne.dir/src/graphics/camera.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/graphics/camera.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\graphics\camera.cpp > CMakeFiles\xne.dir\src\graphics\camera.cpp.i
+CMakeFiles/xne.dir/src/graphics/camera.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/graphics/camera.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\graphics\camera.c > CMakeFiles\xne.dir\src\graphics\camera.c.i
 
-CMakeFiles/xne.dir/src/graphics/camera.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/graphics/camera.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\graphics\camera.cpp -o CMakeFiles\xne.dir\src\graphics\camera.cpp.s
+CMakeFiles/xne.dir/src/graphics/camera.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/graphics/camera.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\graphics\camera.c -o CMakeFiles\xne.dir\src\graphics\camera.c.s
 
-CMakeFiles/xne.dir/src/graphics/device.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/graphics/device.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/graphics/device.cpp.obj: src/graphics/device.cpp
-CMakeFiles/xne.dir/src/graphics/device.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/xne.dir/src/graphics/device.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/device.cpp.obj -MF CMakeFiles\xne.dir\src\graphics\device.cpp.obj.d -o CMakeFiles\xne.dir\src\graphics\device.cpp.obj -c E:\Code\XNEngine\src\graphics\device.cpp
+CMakeFiles/xne.dir/src/graphics/device.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/graphics/device.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/graphics/device.c.obj: src/graphics/device.c
+CMakeFiles/xne.dir/src/graphics/device.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/xne.dir/src/graphics/device.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/device.c.obj -MF CMakeFiles\xne.dir\src\graphics\device.c.obj.d -o CMakeFiles\xne.dir\src\graphics\device.c.obj -c E:\Code\XNEngine\src\graphics\device.c
 
-CMakeFiles/xne.dir/src/graphics/device.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/graphics/device.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\graphics\device.cpp > CMakeFiles\xne.dir\src\graphics\device.cpp.i
+CMakeFiles/xne.dir/src/graphics/device.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/graphics/device.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\graphics\device.c > CMakeFiles\xne.dir\src\graphics\device.c.i
 
-CMakeFiles/xne.dir/src/graphics/device.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/graphics/device.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\graphics\device.cpp -o CMakeFiles\xne.dir\src\graphics\device.cpp.s
+CMakeFiles/xne.dir/src/graphics/device.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/graphics/device.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\graphics\device.c -o CMakeFiles\xne.dir\src\graphics\device.c.s
 
-CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj: src/graphics/framebuffer.cpp
-CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj -MF CMakeFiles\xne.dir\src\graphics\framebuffer.cpp.obj.d -o CMakeFiles\xne.dir\src\graphics\framebuffer.cpp.obj -c E:\Code\XNEngine\src\graphics\framebuffer.cpp
+CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj: src/graphics/framebuffer.c
+CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj -MF CMakeFiles\xne.dir\src\graphics\framebuffer.c.obj.d -o CMakeFiles\xne.dir\src\graphics\framebuffer.c.obj -c E:\Code\XNEngine\src\graphics\framebuffer.c
 
-CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\graphics\framebuffer.cpp > CMakeFiles\xne.dir\src\graphics\framebuffer.cpp.i
+CMakeFiles/xne.dir/src/graphics/framebuffer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/graphics/framebuffer.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\graphics\framebuffer.c > CMakeFiles\xne.dir\src\graphics\framebuffer.c.i
 
-CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\graphics\framebuffer.cpp -o CMakeFiles\xne.dir\src\graphics\framebuffer.cpp.s
+CMakeFiles/xne.dir/src/graphics/framebuffer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/graphics/framebuffer.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\graphics\framebuffer.c -o CMakeFiles\xne.dir\src\graphics\framebuffer.c.s
 
-CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj: src/graphics/graphics.cpp
-CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj -MF CMakeFiles\xne.dir\src\graphics\graphics.cpp.obj.d -o CMakeFiles\xne.dir\src\graphics\graphics.cpp.obj -c E:\Code\XNEngine\src\graphics\graphics.cpp
+CMakeFiles/xne.dir/src/graphics/graphics.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/graphics/graphics.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/graphics/graphics.c.obj: src/graphics/graphics.c
+CMakeFiles/xne.dir/src/graphics/graphics.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/xne.dir/src/graphics/graphics.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/graphics.c.obj -MF CMakeFiles\xne.dir\src\graphics\graphics.c.obj.d -o CMakeFiles\xne.dir\src\graphics\graphics.c.obj -c E:\Code\XNEngine\src\graphics\graphics.c
 
-CMakeFiles/xne.dir/src/graphics/graphics.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/graphics/graphics.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\graphics\graphics.cpp > CMakeFiles\xne.dir\src\graphics\graphics.cpp.i
+CMakeFiles/xne.dir/src/graphics/graphics.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/graphics/graphics.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\graphics\graphics.c > CMakeFiles\xne.dir\src\graphics\graphics.c.i
 
-CMakeFiles/xne.dir/src/graphics/graphics.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/graphics/graphics.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\graphics\graphics.cpp -o CMakeFiles\xne.dir\src\graphics\graphics.cpp.s
+CMakeFiles/xne.dir/src/graphics/graphics.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/graphics/graphics.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\graphics\graphics.c -o CMakeFiles\xne.dir\src\graphics\graphics.c.s
 
-CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj: src/graphics/mesh.cpp
-CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj -MF CMakeFiles\xne.dir\src\graphics\mesh.cpp.obj.d -o CMakeFiles\xne.dir\src\graphics\mesh.cpp.obj -c E:\Code\XNEngine\src\graphics\mesh.cpp
+CMakeFiles/xne.dir/src/graphics/mesh.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/graphics/mesh.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/graphics/mesh.c.obj: src/graphics/mesh.c
+CMakeFiles/xne.dir/src/graphics/mesh.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/xne.dir/src/graphics/mesh.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/mesh.c.obj -MF CMakeFiles\xne.dir\src\graphics\mesh.c.obj.d -o CMakeFiles\xne.dir\src\graphics\mesh.c.obj -c E:\Code\XNEngine\src\graphics\mesh.c
 
-CMakeFiles/xne.dir/src/graphics/mesh.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/graphics/mesh.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\graphics\mesh.cpp > CMakeFiles\xne.dir\src\graphics\mesh.cpp.i
+CMakeFiles/xne.dir/src/graphics/mesh.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/graphics/mesh.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\graphics\mesh.c > CMakeFiles\xne.dir\src\graphics\mesh.c.i
 
-CMakeFiles/xne.dir/src/graphics/mesh.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/graphics/mesh.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\graphics\mesh.cpp -o CMakeFiles\xne.dir\src\graphics\mesh.cpp.s
+CMakeFiles/xne.dir/src/graphics/mesh.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/graphics/mesh.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\graphics\mesh.c -o CMakeFiles\xne.dir\src\graphics\mesh.c.s
 
-CMakeFiles/xne.dir/src/graphics/shader.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/graphics/shader.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/graphics/shader.cpp.obj: src/graphics/shader.cpp
-CMakeFiles/xne.dir/src/graphics/shader.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/xne.dir/src/graphics/shader.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/shader.cpp.obj -MF CMakeFiles\xne.dir\src\graphics\shader.cpp.obj.d -o CMakeFiles\xne.dir\src\graphics\shader.cpp.obj -c E:\Code\XNEngine\src\graphics\shader.cpp
+CMakeFiles/xne.dir/src/graphics/shader.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/graphics/shader.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/graphics/shader.c.obj: src/graphics/shader.c
+CMakeFiles/xne.dir/src/graphics/shader.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/xne.dir/src/graphics/shader.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/shader.c.obj -MF CMakeFiles\xne.dir\src\graphics\shader.c.obj.d -o CMakeFiles\xne.dir\src\graphics\shader.c.obj -c E:\Code\XNEngine\src\graphics\shader.c
 
-CMakeFiles/xne.dir/src/graphics/shader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/graphics/shader.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\graphics\shader.cpp > CMakeFiles\xne.dir\src\graphics\shader.cpp.i
+CMakeFiles/xne.dir/src/graphics/shader.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/graphics/shader.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\graphics\shader.c > CMakeFiles\xne.dir\src\graphics\shader.c.i
 
-CMakeFiles/xne.dir/src/graphics/shader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/graphics/shader.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\graphics\shader.cpp -o CMakeFiles\xne.dir\src\graphics\shader.cpp.s
+CMakeFiles/xne.dir/src/graphics/shader.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/graphics/shader.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\graphics\shader.c -o CMakeFiles\xne.dir\src\graphics\shader.c.s
 
-CMakeFiles/xne.dir/src/graphics/texture.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/graphics/texture.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/graphics/texture.cpp.obj: src/graphics/texture.cpp
-CMakeFiles/xne.dir/src/graphics/texture.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/xne.dir/src/graphics/texture.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/texture.cpp.obj -MF CMakeFiles\xne.dir\src\graphics\texture.cpp.obj.d -o CMakeFiles\xne.dir\src\graphics\texture.cpp.obj -c E:\Code\XNEngine\src\graphics\texture.cpp
+CMakeFiles/xne.dir/src/graphics/texture.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/graphics/texture.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/graphics/texture.c.obj: src/graphics/texture.c
+CMakeFiles/xne.dir/src/graphics/texture.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/xne.dir/src/graphics/texture.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/texture.c.obj -MF CMakeFiles\xne.dir\src\graphics\texture.c.obj.d -o CMakeFiles\xne.dir\src\graphics\texture.c.obj -c E:\Code\XNEngine\src\graphics\texture.c
 
-CMakeFiles/xne.dir/src/graphics/texture.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/graphics/texture.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\graphics\texture.cpp > CMakeFiles\xne.dir\src\graphics\texture.cpp.i
+CMakeFiles/xne.dir/src/graphics/texture.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/graphics/texture.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\graphics\texture.c > CMakeFiles\xne.dir\src\graphics\texture.c.i
 
-CMakeFiles/xne.dir/src/graphics/texture.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/graphics/texture.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\graphics\texture.cpp -o CMakeFiles\xne.dir\src\graphics\texture.cpp.s
+CMakeFiles/xne.dir/src/graphics/texture.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/graphics/texture.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\graphics\texture.c -o CMakeFiles\xne.dir\src\graphics\texture.c.s
 
-CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj: src/graphics/ui/ui.cpp
-CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj -MF CMakeFiles\xne.dir\src\graphics\ui\ui.cpp.obj.d -o CMakeFiles\xne.dir\src\graphics\ui\ui.cpp.obj -c E:\Code\XNEngine\src\graphics\ui\ui.cpp
+CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj: src/graphics/ui/ui.c
+CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj -MF CMakeFiles\xne.dir\src\graphics\ui\ui.c.obj.d -o CMakeFiles\xne.dir\src\graphics\ui\ui.c.obj -c E:\Code\XNEngine\src\graphics\ui\ui.c
 
-CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\graphics\ui\ui.cpp > CMakeFiles\xne.dir\src\graphics\ui\ui.cpp.i
+CMakeFiles/xne.dir/src/graphics/ui/ui.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/graphics/ui/ui.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\graphics\ui\ui.c > CMakeFiles\xne.dir\src\graphics\ui\ui.c.i
 
-CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\graphics\ui\ui.cpp -o CMakeFiles\xne.dir\src\graphics\ui\ui.cpp.s
+CMakeFiles/xne.dir/src/graphics/ui/ui.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/graphics/ui/ui.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\graphics\ui\ui.c -o CMakeFiles\xne.dir\src\graphics\ui\ui.c.s
 
-CMakeFiles/xne.dir/src/engine/engine.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/engine/engine.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/engine/engine.cpp.obj: src/engine/engine.cpp
-CMakeFiles/xne.dir/src/engine/engine.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/xne.dir/src/engine/engine.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/engine/engine.cpp.obj -MF CMakeFiles\xne.dir\src\engine\engine.cpp.obj.d -o CMakeFiles\xne.dir\src\engine\engine.cpp.obj -c E:\Code\XNEngine\src\engine\engine.cpp
+CMakeFiles/xne.dir/src/engine/engine.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/engine/engine.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/engine/engine.c.obj: src/engine/engine.c
+CMakeFiles/xne.dir/src/engine/engine.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/xne.dir/src/engine/engine.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/engine/engine.c.obj -MF CMakeFiles\xne.dir\src\engine\engine.c.obj.d -o CMakeFiles\xne.dir\src\engine\engine.c.obj -c E:\Code\XNEngine\src\engine\engine.c
 
-CMakeFiles/xne.dir/src/engine/engine.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/engine/engine.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\engine\engine.cpp > CMakeFiles\xne.dir\src\engine\engine.cpp.i
+CMakeFiles/xne.dir/src/engine/engine.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/engine/engine.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\engine\engine.c > CMakeFiles\xne.dir\src\engine\engine.c.i
 
-CMakeFiles/xne.dir/src/engine/engine.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/engine/engine.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\engine\engine.cpp -o CMakeFiles\xne.dir\src\engine\engine.cpp.s
+CMakeFiles/xne.dir/src/engine/engine.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/engine/engine.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\engine\engine.c -o CMakeFiles\xne.dir\src\engine\engine.c.s
 
-CMakeFiles/xne.dir/src/engine/model.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/engine/model.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/engine/model.cpp.obj: src/engine/model.cpp
-CMakeFiles/xne.dir/src/engine/model.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/xne.dir/src/engine/model.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/engine/model.cpp.obj -MF CMakeFiles\xne.dir\src\engine\model.cpp.obj.d -o CMakeFiles\xne.dir\src\engine\model.cpp.obj -c E:\Code\XNEngine\src\engine\model.cpp
+CMakeFiles/xne.dir/src/engine/model.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/engine/model.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/engine/model.c.obj: src/engine/model.c
+CMakeFiles/xne.dir/src/engine/model.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/xne.dir/src/engine/model.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/engine/model.c.obj -MF CMakeFiles\xne.dir\src\engine\model.c.obj.d -o CMakeFiles\xne.dir\src\engine\model.c.obj -c E:\Code\XNEngine\src\engine\model.c
 
-CMakeFiles/xne.dir/src/engine/model.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/engine/model.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\engine\model.cpp > CMakeFiles\xne.dir\src\engine\model.cpp.i
+CMakeFiles/xne.dir/src/engine/model.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/engine/model.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\engine\model.c > CMakeFiles\xne.dir\src\engine\model.c.i
 
-CMakeFiles/xne.dir/src/engine/model.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/engine/model.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\engine\model.cpp -o CMakeFiles\xne.dir\src\engine\model.cpp.s
+CMakeFiles/xne.dir/src/engine/model.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/engine/model.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\engine\model.c -o CMakeFiles\xne.dir\src\engine\model.c.s
 
-CMakeFiles/xne.dir/src/engine/sprite.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/engine/sprite.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/engine/sprite.cpp.obj: src/engine/sprite.cpp
-CMakeFiles/xne.dir/src/engine/sprite.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/xne.dir/src/engine/sprite.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/engine/sprite.cpp.obj -MF CMakeFiles\xne.dir\src\engine\sprite.cpp.obj.d -o CMakeFiles\xne.dir\src\engine\sprite.cpp.obj -c E:\Code\XNEngine\src\engine\sprite.cpp
+CMakeFiles/xne.dir/src/engine/sprite.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/engine/sprite.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/engine/sprite.c.obj: src/engine/sprite.c
+CMakeFiles/xne.dir/src/engine/sprite.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/xne.dir/src/engine/sprite.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/engine/sprite.c.obj -MF CMakeFiles\xne.dir\src\engine\sprite.c.obj.d -o CMakeFiles\xne.dir\src\engine\sprite.c.obj -c E:\Code\XNEngine\src\engine\sprite.c
 
-CMakeFiles/xne.dir/src/engine/sprite.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/engine/sprite.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\engine\sprite.cpp > CMakeFiles\xne.dir\src\engine\sprite.cpp.i
+CMakeFiles/xne.dir/src/engine/sprite.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/engine/sprite.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\engine\sprite.c > CMakeFiles\xne.dir\src\engine\sprite.c.i
 
-CMakeFiles/xne.dir/src/engine/sprite.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/engine/sprite.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\engine\sprite.cpp -o CMakeFiles\xne.dir\src\engine\sprite.cpp.s
+CMakeFiles/xne.dir/src/engine/sprite.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/engine/sprite.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\engine\sprite.c -o CMakeFiles\xne.dir\src\engine\sprite.c.s
 
-CMakeFiles/xne.dir/src/engine/transform.cpp.obj: CMakeFiles/xne.dir/flags.make
-CMakeFiles/xne.dir/src/engine/transform.cpp.obj: CMakeFiles/xne.dir/includes_CXX.rsp
-CMakeFiles/xne.dir/src/engine/transform.cpp.obj: src/engine/transform.cpp
-CMakeFiles/xne.dir/src/engine/transform.cpp.obj: CMakeFiles/xne.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/xne.dir/src/engine/transform.cpp.obj"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xne.dir/src/engine/transform.cpp.obj -MF CMakeFiles\xne.dir\src\engine\transform.cpp.obj.d -o CMakeFiles\xne.dir\src\engine\transform.cpp.obj -c E:\Code\XNEngine\src\engine\transform.cpp
+CMakeFiles/xne.dir/src/engine/transform.c.obj: CMakeFiles/xne.dir/flags.make
+CMakeFiles/xne.dir/src/engine/transform.c.obj: CMakeFiles/xne.dir/includes_C.rsp
+CMakeFiles/xne.dir/src/engine/transform.c.obj: src/engine/transform.c
+CMakeFiles/xne.dir/src/engine/transform.c.obj: CMakeFiles/xne.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/xne.dir/src/engine/transform.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xne.dir/src/engine/transform.c.obj -MF CMakeFiles\xne.dir\src\engine\transform.c.obj.d -o CMakeFiles\xne.dir\src\engine\transform.c.obj -c E:\Code\XNEngine\src\engine\transform.c
 
-CMakeFiles/xne.dir/src/engine/transform.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xne.dir/src/engine/transform.cpp.i"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Code\XNEngine\src\engine\transform.cpp > CMakeFiles\xne.dir\src\engine\transform.cpp.i
+CMakeFiles/xne.dir/src/engine/transform.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xne.dir/src/engine/transform.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Code\XNEngine\src\engine\transform.c > CMakeFiles\xne.dir\src\engine\transform.c.i
 
-CMakeFiles/xne.dir/src/engine/transform.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xne.dir/src/engine/transform.cpp.s"
-	C:\MinGW\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Code\XNEngine\src\engine\transform.cpp -o CMakeFiles\xne.dir\src\engine\transform.cpp.s
+CMakeFiles/xne.dir/src/engine/transform.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xne.dir/src/engine/transform.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Code\XNEngine\src\engine\transform.c -o CMakeFiles\xne.dir\src\engine\transform.c.s
 
 # Object files for target xne
 xne_OBJECTS = \
-"CMakeFiles/xne.dir/src/main.cpp.obj" \
+"CMakeFiles/xne.dir/src/main.c.obj" \
 "CMakeFiles/xne.dir/src/core/buffer.c.obj" \
 "CMakeFiles/xne.dir/src/core/compression.c.obj" \
 "CMakeFiles/xne.dir/src/core/file.c.obj" \
-"CMakeFiles/xne.dir/src/core/str.c.obj" \
-"CMakeFiles/xne.dir/src/graphics/camera.cpp.obj" \
-"CMakeFiles/xne.dir/src/graphics/device.cpp.obj" \
-"CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj" \
-"CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj" \
-"CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj" \
-"CMakeFiles/xne.dir/src/graphics/shader.cpp.obj" \
-"CMakeFiles/xne.dir/src/graphics/texture.cpp.obj" \
-"CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj" \
-"CMakeFiles/xne.dir/src/engine/engine.cpp.obj" \
-"CMakeFiles/xne.dir/src/engine/model.cpp.obj" \
-"CMakeFiles/xne.dir/src/engine/sprite.cpp.obj" \
-"CMakeFiles/xne.dir/src/engine/transform.cpp.obj"
+"CMakeFiles/xne.dir/src/core/string.c.obj" \
+"CMakeFiles/xne.dir/src/graphics/camera.c.obj" \
+"CMakeFiles/xne.dir/src/graphics/device.c.obj" \
+"CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj" \
+"CMakeFiles/xne.dir/src/graphics/graphics.c.obj" \
+"CMakeFiles/xne.dir/src/graphics/mesh.c.obj" \
+"CMakeFiles/xne.dir/src/graphics/shader.c.obj" \
+"CMakeFiles/xne.dir/src/graphics/texture.c.obj" \
+"CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj" \
+"CMakeFiles/xne.dir/src/engine/engine.c.obj" \
+"CMakeFiles/xne.dir/src/engine/model.c.obj" \
+"CMakeFiles/xne.dir/src/engine/sprite.c.obj" \
+"CMakeFiles/xne.dir/src/engine/transform.c.obj"
 
 # External object files for target xne
 xne_EXTERNAL_OBJECTS =
 
-bin/xne.exe: CMakeFiles/xne.dir/src/main.cpp.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/main.c.obj
 bin/xne.exe: CMakeFiles/xne.dir/src/core/buffer.c.obj
 bin/xne.exe: CMakeFiles/xne.dir/src/core/compression.c.obj
 bin/xne.exe: CMakeFiles/xne.dir/src/core/file.c.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/core/str.c.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/graphics/camera.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/graphics/device.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/graphics/framebuffer.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/graphics/graphics.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/graphics/mesh.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/graphics/shader.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/graphics/texture.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/graphics/ui/ui.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/engine/engine.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/engine/model.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/engine/sprite.cpp.obj
-bin/xne.exe: CMakeFiles/xne.dir/src/engine/transform.cpp.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/core/string.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/graphics/camera.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/graphics/device.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/graphics/graphics.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/graphics/mesh.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/graphics/shader.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/graphics/texture.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/engine/engine.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/engine/model.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/engine/sprite.c.obj
+bin/xne.exe: CMakeFiles/xne.dir/src/engine/transform.c.obj
 bin/xne.exe: CMakeFiles/xne.dir/build.make
 bin/xne.exe: lib/libglew32.dll.a
 bin/xne.exe: lib/libglfw3.a
@@ -372,7 +372,7 @@ bin/xne.exe: lib/libjson-c.dll.a
 bin/xne.exe: CMakeFiles/xne.dir/linkLibs.rsp
 bin/xne.exe: CMakeFiles/xne.dir/objects1.rsp
 bin/xne.exe: CMakeFiles/xne.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable bin\xne.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Code\XNEngine\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking C executable bin\xne.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\xne.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

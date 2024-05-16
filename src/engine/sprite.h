@@ -10,13 +10,21 @@
 #include "graphics/graphics.h"
 #include "transform.h"
 
+typedef enum xne_SpriteDirection {
+    XNE_SPRITE_FORWARD = 0, 
+    XNE_SPRITE_RIGHT = 1, 
+    XNE_SPRITE_BACKWARD = 2,
+    XNE_SPRITE_LEFT = 3
+} xne_SpriteDirection_t;
+
 typedef struct xne_Sprite {
-    xne_TextureAtlas_t textures;
+    xne_TextureAtlas_t atlas;
     xne_Shader_t shader;
     xne_Mesh_t plane;
     xne_Transform_t transform;
 
     float width, height;
+    uint32_t frame;
 } xne_Sprite_t;
 
 typedef struct xne_SpriteDesc {

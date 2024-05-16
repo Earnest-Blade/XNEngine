@@ -13,7 +13,7 @@ typedef json_object* xne_JsonPtr_t ;
 
 static xne_JsonPtr_t __json_context = NULL;
 
-typedef enum xne_ObjectTypes : xne_Enum_t {
+typedef enum xne_ObjectTypes {
     XNE_OBJECT_NULL = 0x0000,
     XNE_OBJECT_MODEL = 0x0001,
     XNE_OBJECT_SPRITE = 0x0002
