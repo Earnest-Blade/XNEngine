@@ -1,1 +1,0 @@
- -lopengl32 -lglu32 lib/libglew32.dll.a lib/libglfw3.a lib/libzlib.dll.a lib/libpng16.dll.a "lib/libjson-c.dll.a" -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
