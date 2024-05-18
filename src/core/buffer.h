@@ -60,7 +60,7 @@ typedef struct xne_Vector {
 } xne_Vector_t;
 
 void xne_create_vector(xne_Vector_t* vector, size_t elemsize, size_t capacity);
-inline void xne_create_fixed_vector(xne_Vector_t* vector, size_t elemsize, size_t count){
+static inline void xne_create_fixed_vector(xne_Vector_t* vector, size_t elemsize, size_t count){
     xne_create_vector(vector, elemsize, count);
     vector->count = count;
 }

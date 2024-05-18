@@ -120,7 +120,7 @@ typedef struct xne_Texture {
 } xne_Texture_t;
 
 int xne_create_texturef(xne_Texture_t* texture, FILE* file, xne_TextureFilter_t filter, xne_TextureWrap_t wrap);
-inline int xne_create_texture(xne_Texture_t* texture, const char* path, xne_TextureFilter_t filter, xne_TextureWrap_t wrap) {
+static inline int xne_create_texture(xne_Texture_t* texture, const char* path, xne_TextureFilter_t filter, xne_TextureWrap_t wrap) {
     FILE* file = fopen(path, "rb");
     int s = xne_create_texturef(texture, file, filter, wrap);
     fclose(file);
@@ -144,7 +144,7 @@ typedef struct xne_TextureAtlas {
 
 int xne_create_texture_atlasf(xne_TextureAtlas_t* texture, FILE* file, const uint32_t tilex, const uint32_t tiley,
                            xne_TextureFilter_t filter, xne_TextureWrap_t wrap);
-inline int xne_create_texture_atlas(xne_TextureAtlas_t* texture, const char* path, const uint32_t tilex, const uint32_t tiley,
+static inline int xne_create_texture_atlas(xne_TextureAtlas_t* texture, const char* path, const uint32_t tilex, const uint32_t tiley,
                            xne_TextureFilter_t filter, xne_TextureWrap_t wrap){
     FILE* f = fopen(path, "rb");
     int s = xne_create_texture_atlasf(texture, f, tilex, tiley, filter, wrap);

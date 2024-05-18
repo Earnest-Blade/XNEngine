@@ -68,7 +68,7 @@ int xne_create_shaderf(xne_Shader_t* shader, FILE* file, const xne_ShaderDesc_t*
     @param desc Array of the sub shaders.
     @return return XNE_OK or XNE_FAILURE if the shader have been succesfully created.
 */
-inline int xne_create_shader(xne_Shader_t* shader, const char* path, const xne_ShaderDesc_t* desc){
+static inline int xne_create_shader(xne_Shader_t* shader, const char* path, const xne_ShaderDesc_t* desc){
     FILE* f = fopen(path, "rb");
     int s = xne_create_shaderf(shader, f, desc);
     fclose(f);

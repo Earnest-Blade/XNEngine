@@ -1,10 +1,11 @@
 #include "model.h"
+#include "objects.h" 
 #include "material.h"
 
 #include "engine/engine.h"
-#include "graphics/graphics.h"
 
-#include "objects.h" 
+#include "graphics/mesh.h"
+#include "graphics/texture.h"
 
 #include <cglm/cglm.h>
 

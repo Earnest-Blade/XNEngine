@@ -89,12 +89,10 @@ const char* xne_str_format(const char* v0, ...){
     return &__buffer[0];
 }
 
-void xne_str_merge(const char* __v0, const char* __v1, char* __dest){
-    const size_t len0 = strlen(__v0);
-    const size_t len1 = strlen(__v1);
-
-    __dest = malloc(len0 + len1 + 1);
-    memcpy(__dest, __v0, len0);
-    memcpy(&__dest[len0], __v1, len1);
-    __dest[len0 + len1] = '\0';
+const char* xne_str_merge(const char* __v0, const char* __v1){
+    char* buffer = malloc(strlen(__v0) + strlen(__v1) + 1);
+    strcpy(buffer, __v0);
+    strcat(buffer, __v1);
+    buffer[strlen(__v0) + strlen(__v1)] = '\0';
+    return buffer;
 }

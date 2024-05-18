@@ -25,8 +25,8 @@ double xne_str_to_digit(const char* __v0, size_t __size);
 const char* xne_str_format(const char* v0, ...);
 
 /*
-    Merge two strings into a single one.
+    Merge two strings.
 */
-void xne_str_merge(const char* __v0, const char* __v1, char* __dest);
+const char* xne_str_merge(const char* __v0, const char* __v1);
 
 #endif

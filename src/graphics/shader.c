@@ -107,11 +107,7 @@ int xne_create_shaderf(xne_Shader_t* shader, FILE* file, const xne_ShaderDesc_t*
     int success;
     for (size_t i = 0; i < shader->count; i++)
     {
-        /*std::string cpy = std::string(fstr);
-        cpy = cpy.insert(offset, "#define " + std::string(desc[i].name));*/
-        char* strh;
-        xne_str_merge("#define", desc[i].name, strh);
-
+        const char* strh = xne_str_merge("#define ", desc[i].name);
         const char* buffer = (char*) xne_str_insert(fstr, strh, offset);
 
         success = xne__compile_shader(&shader->shaders[i], desc[i].type, buffer);
@@ -122,7 +118,7 @@ int xne_create_shaderf(xne_Shader_t* shader, FILE* file, const xne_ShaderDesc_t*
         
         glAttachShader(shader->program, shader->shaders[i]);
         
-        free(strh);
+        free((char*)strh);
         free((char*)buffer);
     }
 
