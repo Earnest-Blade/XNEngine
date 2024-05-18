@@ -4,8 +4,6 @@
 
 #include <memory.h>
 
-#define xne_max(a,b) ((a) > (b) ? (a) : (b))
-
 const static float xne__left_vecf[3] = {1.0f, 0.0f, 0.0f};
 const static float xne__up_vecf[3] = {0.0f, 1.0f, 0.0f};
 const static float xne__forward_vecf[3] = {0.0f, 0.0f, 1.0f};
