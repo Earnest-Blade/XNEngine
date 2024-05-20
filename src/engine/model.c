@@ -21,9 +21,23 @@ static void xne__model_create_node(json_object* json, xne_Model_t* model, struct
     const json_object* childs = json_object_object_get(json, "Childs");
     const json_object* mesh = json_object_object_get(json, "Mesh");
     const json_object* material = json_object_object_get(json, "Material");
+    const json_object* transform = json_object_object_get(json, "Transform");
     json_object* name = json_object_object_get(json, "Name");
-    
+        
     xne_create_transform(&node->transform);
+    if(json_object_get_type(transform) != json_type_null){
+        vec3 position, scale;
+        vec4 rotation;
+        xne__object_create_vec3(json_object_object_get(transform, "Position"), position);
+        xne__object_create_vec3(json_object_object_get(transform, "Scale"), scale);
+        xne__object_create_quat(json_object_object_get(transform, "Rotation"), rotation);
+
+        glm_vec3_copy(position, node->transform.position);
+        glm_vec3_copy(scale, node->transform.scale);
+        glm_vec4_copy(rotation, node->transform.rotation);
+        xne_transform_moveto(&node->transform, 0, 0, 0);
+    }
+
     xne_create_fixed_vector(&node->childs, sizeof(struct xne__Model_Node), json_object_array_length(childs));
 
     node->mesh = NULL;
@@ -175,7 +189,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
                 elements[y] = (uint32_t) json_object_get_uint64(json_object_array_get_idx(json_elements, y));
             }
             
-            xne_MeshDesc_t mesh_desc = {};
+            xne_MeshDesc_t mesh_desc;
             mesh_desc.vertices = vertices;
             mesh_desc.vertex_align = vertex_align;
             mesh_desc.elements = elements;

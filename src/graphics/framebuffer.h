@@ -13,7 +13,7 @@ typedef struct xne_Framebuffer {
     xne_Shader_t shader;
 } xne_Framebuffer_t;
 
-void xne_create_framebuffer(xne_Framebuffer_t* framebuffer, uint32_t width, uint32_t height);
+void xne_create_framebuffer(xne_Framebuffer_t* framebuffer, const char* shader, uint32_t width, uint32_t height);
 void xne_framebuffer_enable(xne_Framebuffer_t* framebuffer);
 void xne_framebuffer_disable(xne_Framebuffer_t* framebuffer);
 void xne_clear_framebuffer(xne_Framebuffer_t* framebuffer, float r, float g, float b);

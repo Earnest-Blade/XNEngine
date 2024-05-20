@@ -114,8 +114,8 @@ void xne_create_graphic_device(xne_GraphicDevice_t* device, xne_GraphicDeviceDes
     device->draw;
     device->draw.clearf = XNE_CLEAR_COLOR;
     device->draw.framebuffer;
-    memcpy(device->draw.clearc, desc.clearColor, sizeof(device->draw.clearc));
-    xne_create_framebuffer(&device->draw.framebuffer, desc.bufferWidth, desc.bufferHeight);
+    memcpy(device->draw.clearc, desc.clear_color, sizeof(device->draw.clearc));
+    xne_create_framebuffer(&device->draw.framebuffer, desc.framebuffer_shader, desc.buffer_width, desc.buffer_height);
 }
 
 void xne_new_frame(xne_GraphicDevice_t* device){

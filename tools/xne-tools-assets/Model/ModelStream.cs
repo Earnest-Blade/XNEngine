@@ -46,7 +46,7 @@ namespace xne.tools.assets
                 throw new ArgumentNullException(nameof(ExportDesc));
             }
 
-            _outStrategy = new FileStream(file, FileMode.Truncate, FileAccess.Write, FileShare.Delete);
+            _outStrategy = new FileStream(file, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Delete);
 
             _asset = new Asset<Model>(ExportDesc.Value.Name, ExportDesc.Value.Version, Value);
 
@@ -147,6 +147,7 @@ namespace xne.tools.assets
             {
                 Name = node.Name,
                 Childs = nodes.ToArray(),
+                Transform = new Transform(node.Transform),
                 Material = material,
                 Mesh = mesh
             };
@@ -222,12 +223,7 @@ namespace xne.tools.assets
             int index = _textures.FindIndex(tex => tex.Path == slot.FilePath);
             if (index != -1) return index;
             
-            _textures.Add(new Texture(slot.FilePath)
-            {
-                Name = Debug.AskString($"name to texture at '{slot.FilePath}' : "),
-                Filter = 0,
-                Wrap = 0
-            });
+            _textures.Add(new Texture(slot.FilePath, Debug.AskString($"name to texture at '{slot.FilePath}' : ")));
             return _textures.Count - 1;
         }
 

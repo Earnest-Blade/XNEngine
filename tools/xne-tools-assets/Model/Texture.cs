@@ -10,9 +10,13 @@ namespace xne.tools.assets
 
         private string _path;
 
-        public Texture(string path)
+        public Texture(string path, string name)
         {
             _path = path;
+            
+            Name = name;
+            Wrap = 10497;
+            Filter = 9729;
         }
 
         public bool Equals(Texture other)

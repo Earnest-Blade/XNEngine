@@ -6,7 +6,7 @@
 #include <GL/glew.h>
 
 
-void xne_create_framebuffer(xne_Framebuffer_t* framebuffer, uint32_t width, uint32_t height){
+void xne_create_framebuffer(xne_Framebuffer_t* framebuffer, const char* shader, uint32_t width, uint32_t height){
     assert(framebuffer);
     assert(width > 0 && height > 0);
 
@@ -39,7 +39,7 @@ void xne_create_framebuffer(xne_Framebuffer_t* framebuffer, uint32_t width, uint
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
     }
 
-    const char* vertex = ""                                                   
+    /*const char* vertex = ""                                                   
         "#version 400\n"
         "layout(location = 0) in vec2 in_position;\n"                                   
         "layout(location = 1) in vec2 in_uvs;\n"                                       
@@ -58,7 +58,15 @@ void xne_create_framebuffer(xne_Framebuffer_t* framebuffer, uint32_t width, uint
         "}\n"                                                                           
     ;
 
-    xne_create_shaderfv(&framebuffer->shader, vertex, fragment);
+    xne_create_shaderfv(&framebuffer->shader, vertex, fragment);*/
+
+    xne_ShaderDesc_t shaders[3] = {
+        {XNE_VERTEX_SHADER, "_VERTEX_"},
+        {XNE_FRAGMENT_SHADER, "_FRAGMENT_"},
+        {0, ""}
+    };
+
+    xne_create_shader(&framebuffer->shader, shader, shaders);
 
     glGenFramebuffers(1, &framebuffer->buffer);
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer->buffer);
@@ -92,7 +100,6 @@ void xne_framebuffer_enable(xne_Framebuffer_t* framebuffer){
     framebuffer->prev_height = viewport[3];
 
     glViewport(0, 0, framebuffer->width, framebuffer->height);
-
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);

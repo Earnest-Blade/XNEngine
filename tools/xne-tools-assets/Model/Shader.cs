@@ -5,12 +5,25 @@ namespace xne.tools.assets
         public int Attribute;
         public int Format;
         public string Name;
+
+        public Uniform(int attribute, int format, string name)
+        {
+            Attribute = attribute;
+            Format = format;
+            Name = name;
+        }
     }
 
     public struct SubShader
     {
         public int Type;
         public string Name;
+
+        public SubShader(int type, string name)
+        {
+            Type = type;
+            Name = name;
+        }
     }
     
     public class Shader : IRaw
@@ -22,6 +35,25 @@ namespace xne.tools.assets
         public SubShader[] Shaders;
         public Uniform[] Uniforms;
 
+        public Shader(string name, string? raw, string? path)
+        {
+            Name = name;
+            Raw = raw;
+            Path = path;
+            Shaders = new[]
+            {
+                new SubShader(35633, "_VERTEX_"),
+                new SubShader(35632, "_FRAGMENT_"),
+                new SubShader(0, "")
+            };
+            Uniforms = new[]
+            {
+                new Uniform(1, 5, "projection"),
+                new Uniform(1, 5, "transform"),
+                new Uniform(0, 0, "")
+            };
+        }
+        
         public static Shader CreateFromFile(File file, string name)
         {
             string? raw = null;
@@ -34,14 +66,7 @@ namespace xne.tools.assets
                 }
             }
             
-            return new Shader()
-            {
-                Name = name,
-                Raw = raw,
-                Path = file.Path,
-                Shaders = new SubShader[1],
-                Uniforms = new Uniform[1]
-            };
+            return new Shader(name, raw, file.Path);
         }
     }
 }

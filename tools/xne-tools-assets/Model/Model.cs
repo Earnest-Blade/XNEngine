@@ -13,6 +13,7 @@ namespace xne.tools.assets
         {
             public string Name;
             public Node[] Childs;
+            public Transform Transform;
             
             public UInt32? Mesh;
             public UInt32? Material;

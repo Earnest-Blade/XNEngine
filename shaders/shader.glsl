@@ -71,7 +71,19 @@ uniform int layer;
 uniform sampler2D texture0;
 
 void main() { 
-    gl_FragColor = texture(texture0, vertex.uvs); //vec4(vec3(gl_FragCoord.z), 1.0); //texture(texture0, vec3(uvs, 0));
+    vec3 ambient_color = vec3(0.6, 0.6, 0.6);
+    vec3 diffuse_color = vec3(0.0, 1.0, 0.6);
+    vec3 light_color = vec3(1.0, 1.0, 1.0);
+
+    vec3 light_pos = vec3(1.2, 1, 2.0);
+    vec3 norm = normalize(vertex.normals);
+    vec3 light_dir = normalize(light_pos - norm);
+
+    float diff = max(dot(norm, light_dir), 0.0);
+    vec3 diffuse = diff * light_color;
+
+    vec3 frag = (ambient_color + diffuse) * diffuse_color;
+    gl_FragColor = vec4(frag, 1.0); //texture(texture0, vertex.uvs); //vec4(vec3(gl_FragCoord.z), 1.0); //texture(texture0, vec3(uvs, 0));
 }
 
 #endif

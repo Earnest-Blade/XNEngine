@@ -37,4 +37,11 @@ static void xne__object_create_vec4(const xne_JsonPtr_t __o, float* __dest){
     __dest[3] = (float)json_object_get_double(json_object_object_get(__o, "W"));
 }
 
+static void xne__object_create_quat(const xne_JsonPtr_t __o, float* __dest){
+    __dest[1] = (float)json_object_get_double(json_object_object_get(__o, "X"));
+    __dest[2] = (float)json_object_get_double(json_object_object_get(__o, "Y"));
+    __dest[3] = (float)json_object_get_double(json_object_object_get(__o, "Z"));
+    __dest[0] = (float)json_object_get_double(json_object_object_get(__o, "W"));
+}
+
 #endif

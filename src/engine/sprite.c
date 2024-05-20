@@ -4,6 +4,7 @@
 #include <cglm/cglm.h>
 
 #include "objects.h"
+#include "engine.h"
 
 #include <memory.h>
 #include <assert.h>
@@ -210,7 +211,23 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
     return XNE_OK;
 }
 
-void xne_draw_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
+void xne_draw_sprite(xne_Sprite_t* sprite){
+    xne_shader_enable(&sprite->shader);
+
+    glBindTexture(GL_TEXTURE_2D_ARRAY, sprite->atlas.target);
+    glUniform1i(sprite->atlas.layer_location, sprite->frame);
+
+    xne_shader_use_uniform(&sprite->shader, 0, xne_get_camera_projection(&xne_get_engine_instance()->state.scene->camera));
+    xne_shader_use_uniform(&sprite->shader, 1, xne_transform_matrix(&sprite->transform));
+
+    xne_draw_mesh(&sprite->plane);
+
+    glBindTexture(GL_TEXTURE_2D_ARRAY, 0);
+
+    xne_shader_disable(NULL);
+}
+
+void xne_draw_bill_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
     xne_shader_enable(&sprite->shader);
 
     glBindTexture(GL_TEXTURE_2D_ARRAY, sprite->atlas.target);
@@ -242,8 +259,7 @@ void xne_draw_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
 
         // Signed Angle
         glm_vec3_cross(plane, forward, cross);
-        float sign = glm_signf(up[0] * cross[0] + up[1] * cross[1] + up[2] * cross[2]);
-        float angle = sign * anglecos * 100;
+        float angle = glm_signf(up[0] * cross[0] + up[1] * cross[1] + up[2] * cross[2]) * anglecos * 100;
         
         const float absangle = abs(angle);
         if(absangle < steps) direction = XNE_SPRITE_FORWARD;
@@ -274,6 +290,4 @@ void xne_destroy_sprite(xne_Sprite_t* sprite){
     xne_destroy_mesh(&sprite->plane);
     xne_destroy_shader(&sprite->shader);
     xne_destroy_atlas_texture(&sprite->atlas);
-    
-    //memset(sprite, 0, sizeof(xne_Sprite_t));
 }

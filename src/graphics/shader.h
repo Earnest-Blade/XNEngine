@@ -8,6 +8,7 @@
 #include "core/core.h"
 
 #include <stdio.h>
+#include <assert.h>
 
 typedef enum xne_UniformAttrib {
     XNE_UNIFORM_ATTRIB_UNIFORM = 1,
@@ -72,6 +73,7 @@ static inline int xne_create_shader(xne_Shader_t* shader, const char* path, cons
     FILE* f = fopen(path, "rb");
     int s = xne_create_shaderf(shader, f, desc);
     fclose(f);
+    assert(!s);
     return s;
 }
 
