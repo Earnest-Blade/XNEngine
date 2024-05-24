@@ -1,5 +1,7 @@
 # XNEngine (XeNoEngine)
 
+**This project is for learning, practice and experiment.**
+
 ## Overview
 
 XNEngine is designed to provide a robust and flexible platform for the development of interactive 3D games. It is entirely written in C and leverages the power of the OpenGL library for graphical rendering. But support for other rendering tools, such as DirectX or Vulkan, is currently under development.
