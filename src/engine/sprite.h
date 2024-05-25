@@ -49,7 +49,7 @@ static int xne_create_sprite(xne_Sprite_t* sprite, const char* path){
 }
 
 void xne_draw_sprite(xne_Sprite_t* sprite);
-void xne_draw_bill_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera);
+void xne_draw_billboard_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera);
 void xne_destroy_sprite(xne_Sprite_t* sprite);
 
 #endif

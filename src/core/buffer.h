@@ -78,4 +78,33 @@ inline void* xne_vector_back(xne_Vector_t* vector) {
 
 void xne_destroy_vector(xne_Vector_t* vector);
 
+
+typedef struct xne_Tree {
+    struct xne_Buffer memory;
+    struct xne_Tree* childs;
+    struct xne_Tree* root;
+    struct xne_Tree* parent;
+    size_t child_count;
+} xne_Tree_t;
+
+void xne_create_tree(xne_Tree_t* tree, void* value, size_t elemsize);
+void xne_tree_add_child(xne_Tree_t* parent, void* value);
+
+void xne_tree_set_value(xne_Tree_t* tree, void* value);
+void* xne_tree_get_value(xne_Tree_t* tree);
+
+static inline xne_Tree_t* xne_tree_get_child(xne_Tree_t* tree, size_t child){
+    return &tree->childs[child];
+}
+
+static inline void* xne_tree_get_child_value(xne_Tree_t* tree, size_t child){
+    return xne_tree_get_value(xne_tree_get_child(tree, child));
+}
+
+static inline int xne_tree_is_root(xne_Tree_t* tree){
+    return tree == tree->root;
+}
+
+void xne_destroy_tree(xne_Tree_t* tree);
+
 #endif

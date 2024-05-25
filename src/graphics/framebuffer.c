@@ -115,8 +115,8 @@ void xne_framebuffer_disable(xne_Framebuffer_t* framebuffer){
     //glDisable(GL_BLEND);
 }
 
-void xne_clear_framebuffer(xne_Framebuffer_t* framebuffer, float r, float g, float b){
-    glClearColor(r, g, b, 1.0f);
+void xne_clear_framebuffer(xne_Framebuffer_t* framebuffer, xne_Color_t color){
+    glClearColor(color[0] / sizeof(uint8_t), color[1] / sizeof(uint8_t), color[2] / sizeof(uint8_t), 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

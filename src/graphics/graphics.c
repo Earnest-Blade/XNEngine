@@ -45,7 +45,10 @@ static void GLAPIENTRY xne__gl_callback(GLenum source, GLenum type, uint32_t id,
     };
 
     fprintf(stdout, "GL msg: (%i): %s\n%s\n%s\n", id, message, src, sev);*/
-    fprintf(stdout, message);
+    fprintf(stdout, "%s\n", message);
+    if(severity == GL_DEBUG_SEVERITY_HIGH) {
+        assert(0);
+    }
 }
 
 #endif
@@ -112,15 +115,15 @@ void xne_create_graphic_device(xne_GraphicDevice_t* device, xne_GraphicDeviceDes
 #endif
 
     device->draw;
-    device->draw.clearf = XNE_CLEAR_COLOR;
+    device->draw.clear_flags = XNE_CLEAR_COLOR;
     device->draw.framebuffer;
-    memcpy(device->draw.clearc, desc.clear_color, sizeof(device->draw.clearc));
+    memcpy(device->draw.clear_color, desc.clear_color, sizeof(device->draw.clear_color));
     xne_create_framebuffer(&device->draw.framebuffer, desc.framebuffer_shader, desc.buffer_width, desc.buffer_height);
 }
 
 void xne_new_frame(xne_GraphicDevice_t* device){
     xne_framebuffer_enable(&device->draw.framebuffer);
-    xne_clear_framebuffer(&device->draw.framebuffer, device->draw.clearc[0], device->draw.clearc[1], device->draw.clearc[2]);
+    xne_clear_framebuffer(&device->draw.framebuffer, device->draw.clear_color);
 }
 
 void xne_blit_buffers(xne_GraphicDevice_t* device){

@@ -21,7 +21,13 @@ in vec2 uvs;
 uniform sampler2D frame0;
 
 void main(){
-    gl_FragColor = texture(frame0, uvs);
+    vec2 pixels_size = vec2(1920 / 5, 1080 / 5);
+    vec2 p = uvs;
+    p.x -= mod(p.x, 1.0 / pixels_size.x);
+    p.y -= mod(p.y, 1.0 / pixels_size.y);
+
+    vec3 frame = texture2D(frame0, p).rgb;
+    gl_FragColor = vec4(frame, 1.0);
 }
 
 #endif

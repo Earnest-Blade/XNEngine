@@ -9,11 +9,11 @@ const static float xne__up_vecf[3] = {0.0f, 1.0f, 0.0f};
 const static float xne__forward_vecf[3] = {0.0f, 0.0f, 1.0f};
 
 static void xne__upadate_transform_mat(xne_Transform_t* transform){
-    glm_mat4_identity(transform->matrix);
+    glm_mat4_identity(transform->local);
 
-    glm_scale(transform->matrix, transform->scale);
-    glm_translate(transform->matrix, transform->position);
-    glm_quat_rotate(transform->matrix, transform->rotation, transform->matrix);
+    glm_scale(transform->local, transform->scale);
+    glm_translate(transform->local, transform->position);
+    glm_quat_rotate(transform->local, transform->rotation, transform->local);
 }
 
 void xne_create_transform(xne_Transform_t* transform){
@@ -23,7 +23,7 @@ void xne_create_transform(xne_Transform_t* transform){
     transform->scale[2] = 1;
 
     glm_quat_identity(transform->rotation);
-    glm_mat4_identity(transform->matrix);
+    glm_mat4_identity(transform->local);
 
     xne__upadate_transform_mat(transform);
 }
@@ -111,21 +111,25 @@ y = 2 * (x*y + w*z)
 z = 2 * (x*z - w*y)
 
 */
+xne_transform_direction_forward(xne_Transform_t* transform, float dest[3]){
+    memset(dest, 0, sizeof(float) * 3);
+    dest[0] = 2 * (transform->rotation[0] * transform->rotation[2] + transform->rotation[3] * transform->rotation[1]);
+    dest[1] = 2 * (transform->rotation[1] * transform->rotation[2] - transform->rotation[3] * transform->rotation[0]);
+    dest[2] = 1 - 2 * (sqrt(transform->rotation[0] + sqrt(transform->rotation[1])));
+}
 
-float* xne_transform_directions(xne_Transform_t* transform, mat3 directions){
-    memset(directions, 0, sizeof(float) * 3 * 3);
+xne_transform_direction_up(xne_Transform_t* transform, float dest[3]){
+    memset(dest, 0, sizeof(float) * 3);
+    dest[0] = 2 * (transform->rotation[0] * transform->rotation[1] - transform->rotation[3] * transform->rotation[2]);
+    dest[1] = 1 - 2 * (sqrt(transform->rotation[0]) + sqrt(transform->rotation[2]));
+    dest[2] = 2 * (transform->rotation[1] * transform->rotation[2] + transform->rotation[3] * transform->rotation[0]);
+}
 
-    directions[0][0] = 2 * (transform->rotation[0] * transform->rotation[2] + transform->rotation[3] * transform->rotation[1]);
-    directions[0][1] = 2 * (transform->rotation[1] * transform->rotation[2] - transform->rotation[3] * transform->rotation[0]);
-    directions[0][2] = 1 - 2 * (sqrt(transform->rotation[0] + sqrt(transform->rotation[1])));
-    
-    directions[1][0] = 2 * (transform->rotation[0] * transform->rotation[1] - transform->rotation[3] * transform->rotation[2]);
-    directions[1][1] = 1 - 2 * (sqrt(transform->rotation[0]) + sqrt(transform->rotation[2]));
-    directions[1][2] = 2 * (transform->rotation[1] * transform->rotation[2] + transform->rotation[3] * transform->rotation[0]);
-    
-    directions[2][0] = 1 - 2 * (sqrt(transform->rotation[1]) + sqrt(transform->rotation[2]));
-    directions[2][1] = 2 * (transform->rotation[0] * transform->rotation[1] + transform->rotation[3] * transform->rotation[2]);
-    directions[2][2] = 2 * (transform->rotation[0] * transform->rotation[2] - transform->rotation[3] * transform->rotation[1]);
+xne_transform_direction_left(xne_Transform_t* transform, float dest[3]){
+    memset(dest, 0, sizeof(float) * 3);
+    dest[0] = 1 - 2 * (sqrt(transform->rotation[1]) + sqrt(transform->rotation[2]));
+    dest[1] = 2 * (transform->rotation[0] * transform->rotation[1] + transform->rotation[3] * transform->rotation[2]);
+    dest[2] = 2 * (transform->rotation[0] * transform->rotation[2] - transform->rotation[3] * transform->rotation[1]);
 }
 
 float* xne_transform_lookat(xne_Transform_t* transform, float eye[3]){
@@ -138,7 +142,7 @@ float* xne_transform_lookat(xne_Transform_t* transform, float eye[3]){
     glm_vec3_crossn(forward, (float*)xne__up_vecf, side);
     glm_vec3_cross(side, forward, up);
 
-    glm_mat4_identity(transform->matrix);
+    glm_mat4_identity(transform->local);
 
     lkmat[0][0] = side[0];
     lkmat[1][0] = side[1];
@@ -160,7 +164,7 @@ float* xne_transform_lookat(xne_Transform_t* transform, float eye[3]){
     lkmat[2][3] = 0.0f;
     lkmat[3][3] = 1.0f;
 
-    glm_mat4_inv(lkmat, transform->matrix);
+    glm_mat4_inv(lkmat, transform->local);
 
-    return &transform->matrix[0][0];
+    return &transform->local[0][0];
 }

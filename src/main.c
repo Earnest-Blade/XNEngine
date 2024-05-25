@@ -66,17 +66,15 @@ static inline void xne__update_player_mvt(xne_Camera_t* camera, float delta, flo
     }*/
 }
 
-static inline void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics){
+static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics){
     xne_create_device(window, 1920, 1080, "XNEngine", XNE_WINDOW_DEFAULT);
     
     xne_GraphicDeviceDesc_t graphic_device_desc;
     graphic_device_desc.device = window;
     graphic_device_desc.buffer_width = window->framebufferSize[0];
     graphic_device_desc.buffer_height = window->framebufferSize[1];
-    graphic_device_desc.clear_color[0] = 0.0f;
-    graphic_device_desc.clear_color[1] = 0.0f;
-    graphic_device_desc.clear_color[2] = 0.0f;
     graphic_device_desc.framebuffer_shader = "shaders/framebuffer.glsl";
+    xne_set_color_rgb(graphic_device_desc.clear_color, 0, 0, 0);
     
     xne_create_graphic_device(graphics, graphic_device_desc);
 
@@ -100,7 +98,7 @@ static inline void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* gr
     xne_camera_moveat(&state.scene.camera, 0, 0.5f, XNE_CAMERA_DISTANCE);
 }
 
-static inline void xne__destroy(xne_Device_t* window, xne_GraphicDevice_t* graphics){
+static void xne__destroy(xne_Device_t* window, xne_GraphicDevice_t* graphics){
     xne_destroy_model(&state.model);
     xne_destroy_sprite(&state.sprite);
     xne_destroy_scene(&state.scene);
@@ -139,7 +137,7 @@ int main(int argc, char** argv){
             2.0f, 200.0f 
         );
 
-        xne_draw_bill_sprite(&state.sprite, &xne_get_engine_instance()->state.scene->camera);
+        xne_draw_billboard_sprite(&state.sprite, &xne_get_engine_instance()->state.scene->camera);
         xne_draw_model(&state.model);
 
         xne_blit_buffers(&graphics);

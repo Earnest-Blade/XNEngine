@@ -55,9 +55,87 @@ void* xne_vector_get(xne_Vector_t* vector, size_t index){
 
 void xne_destroy_vector(xne_Vector_t* vector){
     if(!vector) return;
+    if(!vector->memory.ptr) return;
 
     /* try to free allocated memory */
     if(vector->memory.size){
+        fprintf(stdout, "freeing a chunk of %i bits.\n", vector->memory.size);
         free(vector->memory.ptr);
+    }
+}
+
+void xne_create_tree(xne_Tree_t* tree, void* value, size_t elemsize){
+    assert(tree);
+
+    memset(tree, 0, sizeof(xne_Tree_t));
+    tree->root = tree;
+    tree->parent = NULL;
+    tree->child_count = 0;
+    tree->childs = NULL;
+    tree->memory.elemsize = elemsize;
+    tree->memory.size = elemsize;
+    tree->memory.ptr = NULL;
+
+    xne_tree_set_value(tree, value);
+}
+
+void xne_tree_add_child(xne_Tree_t* parent, void* value){
+    assert(parent);
+
+    if(parent->child_count){
+        parent->childs = realloc(parent->childs, sizeof(xne_Tree_t) * parent->child_count + 1);
+        assert(parent->childs);
+
+        parent->child_count++;
+    }
+    else {
+        parent->childs = malloc(sizeof(xne_Tree_t));
+        assert(parent->childs);
+
+        parent->child_count++;
+    }
+
+    xne_Tree_t* node = &parent->childs[parent->child_count];
+    node->root = parent->root;
+    node->parent = parent;
+    node->child_count = 0;
+    node->childs = NULL;
+    node->memory.elemsize = parent->memory.elemsize;
+    node->memory.size = parent->memory.size;
+    node->memory.ptr = NULL;
+
+    xne_tree_set_value(node, value);
+}
+
+void xne_tree_set_value(xne_Tree_t* tree, void* value){
+    if(value){
+        if(!tree->memory.ptr){
+
+            if(tree->memory.size){
+                tree->memory.ptr = malloc(tree->memory.size);
+                assert(tree->memory.ptr);
+
+                memset(tree->memory.ptr, 0, tree->memory.size);
+            }
+        }
+
+        memcpy(tree->memory.ptr, value, tree->memory.size);
+    }
+}
+
+void* xne_tree_get_value(xne_Tree_t* tree){
+    assert(tree);
+    return tree->memory.ptr;
+}
+
+void xne_destroy_tree(xne_Tree_t* tree){
+    if(tree){
+        for (size_t i = 0; i < tree->child_count; i++)
+        {
+            xne_destroy_tree(&tree->childs[i]);
+        }
+
+        free(tree->childs);
+        free(tree->memory.ptr);
     }
 }

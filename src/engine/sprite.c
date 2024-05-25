@@ -227,7 +227,7 @@ void xne_draw_sprite(xne_Sprite_t* sprite){
     xne_shader_disable(NULL);
 }
 
-void xne_draw_bill_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
+void xne_draw_billboard_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
     xne_shader_enable(&sprite->shader);
 
     glBindTexture(GL_TEXTURE_2D_ARRAY, sprite->atlas.target);
