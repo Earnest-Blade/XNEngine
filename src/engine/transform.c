@@ -111,21 +111,21 @@ y = 2 * (x*y + w*z)
 z = 2 * (x*z - w*y)
 
 */
-xne_transform_direction_forward(xne_Transform_t* transform, float dest[3]){
+void xne_transform_direction_forward(xne_Transform_t* transform, float dest[3]){
     memset(dest, 0, sizeof(float) * 3);
     dest[0] = 2 * (transform->rotation[0] * transform->rotation[2] + transform->rotation[3] * transform->rotation[1]);
     dest[1] = 2 * (transform->rotation[1] * transform->rotation[2] - transform->rotation[3] * transform->rotation[0]);
     dest[2] = 1 - 2 * (sqrt(transform->rotation[0] + sqrt(transform->rotation[1])));
 }
 
-xne_transform_direction_up(xne_Transform_t* transform, float dest[3]){
+void xne_transform_direction_up(xne_Transform_t* transform, float dest[3]){
     memset(dest, 0, sizeof(float) * 3);
     dest[0] = 2 * (transform->rotation[0] * transform->rotation[1] - transform->rotation[3] * transform->rotation[2]);
     dest[1] = 1 - 2 * (sqrt(transform->rotation[0]) + sqrt(transform->rotation[2]));
     dest[2] = 2 * (transform->rotation[1] * transform->rotation[2] + transform->rotation[3] * transform->rotation[0]);
 }
 
-xne_transform_direction_left(xne_Transform_t* transform, float dest[3]){
+void xne_transform_direction_left(xne_Transform_t* transform, float dest[3]){
     memset(dest, 0, sizeof(float) * 3);
     dest[0] = 1 - 2 * (sqrt(transform->rotation[1]) + sqrt(transform->rotation[2]));
     dest[1] = 2 * (transform->rotation[0] * transform->rotation[1] + transform->rotation[3] * transform->rotation[2]);

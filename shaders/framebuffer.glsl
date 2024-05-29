@@ -26,7 +26,7 @@ void main(){
     p.x -= mod(p.x, 1.0 / pixels_size.x);
     p.y -= mod(p.y, 1.0 / pixels_size.y);
 
-    vec3 frame = texture2D(frame0, p).rgb;
+    vec3 frame = texture2D(frame0, uvs).rgb;
     gl_FragColor = vec4(frame, 1.0);
 }
 

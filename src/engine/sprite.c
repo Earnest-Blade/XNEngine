@@ -102,6 +102,7 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
 
     const json_object* json_sprite = json_object_object_get(json_scene, "Sprite");
     const json_object* json_atlas = json_object_object_get(json_scene, "Atlas");
+    const json_object* json_animations = json_object_object_get(json_scene, "Animations");
     const json_object* json_material = json_object_object_get(json_scene, "Material");
 
     if(json_object_get_type(json_material) != json_type_null){
@@ -203,6 +204,45 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
         return XNE_FAILURE;
     }
 
+    if(json_object_get_type(json_animations) != json_type_null){
+        json_object* json_timeline;
+        json_object* json_timeline_list;
+        json_object* json_timeline_marker;
+
+        sprite->animations.current_animation = 0;
+        sprite->animations.current_frame = 0.0f;
+        xne_create_fixed_vector(&sprite->animations.timelines, sizeof(xne_SpriteAnimationTimeline_t), json_object_array_length(json_animations));
+
+        for (size_t i = 0; i < sprite->animations.timelines.count; i++)
+        {
+            json_timeline = json_object_array_get_idx(json_animations, i);
+            json_timeline_list = json_object_object_get(json_timeline, "Timeline");
+
+            xne_SpriteAnimationTimeline_t* timeline = xne_vector_get(&sprite->animations.timelines, i);
+            xne_create_fixed_vector(&timeline->markers, sizeof(xne_SpriteAnimationTimelineMarker_t), json_object_array_length(json_timeline_list));
+            
+            timeline->name = NULL; 
+            timeline->duration = json_object_get_int(json_object_object_get(json_timeline, "Duration"));
+            timeline->current_marker = 0;
+
+            size_t absolute_duration = 0;
+            for (size_t y = 0; y < timeline->markers.count; y++)
+            {
+                json_timeline_marker = json_object_array_get_idx(json_timeline_list, y);
+
+                xne_SpriteAnimationTimelineMarker_t* marker = xne_vector_get(&timeline->markers, y);
+                marker->frame = json_object_get_int(json_object_object_get(json_timeline_marker, "Frame"));
+                marker->duration = json_object_get_int(json_object_object_get(json_timeline_marker, "Duration"));
+                marker->absolute_duration = absolute_duration + marker->duration;
+
+                absolute_duration += marker->duration;
+            }
+        }
+    }
+    else {
+        fprintf(stdout, "cannot find animations.\n");
+    }
+
     xne_create_transform(&sprite->transform);
 
     free(fstr);
@@ -211,7 +251,38 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
     return XNE_OK;
 }
 
+
+static inline void xne__update_sprite(xne_Sprite_t* sprite){
+    if(xne_sprite_has_animations(sprite)){
+        float delta = xne_get_engine_instance()->state.delta_time;
+
+        xne_SpriteAnimationTimeline_t* timeline = (xne_SpriteAnimationTimeline_t*) xne_vector_get(&sprite->animations.timelines, sprite->animations.current_animation);
+        xne_SpriteAnimationTimelineMarker_t* marker = (xne_SpriteAnimationTimelineMarker_t*) xne_vector_get(&timeline->markers, timeline->current_marker);
+
+        if(sprite->animations.current_frame + delta < marker->absolute_duration){
+            sprite->animations.current_frame += delta;
+        }
+        else { // if the next frame will have to change animation's frame.
+            sprite->frame = marker->frame;
+
+            // current marker end toward the last frame -> loop animation
+            if(sprite->animations.current_frame + delta >= timeline->duration){
+                sprite->animations.current_frame = 0.0f;
+                timeline->current_marker = 0;
+
+                fprintf(stdout, "ending a loop!");
+            }
+            else {
+                timeline->current_marker += 1;
+            }
+        }
+
+    }
+}
+
 void xne_draw_sprite(xne_Sprite_t* sprite){
+    xne__update_sprite(sprite);
+
     xne_shader_enable(&sprite->shader);
 
     glBindTexture(GL_TEXTURE_2D_ARRAY, sprite->atlas.target);
@@ -228,6 +299,8 @@ void xne_draw_sprite(xne_Sprite_t* sprite){
 }
 
 void xne_draw_billboard_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
+    xne__update_sprite(sprite);
+
     xne_shader_enable(&sprite->shader);
 
     glBindTexture(GL_TEXTURE_2D_ARRAY, sprite->atlas.target);
@@ -286,6 +359,21 @@ void xne_draw_billboard_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
 
 void xne_destroy_sprite(xne_Sprite_t* sprite){
     assert(sprite);
+    
+    if(xne_sprite_has_animations(sprite)){
+        
+        for (size_t i = 0; i < sprite->animations.timelines.count; i++)
+        {
+            xne_SpriteAnimationTimeline_t* timeline = (xne_SpriteAnimationTimeline_t*) xne_vector_get(&sprite->animations.timelines, i);
+            
+            // if the timeline exists, free it.
+            if(timeline){
+                free((char*) timeline->name);
+                xne_destroy_vector(&timeline->markers);
+            }
+        }
+        xne_destroy_vector(&sprite->animations.timelines);
+    }
 
     xne_destroy_mesh(&sprite->plane);
     xne_destroy_shader(&sprite->shader);

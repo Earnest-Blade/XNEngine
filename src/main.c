@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 
-#define XNE_CAMERA_DISTANCE 2
+#define XNE_CAMERA_DISTANCE 3
 
 static struct xne_Game {
     xne_Shader_t shader;
@@ -53,17 +53,6 @@ static inline void xne__update_player_mvt(xne_Camera_t* camera, float delta, flo
 
     xne_camera_moveto(camera, position[0], position[1], position[2]);
     xne_transform_moveto(&state.sprite.transform, position[0], position[1], position[2]);
-
-    /*if(xne_mouse_button_down(XNE_MOUSE_BUTTON_3)){
-        float x, y;
-        xne_get_mouse_delta_position(&x, &y);
-        x *= delta * sensivity;
-        y *= delta * sensivity;
-
-        if(x || y){
-            xne_camera_rotateto(camera, 0, x, y);
-        }
-    }*/
 }
 
 static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics){
@@ -94,7 +83,7 @@ static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics)
     xne_create_sprite(&state.sprite, "assets/objects/one_spritesheet.xneo");
     state.sprite.frame = 1;
 
-    xne_camera_rotateat(&state.scene.camera, -30.0f, -90.0f, -30.0f);
+    xne_camera_rotateat(&state.scene.camera, 0.0f, -90.0f, -15.0f);
     xne_camera_moveat(&state.scene.camera, 0, 0.5f, XNE_CAMERA_DISTANCE);
 }
 

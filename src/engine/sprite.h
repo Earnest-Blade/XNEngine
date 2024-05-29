@@ -17,8 +17,26 @@ typedef enum xne_SpriteDirection {
     XNE_SPRITE_LEFT = 3
 } xne_SpriteDirection_t;
 
+typedef struct xne_SpriteAnimationTimelineMarker {
+    uint32_t frame, duration;
+    size_t absolute_duration;
+} xne_SpriteAnimationTimelineMarker_t;
+
+typedef struct xne_SpriteAnimationTimeline {
+    const char* name;
+    xne_Vector_t markers;
+    uint32_t current_marker, duration;
+} xne_SpriteAnimationTimeline_t;
+
+typedef struct xne_SpriteAnimationHandler {
+    xne_Vector_t timelines;
+    size_t current_animation;
+    double current_frame;
+} xne_SpriteAnimationHandler_t;
+
 typedef struct xne_Sprite {
     xne_TextureAtlas_t atlas;
+    xne_SpriteAnimationHandler_t animations;
     xne_Shader_t shader;
     xne_Mesh_t plane;
     xne_Transform_t transform;
@@ -39,8 +57,31 @@ typedef struct xne_SpriteDesc {
     xne_TextureFilter_t filter;
 } xne_SpriteDesc_t;
 
+/*
+    Create a new sprite structure from a descriptor.
+
+    @param sprite Pointer to a previous allocated sprite structure.
+    @param desc Sprite Descriptor.
+    @return XNE_OK if the initialization succed, XNE_FAILURE otherwise.
+*/
 int xne_create_sprited(xne_Sprite_t* sprite, xne_SpriteDesc_t desc);
+
+/*
+    Create a new sprite structure from a file.
+
+    @param sprite Pointer to a previous allocated sprite structure.
+    @param file File stream.
+    @return XNE_OK if the initialization succed, XNE_FAILURE otherwise.
+*/
 int xne_create_spritef(xne_Sprite_t* sprite, FILE* file);
+
+/*
+    Create a new sprite structure from a path.
+
+    @param sprite Pointer to a previous allocated sprite structure.
+    @param path relative or absolute path to the sprite file.
+    @return XNE_OK if the initialization succed, XNE_FAILURE otherwise.
+*/
 static int xne_create_sprite(xne_Sprite_t* sprite, const char* path){
     FILE* file = fopen(path, "rb");
     int success = xne_create_spritef(sprite, file);
@@ -48,8 +89,26 @@ static int xne_create_sprite(xne_Sprite_t* sprite, const char* path){
     return success;
 }
 
+/*
+    Draw the sprite to the world space.
+*/
 void xne_draw_sprite(xne_Sprite_t* sprite);
+
+/*
+    Draw the sprite as a billboard, so the sprite will use a 'look at camera' matrix.
+*/
 void xne_draw_billboard_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera);
+
+/*
+    Free the sprite from the memory.
+*/
 void xne_destroy_sprite(xne_Sprite_t* sprite);
+
+/*
+    Return true if the sprite has animations.
+*/
+static inline int xne_sprite_has_animations(xne_Sprite_t* sprite){
+    return sprite->animations.timelines.count;
+}
 
 #endif

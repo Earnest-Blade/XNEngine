@@ -78,7 +78,6 @@ inline void* xne_vector_back(xne_Vector_t* vector) {
 
 void xne_destroy_vector(xne_Vector_t* vector);
 
-
 typedef struct xne_Tree {
     struct xne_Buffer memory;
     struct xne_Tree* childs;
