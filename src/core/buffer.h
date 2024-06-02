@@ -87,14 +87,13 @@ typedef struct xne_Tree {
 } xne_Tree_t;
 
 void xne_create_tree(xne_Tree_t* tree, void* value, size_t elemsize);
-void xne_tree_add_child(xne_Tree_t* parent, void* value);
+void xne_tree_fixed_childrens(xne_Tree_t* parent, size_t count);
+xne_Tree_t* xne_tree_add_child(xne_Tree_t* parent, void* value);
 
 void xne_tree_set_value(xne_Tree_t* tree, void* value);
 void* xne_tree_get_value(xne_Tree_t* tree);
 
-static inline xne_Tree_t* xne_tree_get_child(xne_Tree_t* tree, size_t child){
-    return &tree->childs[child];
-}
+xne_Tree_t* xne_tree_get_child(xne_Tree_t* tree, size_t child);
 
 static inline void* xne_tree_get_child_value(xne_Tree_t* tree, size_t child){
     return xne_tree_get_value(xne_tree_get_child(tree, child));

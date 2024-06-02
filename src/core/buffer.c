@@ -79,21 +79,41 @@ void xne_create_tree(xne_Tree_t* tree, void* value, size_t elemsize){
     xne_tree_set_value(tree, value);
 }
 
-void xne_tree_add_child(xne_Tree_t* parent, void* value){
+void xne_tree_fixed_childrens(xne_Tree_t* parent, size_t count){
     assert(parent);
 
-    if(parent->child_count){
-        parent->childs = realloc(parent->childs, sizeof(xne_Tree_t) * parent->child_count + 1);
-        assert(parent->childs);
+    parent->childs = malloc(sizeof(xne_Tree_t) * count);
+    parent->child_count = count;
 
-        parent->child_count++;
+    xne_Tree_t* node;
+    for (size_t i = 0; i < count; i++)
+    {
+        node = &parent->childs[i];
+        node->root = parent->root;
+        node->parent = parent;
+        node->child_count = 0;
+        node->childs = NULL;
+        node->memory.elemsize = parent->memory.elemsize;
+        node->memory.size = parent->memory.size;
+        node->memory.ptr = NULL;
+
+        xne_tree_set_value(node, NULL);
+    }
+}
+
+xne_Tree_t* xne_tree_add_child(xne_Tree_t* parent, void* value){
+    assert(parent);
+
+    if(parent->child_count > 0){
+        parent->childs = realloc(parent->childs, sizeof(xne_Tree_t) * (parent->child_count + 1));
+        assert(parent->childs);
     }
     else {
         parent->childs = malloc(sizeof(xne_Tree_t));
         assert(parent->childs);
-
-        parent->child_count++;
     }
+
+    parent->child_count++;
 
     xne_Tree_t* node = &parent->childs[parent->child_count];
     node->root = parent->root;
@@ -105,20 +125,24 @@ void xne_tree_add_child(xne_Tree_t* parent, void* value){
     node->memory.ptr = NULL;
 
     xne_tree_set_value(node, value);
+    return node;
+}
+
+xne_Tree_t* xne_tree_get_child(xne_Tree_t* tree, size_t child){
+    assert(child >= 0 && child <= tree->child_count);
+    return &tree->childs[child];
 }
 
 void xne_tree_set_value(xne_Tree_t* tree, void* value){
-    if(value){
-        if(!tree->memory.ptr){
-
-            if(tree->memory.size){
-                tree->memory.ptr = malloc(tree->memory.size);
-                assert(tree->memory.ptr);
-
-                memset(tree->memory.ptr, 0, tree->memory.size);
-            }
+    if(!tree->memory.ptr){
+        if(tree->memory.size){
+            tree->memory.ptr = malloc(tree->memory.size);
+            assert(tree->memory.ptr);
+            memset(tree->memory.ptr, 0, tree->memory.size);
         }
-
+    }
+    
+    if(value){
         memcpy(tree->memory.ptr, value, tree->memory.size);
     }
 }

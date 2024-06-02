@@ -8,10 +8,11 @@ typedef struct xne_Transform {
     float rotation[4];
     float scale[3];
     float local[4][4];
-    float object[4][4];
+    float world[4][4];
 } xne_Transform_t;
 
 void xne_create_transform(xne_Transform_t* transform);
+
 void xne_transform_moveat(xne_Transform_t* transform, float x, float y, float z);
 void xne_transform_moveto(xne_Transform_t* transform, float x, float y, float z);
 void xne_transform_scaleat(xne_Transform_t* transform, float x, float y, float z);

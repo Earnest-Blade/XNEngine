@@ -12,16 +12,16 @@
 
 #include <stdio.h>
 
+typedef struct xne_ModelNode {
+    char* name;
+
+    xne_Transform_t transform;
+    struct xne_Mesh* mesh;
+    struct xne_Material* material;
+} xne_ModelNode_t;
+
 typedef struct xne_Model {
-    struct xne__Model_Node {
-        char* name;
-
-        xne_Vector_t childs;
-        xne_Transform_t transform;
-
-        struct xne_Mesh* mesh;
-        struct xne_Material* material;
-    } root;
+    xne_Tree_t root;
 
     xne_Vector_t meshes;
     xne_Vector_t textures;
@@ -40,8 +40,8 @@ static int xne_create_model(xne_Model_t* model, const char* path){
 void xne_draw_model(xne_Model_t* model);
 void xne_destroy_model(xne_Model_t* model);
 
-static inline struct xne__Model_Node* xne_get_node_childs(struct xne__Model_Node* node, uint32_t index){
-    return (struct xne__Model_Node*)xne_vector_get(&node->childs, index);
+static inline struct xne__Model_Node* xne_get_node_childs(xne_ModelNode_t* node, uint32_t index){
+    return NULL;
 }
 
 #endif

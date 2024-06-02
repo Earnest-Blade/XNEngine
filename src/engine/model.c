@@ -13,9 +13,12 @@
 #include <string.h>
 #include <memory.h>
 
-static void xne__model_create_node(json_object* json, xne_Model_t* model, struct xne__Model_Node* node){
+static void xne__model_create_node(json_object* json, xne_Model_t* model, xne_Tree_t* tree){
     assert(json);
     assert(model);
+    assert(tree);
+
+    xne_ModelNode_t* node = (xne_ModelNode_t*) xne_tree_get_value(tree);
     assert(node);
 
     const json_object* childs = json_object_object_get(json, "Childs");
@@ -38,13 +41,11 @@ static void xne__model_create_node(json_object* json, xne_Model_t* model, struct
         xne_transform_moveto(&node->transform, 0, 0, 0);
     }
 
-    xne_create_fixed_vector(&node->childs, sizeof(struct xne__Model_Node), json_object_array_length(childs));
-
     node->mesh = NULL;
     node->material = NULL;
     node->name = (char*) malloc(json_object_get_string_len(name) + 1);
     strcpy(node->name, json_object_get_string(name));
-
+    
     if(json_object_get_type(mesh) != json_type_null){
         node->mesh = (xne_Mesh_t*) xne_vector_get(&model->meshes, json_object_get_uint64(mesh));
     }
@@ -53,31 +54,40 @@ static void xne__model_create_node(json_object* json, xne_Model_t* model, struct
         node->material = (xne_Material_t*) xne_vector_get(&model->materials, json_object_get_uint64(material));
     }
 
-    for (size_t i = 0; i < node->childs.count; i++)
+    xne_tree_fixed_childrens(tree, json_object_array_length(childs));
+    for (size_t i = 0; i < tree->child_count; i++)
     {
-        xne__model_create_node(
-            json_object_array_get_idx(childs, i), 
-            model,
-            (struct xne__Model_Node*) xne_vector_get(&node->childs, i)
-        );
+        xne__model_create_node(json_object_array_get_idx(childs, i), model, xne_tree_get_child(tree, i));
     }
 }
 
-static void xne__model_draw_node(struct xne__Model_Node* node){
-    if(!node) return;
-
-    for (size_t i = 0; i < node->childs.count; i++)
-    {
-        xne__model_draw_node((struct xne__Model_Node*) xne_vector_get(&node->childs, i));
+static void xne__model_world_mat(xne_ModelNode_t* node, xne_Tree_t* tree){
+    if(xne_tree_is_root(tree)){
+        glm_mat4_identity(node->transform.world);
     }
-    
-    if(!node->mesh || !node->material) return;
+
+    xne__model_world_mat((xne_ModelNode_t*)xne_tree_get_value(tree->parent), tree->parent);
+    assert(0);
+}
+
+static void xne__model_draw_node(xne_Tree_t* tree){
+    if(!tree) return;
+
+    for (size_t i = 0; i < tree->child_count; i++)
+    {
+        xne__model_draw_node(xne_tree_get_child(tree, i));
+    }
+
+    xne_ModelNode_t* node = (xne_ModelNode_t*) xne_tree_get_value(tree);
+    if(!node || !node->mesh || !node->material) return;
+
     xne_shader_enable(&node->material->shader);
     
     xne_shader_use_uniform(&node->material->shader, 0, xne_get_camera_projection(&xne_get_engine_instance()->state.scene->camera));
     xne_shader_use_uniform(&node->material->shader, 1, xne_transform_matrix(&node->transform));
 
-    /* UNITS CREATE UNIFORM1F ERROR ON TEXTURE0 */
+    // in order to keep an ordered unit, units aren't fixed but dynamics.
+    // So, if a texture isn't use, it's unit will be use by the next texture.
     uint32_t units = 0;
 
     if(node->material->ambient_texture){
@@ -95,15 +105,15 @@ static void xne__model_draw_node(struct xne__Model_Node* node){
     xne_shader_disable(NULL);
 }
 
-static void xne__model_destroy_node(struct xne__Model_Node* node){
-    if(!node) return;
+static void xne__model_destroy_node(xne_Tree_t* tree){
+    if(!tree) return;
 
-    for (size_t i = 0; i < node->childs.count; i++)
+    for (size_t i = 0; i < tree->child_count; i++)
     {
-        xne__model_destroy_node((struct xne__Model_Node*)xne_vector_get(&node->childs, i));
+        xne__model_destroy_node(xne_tree_get_child(tree, i));
     }
 
-    xne_destroy_vector(&node->childs);
+    xne_ModelNode_t* node = (xne_ModelNode_t*) tree->memory.ptr;
     free(node->name);
 }
 
@@ -311,7 +321,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         return XNE_FAILURE;
     }
 
-    model->root;
+    xne_create_tree(&model->root, NULL, sizeof(xne_ModelNode_t));
     xne__model_create_node(json_object_object_get(json_scene, "Root"), model, &model->root);
 
     free(fstr);
@@ -326,6 +336,7 @@ void xne_draw_model(xne_Model_t* model){
 
 void xne_destroy_model(xne_Model_t* model){
     xne__model_destroy_node(&model->root);
+    xne_destroy_tree(&model->root);
 
     xne_destroy_vector(&model->meshes);
     xne_destroy_vector(&model->textures);

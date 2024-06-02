@@ -45,4 +45,20 @@ static void xne__object_create_quat(const xne_JsonPtr_t __o, float* __dest){
     __dest[0] = (float)json_object_get_double(json_object_object_get(__o, "W"));
 }
 
+typedef struct xne_Node {
+    const char* name;
+    struct xne_Buffer buffer;
+    xne_ObjectTypes_t type;
+    xne_Transform_t transform;
+} xne_Node_t;
+
+typedef struct xne_Object {
+    const char* name;
+    xne_Tree_t root;
+} xne_Object_t;
+
+void xne_create_objectf(xne_Object_t* object, FILE* file);
+
+void xne_destroy_object(xne_Object_t* object);
+
 #endif
