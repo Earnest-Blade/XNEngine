@@ -28,6 +28,11 @@ static void xne__model_create_node(json_object* json, xne_Model_t* model, xne_Tr
     json_object* name = json_object_object_get(json, "Name");
         
     xne_create_transform(&node->transform);
+
+    if(!xne_tree_is_root(tree)){
+        node->transform.parent = &((xne_ModelNode_t*)xne_tree_get_value(tree->parent))->transform;
+    }
+
     if(json_object_get_type(transform) != json_type_null){
         vec3 position, scale;
         vec4 rotation;
@@ -38,7 +43,7 @@ static void xne__model_create_node(json_object* json, xne_Model_t* model, xne_Tr
         glm_vec3_copy(position, node->transform.position);
         glm_vec3_copy(scale, node->transform.scale);
         glm_vec4_copy(rotation, node->transform.rotation);
-        xne_transform_moveto(&node->transform, 0, 0, 0);
+        xne_transform_move_to(&node->transform, 0, 0, 0);
     }
 
     node->mesh = NULL;
@@ -61,15 +66,6 @@ static void xne__model_create_node(json_object* json, xne_Model_t* model, xne_Tr
     }
 }
 
-static void xne__model_world_mat(xne_ModelNode_t* node, xne_Tree_t* tree){
-    if(xne_tree_is_root(tree)){
-        glm_mat4_identity(node->transform.world);
-    }
-
-    xne__model_world_mat((xne_ModelNode_t*)xne_tree_get_value(tree->parent), tree->parent);
-    assert(0);
-}
-
 static void xne__model_draw_node(xne_Tree_t* tree){
     if(!tree) return;
 
@@ -85,6 +81,7 @@ static void xne__model_draw_node(xne_Tree_t* tree){
     
     xne_shader_use_uniform(&node->material->shader, 0, xne_get_camera_projection(&xne_get_engine_instance()->state.scene->camera));
     xne_shader_use_uniform(&node->material->shader, 1, xne_transform_matrix(&node->transform));
+    xne_shader_use_uniform(&node->material->shader, 2, xne_transform_world_matrix(&node->transform));
 
     // in order to keep an ordered unit, units aren't fixed but dynamics.
     // So, if a texture isn't use, it's unit will be use by the next texture.

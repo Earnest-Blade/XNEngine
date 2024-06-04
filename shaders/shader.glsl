@@ -15,9 +15,10 @@ out V_DATA {
 
 uniform mat4 projection;
 uniform mat4 transform;
+uniform mat4 world;
 
 void main() { 
-    gl_Position = projection * transform * vec4(in_position, 1.0); 
+    gl_Position = world * projection * transform * vec4(in_position, 1.0); 
 
     vertex.uvs = in_uvs;
     vertex.normals = in_normals;

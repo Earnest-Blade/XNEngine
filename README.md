@@ -10,7 +10,7 @@ The use of OpenGL facilitates the creation of high-quality 3D graphics. The engi
 
 ## XNE's Tools 
 XNEngine comes with development tools :
-- [XNE Assets](tools/)
+- [XNE Assets](tools/xne-tools-assets/)
 <br>XNE Assets is a tool used for converting 3d file formats (such as ```.fbx```, ```.dae```or ```.obj```) into a custom format that can be loaded into XNEngine.
 
 ## Third Party

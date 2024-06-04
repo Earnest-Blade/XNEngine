@@ -52,7 +52,7 @@ static inline void xne__update_player_mvt(xne_Camera_t* camera, float delta, flo
     if(xne_key_down(XNE_KEY_DOWN)) position[2] = speed * delta;
 
     xne_camera_moveto(camera, position[0], position[1], position[2]);
-    xne_transform_moveto(&state.sprite.transform, position[0], position[1], position[2]);
+    xne_transform_move_to(&state.sprite.transform, position[0], position[1], position[2]);
 }
 
 static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics){

@@ -10,14 +10,21 @@ const static float xne__forward_vecf[3] = {0.0f, 0.0f, 1.0f};
 
 static void xne__upadate_transform_mat(xne_Transform_t* transform){
     glm_mat4_identity(transform->local);
+    glm_mat4_identity(transform->world);
 
-    glm_scale(transform->local, transform->scale);
+    // local matrix
     glm_translate(transform->local, transform->position);
     glm_quat_rotate(transform->local, transform->rotation, transform->local);
+    glm_scale(transform->local, transform->scale);
+
+    if(!xne_transform_is_root(transform)){
+        glm_mat4_mul(transform->parent->local, transform->parent->world, transform->world);
+    }
 }
 
 void xne_create_transform(xne_Transform_t* transform){
     memset(transform, 0, sizeof(xne_Transform_t));
+    transform->parent = NULL;
     transform->scale[0] = 1;
     transform->scale[1] = 1;
     transform->scale[2] = 1;
@@ -28,7 +35,11 @@ void xne_create_transform(xne_Transform_t* transform){
     xne__upadate_transform_mat(transform);
 }
 
-void xne_transform_moveat(xne_Transform_t* transform, float x, float y, float z){
+void xne_transform_add(xne_Transform_t* dest, const xne_Transform_t* other){
+   
+}
+
+void xne_transform_move(xne_Transform_t* transform, float x, float y, float z){
     transform->position[0] = x;
     transform->position[1] = y;
     transform->position[2] = z;
@@ -36,7 +47,7 @@ void xne_transform_moveat(xne_Transform_t* transform, float x, float y, float z)
     xne__upadate_transform_mat(transform);
 }
 
-void xne_transform_moveto(xne_Transform_t* transform, float x, float y, float z){
+void xne_transform_move_to(xne_Transform_t* transform, float x, float y, float z){
     transform->position[0] += x;
     transform->position[1] += y;
     transform->position[2] += z;
@@ -44,7 +55,7 @@ void xne_transform_moveto(xne_Transform_t* transform, float x, float y, float z)
     xne__upadate_transform_mat(transform);
 }
 
-void xne_transform_scaleat(xne_Transform_t* transform, float x, float y, float z){
+void xne_transform_scale(xne_Transform_t* transform, float x, float y, float z){
     transform->scale[0] = x;
     transform->scale[1] = y;
     transform->scale[2] = z;
@@ -52,7 +63,7 @@ void xne_transform_scaleat(xne_Transform_t* transform, float x, float y, float z
     xne__upadate_transform_mat(transform);
 }
 
-void xne_transform_scaleto(xne_Transform_t* transform, float x, float y, float z){
+void xne_transform_scale_to(xne_Transform_t* transform, float x, float y, float z){
     transform->scale[0] += x;
     transform->scale[1] += y;
     transform->scale[2] += z;
@@ -60,7 +71,7 @@ void xne_transform_scaleto(xne_Transform_t* transform, float x, float y, float z
     xne__upadate_transform_mat(transform);
 }
 
-void xne_transform_rotateat(xne_Transform_t* transform, float roll, float pitch, float yaw){
+void xne_transform_rotate(xne_Transform_t* transform, float roll, float pitch, float yaw){
     glm_quat_identity(transform->rotation);
 
     float quat0[4], quat1[4], quat2[4];
@@ -75,7 +86,7 @@ void xne_transform_rotateat(xne_Transform_t* transform, float roll, float pitch,
     xne__upadate_transform_mat(transform);
 }
 
-void xne_transform_rotateto(xne_Transform_t* transform, float roll, float pitch, float yaw){
+void xne_transform_rotate_to(xne_Transform_t* transform, float roll, float pitch, float yaw){
     float xquat[3] = {1.0f, 0.0f, 0.0f};
     float yquat[3] = {1.0f, 0.0f, 0.0f};
     float zquat[3] = {1.0f, 0.0f, 0.0f};

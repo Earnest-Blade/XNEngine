@@ -269,8 +269,6 @@ static inline void xne__update_sprite(xne_Sprite_t* sprite){
             if(sprite->animations.current_frame + delta >= timeline->duration){
                 sprite->animations.current_frame = 0.0f;
                 timeline->current_marker = 0;
-
-                fprintf(stdout, "ending a loop!");
             }
             else {
                 timeline->current_marker += 1;
