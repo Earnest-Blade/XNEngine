@@ -107,8 +107,8 @@ int xne_create_shaderf(xne_Shader_t* shader, FILE* file, const xne_ShaderDesc_t*
     int success;
     for (size_t i = 0; i < shader->count; i++)
     {
-        const char* strh = xne_str_merge("#define ", desc[i].name);
-        const char* buffer = (char*) xne_str_insert(fstr, strh, offset);
+        const char* strh = xne_string_merge("#define ", desc[i].name);
+        const char* buffer = (char*) xne_string_insert(fstr, strh, offset);
 
         success = xne__compile_shader(&shader->shaders[i], desc[i].type, buffer);
         if(success == XNE_FAILURE){

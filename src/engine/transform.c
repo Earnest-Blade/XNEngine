@@ -17,6 +17,7 @@ static void xne__upadate_transform_mat(xne_Transform_t* transform){
     glm_quat_rotate(transform->local, transform->rotation, transform->local);
     glm_scale(transform->local, transform->scale);
 
+    // world matrices
     if(!xne_transform_is_root(transform)){
         glm_mat4_mul(transform->parent->local, transform->parent->world, transform->world);
     }
@@ -36,7 +37,15 @@ void xne_create_transform(xne_Transform_t* transform){
 }
 
 void xne_transform_add(xne_Transform_t* dest, const xne_Transform_t* other){
-   
+   glm_quat_add(dest->rotation, (float*)other->rotation, dest->rotation);
+   glm_vec3_add(dest->scale, (float*)other->scale, dest->scale);
+   glm_vec3_add(dest->position, (float*)other->position, dest->position);
+}
+
+void xne_transform_sub(xne_Transform_t* dest, const xne_Transform_t* other){
+   glm_quat_sub(dest->rotation, (float*)other->rotation, dest->rotation);
+   glm_vec3_sub(dest->scale, (float*)other->scale, dest->scale);
+   glm_vec3_sub(dest->position, (float*)other->position, dest->position);
 }
 
 void xne_transform_move(xne_Transform_t* transform, float x, float y, float z){

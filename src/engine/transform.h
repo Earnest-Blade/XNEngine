@@ -15,6 +15,7 @@ typedef struct xne_Transform {
 void xne_create_transform(xne_Transform_t* transform);
 
 void xne_transform_add(xne_Transform_t* dest, const xne_Transform_t* other);
+void xne_transform_sub(xne_Transform_t* dest, const xne_Transform_t* other);
 
 void xne_transform_move(xne_Transform_t* transform, float x, float y, float z);
 void xne_transform_move_to(xne_Transform_t* transform, float x, float y, float z);
@@ -26,6 +27,7 @@ void xne_transform_rotate_to(xne_Transform_t* transform, float roll, float pitch
 void xne_transform_direction_forward(xne_Transform_t* transform, float dest[3]);
 void xne_transform_direction_up(xne_Transform_t* transform, float dest[3]);
 void xne_transform_direction_left(xne_Transform_t* transform, float dest[3]);
+
 /*
     Extract transform direction such as:
     

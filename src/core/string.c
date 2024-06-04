@@ -1,20 +1,17 @@
 #include "string.h"
 
 #include <stdlib.h>
-#include <stddef.h>
 #include <stdint.h>
 #include <stdarg.h>
 #include <string.h>
-#include <malloc.h>
 
 #include <stdio.h>
-#include <ctype.h>
 
-#define XNE_STR_BUFFER 2048
+#define XNE_STRING_BUFFER 2048
 
-static char __buffer[XNE_STR_BUFFER];
+static char __buffer[XNE_STRING_BUFFER];
 
-const char** xne_str_split(char* __str, const char __delim, unsigned int* __count){
+const char** xne_string_split(char* __str, const char __delim, unsigned int* __count){
     const char** str;
 
     size_t cnt;
@@ -40,7 +37,7 @@ const char** xne_str_split(char* __str, const char __delim, unsigned int* __coun
     return str;
 }
 
-const char* xne_str_insert(const char* __v0, const char* __v1, const size_t __offset){
+const char* xne_string_insert(const char* __v0, const char* __v1, const size_t __offset){
     char* str = (char*) calloc(strlen(__v0) + strlen(__v1) + 1, sizeof(char));
     strncpy(str, __v0, __offset);
     str[__offset] = '\0';
@@ -49,7 +46,7 @@ const char* xne_str_insert(const char* __v0, const char* __v1, const size_t __of
     return str;
 }
 
-double xne_str_to_digit(const char* __v0, size_t __size){
+double xne_str_parse_digit(const char* __v0, size_t __size){
     if(__v0){
         double value;
         
@@ -69,19 +66,19 @@ double xne_str_to_digit(const char* __v0, size_t __size){
     return 0;
 }
 
-const char* xne_str_format(const char* v0, ...){
+const char* xne_string_format(const char* v0, ...){
     va_list args;
     va_start(args, v0);
     
     size_t strlen = vsnprintf(0, 0, v0, args);
     va_end(args);
     
-    if(strlen >= XNE_STR_BUFFER){
-        fprintf(stdout, "trying to allocate more than 2048 bytes to a formatted string!");
+    if(strlen >= XNE_STRING_BUFFER){
+        fprintf(stderr, "buffer overflow! Formatted strings cannot be larger than %i bytes!\n", XNE_STRING_BUFFER);
         return NULL;
     }
 
-    memset(&__buffer, 0, XNE_STR_BUFFER);
+    memset(&__buffer, 0, XNE_STRING_BUFFER);
     va_start(args, v0);
     vsnprintf(&__buffer[0], strlen, v0, args);
     va_end(args);
@@ -89,7 +86,7 @@ const char* xne_str_format(const char* v0, ...){
     return &__buffer[0];
 }
 
-const char* xne_str_merge(const char* __v0, const char* __v1){
+const char* xne_string_merge(const char* __v0, const char* __v1){
     char* buffer = malloc(strlen(__v0) + strlen(__v1) + 1);
     strcpy(buffer, __v0);
     strcat(buffer, __v1);

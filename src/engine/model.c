@@ -7,8 +7,6 @@
 #include "graphics/mesh.h"
 #include "graphics/texture.h"
 
-#include <cglm/cglm.h>
-
 #include <assert.h>
 #include <string.h>
 #include <memory.h>
@@ -34,15 +32,15 @@ static void xne__model_create_node(json_object* json, xne_Model_t* model, xne_Tr
     }
 
     if(json_object_get_type(transform) != json_type_null){
-        vec3 position, scale;
-        vec4 rotation;
+        float position[3], scale[3];
+        float rotation[4];
         xne__object_create_vec3(json_object_object_get(transform, "Position"), position);
         xne__object_create_vec3(json_object_object_get(transform, "Scale"), scale);
         xne__object_create_quat(json_object_object_get(transform, "Rotation"), rotation);
 
-        glm_vec3_copy(position, node->transform.position);
-        glm_vec3_copy(scale, node->transform.scale);
-        glm_vec4_copy(rotation, node->transform.rotation);
+        memcpy(node->transform.position, position, 3 * sizeof(float));
+        memcpy(node->transform.scale, scale, 3 * sizeof(float));
+        memcpy(node->transform.rotation, rotation, 4 * sizeof(float));
         xne_transform_move_to(&node->transform, 0, 0, 0);
     }
 
