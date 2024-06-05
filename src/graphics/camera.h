@@ -4,6 +4,7 @@
 #define XNE_CAMERA_IMPL
 
 #include "core/core.h"
+#include "core/math.h"
 
 #define XNE_DISABLE_PITCH_FLIP
 
@@ -26,13 +27,13 @@ typedef struct xne_Camera {
     int* width;
     int* height;
     float fov, near, far;
-    float eye[3];
-    float look[3];
-    float direction[3];
+    xne_vec3 eye;
+    xne_vec3 look;
+    xne_vec3 direction;
 
-    float screen[4][4];
-    float view[4][4];
-    float projection[4][4];
+    xne_mat4 screen;
+    xne_mat4 view;
+    xne_mat4 projection;
 } xne_Camera_t;
 
 void xne_create_camera(xne_Camera_t* camera, xne_Camera_Desc_t desc);

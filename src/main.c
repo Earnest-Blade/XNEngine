@@ -48,8 +48,8 @@ static inline void xne__update_player_mvt(xne_Camera_t* camera, float delta, flo
 
     if(xne_key_down(XNE_KEY_LEFT)) position[0] = -speed * delta;
     if(xne_key_down(XNE_KEY_RIGHT)) position[0] = speed * delta;
-    if(xne_key_down(XNE_KEY_UP)) position[2] = -speed * delta;
-    if(xne_key_down(XNE_KEY_DOWN)) position[2] = speed * delta;
+    if(xne_key_down(XNE_KEY_UP)) position[2] = speed * delta;
+    if(xne_key_down(XNE_KEY_DOWN)) position[2] = -speed * delta;
 
     xne_camera_moveto(camera, position[0], position[1], position[2]);
     xne_transform_move_to(&state.sprite.transform, position[0], position[1], position[2]);
@@ -68,12 +68,12 @@ static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics)
     xne_create_graphic_device(graphics, graphic_device_desc);
 
     xne_Camera_Desc_t camera_desc;
-    camera_desc.projection = XNE_CAMERA_PERSPECTIVE;
+    camera_desc.projection = XNE_CAMERA_ORTHO;
     camera_desc.width = (int*) &window->framebufferSize[0];
     camera_desc.height = (int*) &window->framebufferSize[1];
     camera_desc.fov = 60.0f;
     camera_desc.far = 100.0f;
-    camera_desc.near = 0.1f;
+    camera_desc.near = 0.0f;
 
     xne_create_scene(&state.scene, "Hello scene", &camera_desc);
     xne_get_engine_instance()->state.scene = &state.scene;
@@ -83,7 +83,7 @@ static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics)
     xne_create_sprite(&state.sprite, "assets/objects/one_spritesheet.xneo");
     state.sprite.frame = 1;
 
-    xne_camera_rotateat(&state.scene.camera, 0.0f, -90.0f, -15.0f);
+    xne_camera_rotateat(&state.scene.camera, 0.0f, -90.0f, 30.0f);
     xne_camera_moveat(&state.scene.camera, 0, 0.5f, XNE_CAMERA_DISTANCE);
 }
 

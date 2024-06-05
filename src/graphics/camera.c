@@ -9,25 +9,23 @@
 #include <cglm/quat.h>
 
 static void xne__process_projection(xne_Camera_t* camera){
+    memset(camera->screen, 0, sizeof(xne_mat4));
+
     if(camera->mode == XNE_CAMERA_PERSPECTIVE){
         const float aspect = (float)*camera->width / (float)*camera->height;
-        const float fn = tan(glm_rad(camera->fov) / 2);
-
-        memset(camera->screen, 0, sizeof(camera->screen));
-        camera->screen[0][0] = 1 / (aspect * fn);
-        camera->screen[1][1] = 1 / fn;
-        camera->screen[2][2] = (-(camera->far + camera->near) / (camera->far - camera->near));
-        camera->screen[3][2] = (-(2 * camera->far * camera->near) / (camera->far - camera->near));
-        camera->screen[2][3] = -1;
-        
+        xne_perpective_projection(aspect, camera->fov, camera->near, camera->far, camera->screen);
         return;
     }
-    assert(0);
+
+    if(camera->mode == XNE_CAMERA_ORTHO){
+        xne_orthographic_projection(*camera->width, *camera->height, camera->near, camera->far, camera->fov, camera->screen);
+        return;
+    }
 }
 
 static void xne__process_view(xne_Camera_t* camera){
-    float front[3], right[3], up[3];
-    float upv[3] = {0.0f, 1.0f, 0.0f};
+    xne_vec3 front, right, up;
+    xne_vec3 upv = {0.0f, 1.0f, 0.0f};
 
     glm_normalize_to(camera->direction, front);
 
@@ -39,7 +37,7 @@ static void xne__process_view(xne_Camera_t* camera){
     glm_vec3_sub(front, camera->eye, front);
     glm_vec3_normalize_to(front, front);
 
-    float side[3];
+    xne_vec3 side;
     glm_vec3_crossn(front, up, side);
     glm_vec3_crossn(side, front, up);
 
