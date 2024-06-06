@@ -6,7 +6,7 @@ set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 set(BUILD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/build)
-set(BIN_DIR ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+set(BIN_DIR ${CMAKE_SOURCE_DIR}/bin)
 
 set(MAIN "${SOURCE_DIR}/main.c")
 
@@ -37,12 +37,15 @@ if( NOT EXISTS ${JSON_LIB})
     message(FATAL_ERROR "Cannot find JSON-C '${JSON_LIB}'")
 endif()
 
-add_executable(xne)
+if(${XNE_COMPILE_AS_LIB})
+    add_library(xne SHARED)
+else()
+    add_executable(xne ${MAIN})
+endif()
+
 find_package(OpenGL REQUIRED)
 
-target_sources(xne PRIVATE ${MAIN})
-
-target_link_libraries(xne 
+target_link_libraries(xne PUBLIC
     ${OPENGL_LIBRARIES} 
     ${GLEW_LIB} 
     ${GLFW_LIB}
@@ -51,7 +54,7 @@ target_link_libraries(xne
     ${JSON_LIB}
 )
 
-target_include_directories(xne PRIVATE ${SOURCE_DIR})
+target_include_directories(xne PUBLIC ${SOURCE_DIR})
 
 add_subdirectory("${SOURCE_DIR}/core")
 add_subdirectory("${SOURCE_DIR}/graphics")

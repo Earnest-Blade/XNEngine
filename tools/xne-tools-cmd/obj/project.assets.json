@@ -4716,11 +4716,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Code\\XNEngine\\tools\\xne-tools-cmd\\xne-tools-cmd.csproj",
+      "projectUniqueName": "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-cmd\\xne-tools-cmd.csproj",
       "projectName": "xne-tools-cmd",
-      "projectPath": "E:\\Code\\XNEngine\\tools\\xne-tools-cmd\\xne-tools-cmd.csproj",
+      "projectPath": "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-cmd\\xne-tools-cmd.csproj",
       "packagesPath": "C:\\Users\\luca\\.nuget\\packages\\",
-      "outputPath": "E:\\Code\\XNEngine\\tools\\xne-tools-cmd\\obj\\",
+      "outputPath": "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-cmd\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Users\\luca\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",
@@ -4743,8 +4743,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\Code\\XNEngine\\tools\\xne-tools-assets\\xne-tools-assets.csproj": {
-              "projectPath": "E:\\Code\\XNEngine\\tools\\xne-tools-assets\\xne-tools-assets.csproj"
+            "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-assets\\xne-tools-assets.csproj": {
+              "projectPath": "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-assets\\xne-tools-assets.csproj"
             }
           }
         }

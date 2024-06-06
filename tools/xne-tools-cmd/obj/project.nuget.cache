@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/rC0RB5+u3dfIOfXO28gqoSRTvOf3lZpGUKwPBjhKvMrIQ9FrvKFyxIt738f4N14dGloHgxJ/lNm+c4zQywkEg==",
+  "dgSpecHash": "N5llNNIiqC2qN+VP+GwmtUcaTDpk7m8M0ezMFDmYHu96TGiAirKkoR+MvdEJiOdD9fyx9FGu12ntkprmts/QAg==",
   "success": true,
-  "projectFilePath": "E:\\Code\\XNEngine\\tools\\xne-tools-cmd\\xne-tools-cmd.csproj",
+  "projectFilePath": "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-cmd\\xne-tools-cmd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\luca\\.nuget\\packages\\assimpnet\\4.1.0\\assimpnet.4.1.0.nupkg.sha512",
     "C:\\Users\\luca\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

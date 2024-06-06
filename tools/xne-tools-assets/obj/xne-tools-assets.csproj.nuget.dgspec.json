@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Code\\XNEngine\\tools\\xne-tools-assets\\xne-tools-assets.csproj": {}
+    "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-assets\\xne-tools-assets.csproj": {}
   },
   "projects": {
-    "E:\\Code\\XNEngine\\tools\\xne-tools-assets\\xne-tools-assets.csproj": {
+    "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-assets\\xne-tools-assets.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Code\\XNEngine\\tools\\xne-tools-assets\\xne-tools-assets.csproj",
+        "projectUniqueName": "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-assets\\xne-tools-assets.csproj",
         "projectName": "xne-tools-assets",
-        "projectPath": "E:\\Code\\XNEngine\\tools\\xne-tools-assets\\xne-tools-assets.csproj",
+        "projectPath": "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-assets\\xne-tools-assets.csproj",
         "packagesPath": "C:\\Users\\luca\\.nuget\\packages\\",
-        "outputPath": "E:\\Code\\XNEngine\\tools\\xne-tools-assets\\obj\\",
+        "outputPath": "E:\\Code\\MDreams\\Source\\extern\\xnengine\\tools\\xne-tools-assets\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Users\\luca\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder",

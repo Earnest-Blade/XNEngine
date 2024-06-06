@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = xne_tools_cmd
-build_property.ProjectDir = E:\Code\XNEngine\tools\xne-tools-cmd\
+build_property.ProjectDir = E:\Code\MDreams\Source\extern\xnengine\tools\xne-tools-cmd\

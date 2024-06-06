@@ -1,4 +1,3 @@
-
 #define XNE_CORE_BUFFER
 #include "core/core.h"
 
