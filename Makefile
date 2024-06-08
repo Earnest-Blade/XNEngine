@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\Code\MDreams\Source\extern\xnengine
+CMAKE_SOURCE_DIR = E:\Code\MDreams\Source
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\Code\MDreams\Source\extern\xnengine
+CMAKE_BINARY_DIR = E:\Code\MDreams\Source
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Code\MDreams\Source\extern\xnengine\CMakeFiles E:\Code\MDreams\Source\extern\xnengine\\CMakeFiles\progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Code\MDreams\Source\extern\xnengine\CMakeFiles 0
+	cd /d E:\Code\MDreams\Source && $(CMAKE_COMMAND) -E cmake_progress_start E:\Code\MDreams\Source\CMakeFiles E:\Code\MDreams\Source\extern\xnengine\\CMakeFiles\progress.marks
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/xnengine/all
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Code\MDreams\Source\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 clean
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/xnengine/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,30 +102,31 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/xnengine/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/xnengine/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d E:\Code\MDreams\Source && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named xne
+# Convenience name for target.
+extern/xnengine/CMakeFiles/xne.dir/rule:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/xnengine/CMakeFiles/xne.dir/rule
+.PHONY : extern/xnengine/CMakeFiles/xne.dir/rule
 
-# Build rule for target.
-xne: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 xne
+# Convenience name for target.
+xne: extern/xnengine/CMakeFiles/xne.dir/rule
 .PHONY : xne
 
 # fast build rule for target.
 xne/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/build
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/build
 .PHONY : xne/fast
 
 src/core/buffer.obj: src/core/buffer.c.obj
@@ -133,7 +134,7 @@ src/core/buffer.obj: src/core/buffer.c.obj
 
 # target to build an object file
 src/core/buffer.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/buffer.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/buffer.c.obj
 .PHONY : src/core/buffer.c.obj
 
 src/core/buffer.i: src/core/buffer.c.i
@@ -141,7 +142,7 @@ src/core/buffer.i: src/core/buffer.c.i
 
 # target to preprocess a source file
 src/core/buffer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/buffer.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/buffer.c.i
 .PHONY : src/core/buffer.c.i
 
 src/core/buffer.s: src/core/buffer.c.s
@@ -149,7 +150,7 @@ src/core/buffer.s: src/core/buffer.c.s
 
 # target to generate assembly for a file
 src/core/buffer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/buffer.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/buffer.c.s
 .PHONY : src/core/buffer.c.s
 
 src/core/compression.obj: src/core/compression.c.obj
@@ -157,7 +158,7 @@ src/core/compression.obj: src/core/compression.c.obj
 
 # target to build an object file
 src/core/compression.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/compression.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/compression.c.obj
 .PHONY : src/core/compression.c.obj
 
 src/core/compression.i: src/core/compression.c.i
@@ -165,7 +166,7 @@ src/core/compression.i: src/core/compression.c.i
 
 # target to preprocess a source file
 src/core/compression.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/compression.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/compression.c.i
 .PHONY : src/core/compression.c.i
 
 src/core/compression.s: src/core/compression.c.s
@@ -173,7 +174,7 @@ src/core/compression.s: src/core/compression.c.s
 
 # target to generate assembly for a file
 src/core/compression.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/compression.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/compression.c.s
 .PHONY : src/core/compression.c.s
 
 src/core/file.obj: src/core/file.c.obj
@@ -181,7 +182,7 @@ src/core/file.obj: src/core/file.c.obj
 
 # target to build an object file
 src/core/file.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/file.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/file.c.obj
 .PHONY : src/core/file.c.obj
 
 src/core/file.i: src/core/file.c.i
@@ -189,7 +190,7 @@ src/core/file.i: src/core/file.c.i
 
 # target to preprocess a source file
 src/core/file.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/file.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/file.c.i
 .PHONY : src/core/file.c.i
 
 src/core/file.s: src/core/file.c.s
@@ -197,7 +198,7 @@ src/core/file.s: src/core/file.c.s
 
 # target to generate assembly for a file
 src/core/file.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/file.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/file.c.s
 .PHONY : src/core/file.c.s
 
 src/core/string.obj: src/core/string.c.obj
@@ -205,7 +206,7 @@ src/core/string.obj: src/core/string.c.obj
 
 # target to build an object file
 src/core/string.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/string.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/string.c.obj
 .PHONY : src/core/string.c.obj
 
 src/core/string.i: src/core/string.c.i
@@ -213,7 +214,7 @@ src/core/string.i: src/core/string.c.i
 
 # target to preprocess a source file
 src/core/string.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/string.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/string.c.i
 .PHONY : src/core/string.c.i
 
 src/core/string.s: src/core/string.c.s
@@ -221,7 +222,7 @@ src/core/string.s: src/core/string.c.s
 
 # target to generate assembly for a file
 src/core/string.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/core/string.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/string.c.s
 .PHONY : src/core/string.c.s
 
 src/engine/engine.obj: src/engine/engine.c.obj
@@ -229,7 +230,7 @@ src/engine/engine.obj: src/engine/engine.c.obj
 
 # target to build an object file
 src/engine/engine.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/engine.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/engine.c.obj
 .PHONY : src/engine/engine.c.obj
 
 src/engine/engine.i: src/engine/engine.c.i
@@ -237,7 +238,7 @@ src/engine/engine.i: src/engine/engine.c.i
 
 # target to preprocess a source file
 src/engine/engine.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/engine.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/engine.c.i
 .PHONY : src/engine/engine.c.i
 
 src/engine/engine.s: src/engine/engine.c.s
@@ -245,7 +246,7 @@ src/engine/engine.s: src/engine/engine.c.s
 
 # target to generate assembly for a file
 src/engine/engine.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/engine.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/engine.c.s
 .PHONY : src/engine/engine.c.s
 
 src/engine/model.obj: src/engine/model.c.obj
@@ -253,7 +254,7 @@ src/engine/model.obj: src/engine/model.c.obj
 
 # target to build an object file
 src/engine/model.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/model.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/model.c.obj
 .PHONY : src/engine/model.c.obj
 
 src/engine/model.i: src/engine/model.c.i
@@ -261,7 +262,7 @@ src/engine/model.i: src/engine/model.c.i
 
 # target to preprocess a source file
 src/engine/model.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/model.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/model.c.i
 .PHONY : src/engine/model.c.i
 
 src/engine/model.s: src/engine/model.c.s
@@ -269,7 +270,7 @@ src/engine/model.s: src/engine/model.c.s
 
 # target to generate assembly for a file
 src/engine/model.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/model.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/model.c.s
 .PHONY : src/engine/model.c.s
 
 src/engine/sprite.obj: src/engine/sprite.c.obj
@@ -277,7 +278,7 @@ src/engine/sprite.obj: src/engine/sprite.c.obj
 
 # target to build an object file
 src/engine/sprite.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/sprite.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/sprite.c.obj
 .PHONY : src/engine/sprite.c.obj
 
 src/engine/sprite.i: src/engine/sprite.c.i
@@ -285,7 +286,7 @@ src/engine/sprite.i: src/engine/sprite.c.i
 
 # target to preprocess a source file
 src/engine/sprite.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/sprite.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/sprite.c.i
 .PHONY : src/engine/sprite.c.i
 
 src/engine/sprite.s: src/engine/sprite.c.s
@@ -293,7 +294,7 @@ src/engine/sprite.s: src/engine/sprite.c.s
 
 # target to generate assembly for a file
 src/engine/sprite.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/sprite.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/sprite.c.s
 .PHONY : src/engine/sprite.c.s
 
 src/engine/transform.obj: src/engine/transform.c.obj
@@ -301,7 +302,7 @@ src/engine/transform.obj: src/engine/transform.c.obj
 
 # target to build an object file
 src/engine/transform.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/transform.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/transform.c.obj
 .PHONY : src/engine/transform.c.obj
 
 src/engine/transform.i: src/engine/transform.c.i
@@ -309,7 +310,7 @@ src/engine/transform.i: src/engine/transform.c.i
 
 # target to preprocess a source file
 src/engine/transform.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/transform.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/transform.c.i
 .PHONY : src/engine/transform.c.i
 
 src/engine/transform.s: src/engine/transform.c.s
@@ -317,7 +318,7 @@ src/engine/transform.s: src/engine/transform.c.s
 
 # target to generate assembly for a file
 src/engine/transform.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/engine/transform.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/transform.c.s
 .PHONY : src/engine/transform.c.s
 
 src/graphics/camera.obj: src/graphics/camera.c.obj
@@ -325,7 +326,7 @@ src/graphics/camera.obj: src/graphics/camera.c.obj
 
 # target to build an object file
 src/graphics/camera.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/camera.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/camera.c.obj
 .PHONY : src/graphics/camera.c.obj
 
 src/graphics/camera.i: src/graphics/camera.c.i
@@ -333,7 +334,7 @@ src/graphics/camera.i: src/graphics/camera.c.i
 
 # target to preprocess a source file
 src/graphics/camera.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/camera.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/camera.c.i
 .PHONY : src/graphics/camera.c.i
 
 src/graphics/camera.s: src/graphics/camera.c.s
@@ -341,7 +342,7 @@ src/graphics/camera.s: src/graphics/camera.c.s
 
 # target to generate assembly for a file
 src/graphics/camera.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/camera.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/camera.c.s
 .PHONY : src/graphics/camera.c.s
 
 src/graphics/device.obj: src/graphics/device.c.obj
@@ -349,7 +350,7 @@ src/graphics/device.obj: src/graphics/device.c.obj
 
 # target to build an object file
 src/graphics/device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/device.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/device.c.obj
 .PHONY : src/graphics/device.c.obj
 
 src/graphics/device.i: src/graphics/device.c.i
@@ -357,7 +358,7 @@ src/graphics/device.i: src/graphics/device.c.i
 
 # target to preprocess a source file
 src/graphics/device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/device.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/device.c.i
 .PHONY : src/graphics/device.c.i
 
 src/graphics/device.s: src/graphics/device.c.s
@@ -365,7 +366,7 @@ src/graphics/device.s: src/graphics/device.c.s
 
 # target to generate assembly for a file
 src/graphics/device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/device.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/device.c.s
 .PHONY : src/graphics/device.c.s
 
 src/graphics/framebuffer.obj: src/graphics/framebuffer.c.obj
@@ -373,7 +374,7 @@ src/graphics/framebuffer.obj: src/graphics/framebuffer.c.obj
 
 # target to build an object file
 src/graphics/framebuffer.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/framebuffer.c.obj
 .PHONY : src/graphics/framebuffer.c.obj
 
 src/graphics/framebuffer.i: src/graphics/framebuffer.c.i
@@ -381,7 +382,7 @@ src/graphics/framebuffer.i: src/graphics/framebuffer.c.i
 
 # target to preprocess a source file
 src/graphics/framebuffer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/framebuffer.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/framebuffer.c.i
 .PHONY : src/graphics/framebuffer.c.i
 
 src/graphics/framebuffer.s: src/graphics/framebuffer.c.s
@@ -389,7 +390,7 @@ src/graphics/framebuffer.s: src/graphics/framebuffer.c.s
 
 # target to generate assembly for a file
 src/graphics/framebuffer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/framebuffer.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/framebuffer.c.s
 .PHONY : src/graphics/framebuffer.c.s
 
 src/graphics/graphics.obj: src/graphics/graphics.c.obj
@@ -397,7 +398,7 @@ src/graphics/graphics.obj: src/graphics/graphics.c.obj
 
 # target to build an object file
 src/graphics/graphics.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/graphics.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/graphics.c.obj
 .PHONY : src/graphics/graphics.c.obj
 
 src/graphics/graphics.i: src/graphics/graphics.c.i
@@ -405,7 +406,7 @@ src/graphics/graphics.i: src/graphics/graphics.c.i
 
 # target to preprocess a source file
 src/graphics/graphics.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/graphics.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/graphics.c.i
 .PHONY : src/graphics/graphics.c.i
 
 src/graphics/graphics.s: src/graphics/graphics.c.s
@@ -413,7 +414,7 @@ src/graphics/graphics.s: src/graphics/graphics.c.s
 
 # target to generate assembly for a file
 src/graphics/graphics.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/graphics.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/graphics.c.s
 .PHONY : src/graphics/graphics.c.s
 
 src/graphics/mesh.obj: src/graphics/mesh.c.obj
@@ -421,7 +422,7 @@ src/graphics/mesh.obj: src/graphics/mesh.c.obj
 
 # target to build an object file
 src/graphics/mesh.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/mesh.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/mesh.c.obj
 .PHONY : src/graphics/mesh.c.obj
 
 src/graphics/mesh.i: src/graphics/mesh.c.i
@@ -429,7 +430,7 @@ src/graphics/mesh.i: src/graphics/mesh.c.i
 
 # target to preprocess a source file
 src/graphics/mesh.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/mesh.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/mesh.c.i
 .PHONY : src/graphics/mesh.c.i
 
 src/graphics/mesh.s: src/graphics/mesh.c.s
@@ -437,7 +438,7 @@ src/graphics/mesh.s: src/graphics/mesh.c.s
 
 # target to generate assembly for a file
 src/graphics/mesh.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/mesh.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/mesh.c.s
 .PHONY : src/graphics/mesh.c.s
 
 src/graphics/shader.obj: src/graphics/shader.c.obj
@@ -445,7 +446,7 @@ src/graphics/shader.obj: src/graphics/shader.c.obj
 
 # target to build an object file
 src/graphics/shader.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/shader.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/shader.c.obj
 .PHONY : src/graphics/shader.c.obj
 
 src/graphics/shader.i: src/graphics/shader.c.i
@@ -453,7 +454,7 @@ src/graphics/shader.i: src/graphics/shader.c.i
 
 # target to preprocess a source file
 src/graphics/shader.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/shader.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/shader.c.i
 .PHONY : src/graphics/shader.c.i
 
 src/graphics/shader.s: src/graphics/shader.c.s
@@ -461,7 +462,7 @@ src/graphics/shader.s: src/graphics/shader.c.s
 
 # target to generate assembly for a file
 src/graphics/shader.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/shader.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/shader.c.s
 .PHONY : src/graphics/shader.c.s
 
 src/graphics/texture.obj: src/graphics/texture.c.obj
@@ -469,7 +470,7 @@ src/graphics/texture.obj: src/graphics/texture.c.obj
 
 # target to build an object file
 src/graphics/texture.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/texture.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/texture.c.obj
 .PHONY : src/graphics/texture.c.obj
 
 src/graphics/texture.i: src/graphics/texture.c.i
@@ -477,7 +478,7 @@ src/graphics/texture.i: src/graphics/texture.c.i
 
 # target to preprocess a source file
 src/graphics/texture.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/texture.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/texture.c.i
 .PHONY : src/graphics/texture.c.i
 
 src/graphics/texture.s: src/graphics/texture.c.s
@@ -485,7 +486,7 @@ src/graphics/texture.s: src/graphics/texture.c.s
 
 # target to generate assembly for a file
 src/graphics/texture.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/texture.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/texture.c.s
 .PHONY : src/graphics/texture.c.s
 
 src/graphics/ui/ui.obj: src/graphics/ui/ui.c.obj
@@ -493,7 +494,7 @@ src/graphics/ui/ui.obj: src/graphics/ui/ui.c.obj
 
 # target to build an object file
 src/graphics/ui/ui.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj
 .PHONY : src/graphics/ui/ui.c.obj
 
 src/graphics/ui/ui.i: src/graphics/ui/ui.c.i
@@ -501,7 +502,7 @@ src/graphics/ui/ui.i: src/graphics/ui/ui.c.i
 
 # target to preprocess a source file
 src/graphics/ui/ui.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/ui/ui.c.i
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/ui.c.i
 .PHONY : src/graphics/ui/ui.c.i
 
 src/graphics/ui/ui.s: src/graphics/ui/ui.c.s
@@ -509,32 +510,8 @@ src/graphics/ui/ui.s: src/graphics/ui/ui.c.s
 
 # target to generate assembly for a file
 src/graphics/ui/ui.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/graphics/ui/ui.c.s
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/ui.c.s
 .PHONY : src/graphics/ui/ui.c.s
-
-src/main.obj: src/main.c.obj
-.PHONY : src/main.obj
-
-# target to build an object file
-src/main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/main.c.obj
-.PHONY : src/main.c.obj
-
-src/main.i: src/main.c.i
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/main.c.i
-.PHONY : src/main.c.i
-
-src/main.s: src/main.c.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\xne.dir\build.make CMakeFiles/xne.dir/src/main.c.s
-.PHONY : src/main.c.s
 
 # Help Target
 help:
@@ -593,9 +570,6 @@ help:
 	@echo ... src/graphics/ui/ui.obj
 	@echo ... src/graphics/ui/ui.i
 	@echo ... src/graphics/ui/ui.s
-	@echo ... src/main.obj
-	@echo ... src/main.i
-	@echo ... src/main.s
 .PHONY : help
 
 
@@ -607,6 +581,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d E:\Code\MDreams\Source && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

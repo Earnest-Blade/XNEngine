@@ -6,7 +6,7 @@ namespace xne.tools.assets
         public string Raw { get; set; }
         public int Wrap, Filter;
         
-        public string Path => _path;
+        public string? Path => _path;
 
         private string _path;
 

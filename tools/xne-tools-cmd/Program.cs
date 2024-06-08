@@ -1,4 +1,7 @@
 ﻿using xne.tools.assets;
+using xne.tools.cmd;
+
+using static xne.tools.cmd.Asks;
 
 public class Program
 {
@@ -39,21 +42,5 @@ public class Program
 
         Console.WriteLine($"successfully converted {ifile}!");
         Console.ReadKey();
-    }
-
-    private static bool AskBool(string message)
-    {
-        string value = Debug.AskString(message).ToLower();
-        return value[0] switch
-        {
-            'y' => true,
-            'n' => false,
-            _ => throw new ArgumentException()
-        };
-    }
-
-    private static int AskInt(string message)
-    {
-        return int.Parse(Debug.AskString(message));
     }
 }

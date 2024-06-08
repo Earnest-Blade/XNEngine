@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = E:\Code\MDreams\Source\extern\xnengine
+CMAKE_SOURCE_DIR = E:\Code\MDreams\Source
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = E:\Code\MDreams\Source\extern\xnengine
+CMAKE_BINARY_DIR = E:\Code\MDreams\Source
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,14 +86,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /d E:\Code\MDreams\Source\extern\xnengine && $(CMAKE_COMMAND) -E cmake_progress_start E:\Code\MDreams\Source\extern\xnengine\CMakeFiles E:\Code\MDreams\Source\extern\xnengine\src\engine\\CMakeFiles\progress.marks
-	cd /d E:\Code\MDreams\Source\extern\xnengine && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/engine/all
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Code\MDreams\Source\extern\xnengine\CMakeFiles 0
+	cd /d E:\Code\MDreams\Source && $(CMAKE_COMMAND) -E cmake_progress_start E:\Code\MDreams\Source\CMakeFiles E:\Code\MDreams\Source\extern\xnengine\src\engine\\CMakeFiles\progress.marks
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/xnengine/src/engine/all
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Code\MDreams\Source\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /d E:\Code\MDreams\Source\extern\xnengine && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/engine/clean
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/xnengine/src/engine/clean
 .PHONY : clean
 
 # The main clean target
@@ -102,17 +102,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /d E:\Code\MDreams\Source\extern\xnengine && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/engine/preinstall
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/xnengine/src/engine/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /d E:\Code\MDreams\Source\extern\xnengine && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 src/engine/preinstall
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 extern/xnengine/src/engine/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /d E:\Code\MDreams\Source\extern\xnengine && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
+	cd /d E:\Code\MDreams\Source && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -134,6 +134,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /d E:\Code\MDreams\Source\extern\xnengine && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
+	cd /d E:\Code\MDreams\Source && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

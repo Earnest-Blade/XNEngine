@@ -5,6 +5,8 @@
 #include <malloc.h>
 #include <string.h>
 
+#include <sys/timeb.h>
+
 #include <GLFW/glfw3.h>
 
 #define XNE_KEYBOARD_SIZE 512
@@ -192,6 +194,12 @@ bool xne_is_done(void) { return __glfw.done || glfwWindowShouldClose((GLFWwindow
 void xne_done(void) { __glfw.done = true; }
 bool xne_is_focus(void) { return __glfw.focused; }
 double xne_get_time(void) { return glfwGetTime(); }
+
+size_t xne_get_millis_time(void){
+    struct timeb t;
+    ftime(&t);
+    return 1000.0f * t.time + t.millitm;
+}
 
 char xne_key_down(xne_Keys_t key) { return (char) __glfw.device.keyStates[key]; }
 char xne_key_pressed(xne_Keys_t key) { return (char) __glfw.device.keyStates[key] == GLFW_PRESS; }

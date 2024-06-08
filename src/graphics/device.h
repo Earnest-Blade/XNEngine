@@ -203,6 +203,11 @@ bool xne_is_focus(void);
 double xne_get_time(void);
 
 /*
+    Get milliseconds time since 01/01/1970 in UTC.
+*/
+size_t xne_get_millis_time(void);
+
+/*
     Ask xne to quit.
 */
 void xne_done(void);

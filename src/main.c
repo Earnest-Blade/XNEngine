@@ -9,7 +9,7 @@
 
 #define XNE_CAMERA_DISTANCE 3
 
-static struct xne_Game {
+static struct xne_GameState {
     xne_Shader_t shader;
     xne_Texture_t texture;
 
@@ -75,7 +75,6 @@ static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics)
     camera_desc.near = 0.0f;
 
     xne_create_scene(&state.scene, "Hello scene", &camera_desc);
-    xne_get_engine_instance()->state.scene = &state.scene;
 
     xne_create_model(&state.model, "assets/objects/floor.xneo");
 
@@ -93,7 +92,7 @@ static void xne__destroy(xne_Device_t* window, xne_GraphicDevice_t* graphics){
     
     xne_destroy_graphic_device(graphics);
     xne_destroy_device(window);
-    memset(&state, 0, sizeof(struct xne_Game));
+    memset(&state, 0, sizeof(struct xne_GameState));
 }
 
 int main(int argc, char** argv){
