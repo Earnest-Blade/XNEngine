@@ -69,6 +69,7 @@ static void xne__free_program(uint32_t __program, const size_t __count){
 
 int xne_create_shaderf(xne_Shader_t* shader, FILE* file, const xne_ShaderDesc_t* desc){
     assert(shader);
+    assert(file);
     assert(desc);
 
     shader->count = 0;

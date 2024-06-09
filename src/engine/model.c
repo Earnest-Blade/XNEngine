@@ -109,7 +109,9 @@ static void xne__model_destroy_node(xne_Tree_t* tree){
     }
 
     xne_ModelNode_t* node = (xne_ModelNode_t*) tree->memory.ptr;
-    free(node->name);
+    if(node){
+        free(node->name);
+    }
 }
 
 int xne_create_modelf(xne_Model_t* model, FILE* file){

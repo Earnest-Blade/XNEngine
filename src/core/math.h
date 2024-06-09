@@ -52,8 +52,6 @@ static float xne_orthographic_projection(float width, float height, float near, 
     dest[1][3] = -((height * 0.5f) -(height * 0.5f)) * fn;
     dest[2][3] = -near * fn;
     dest[3][3] = 1.0f;
-
-
 }
 
 #endif

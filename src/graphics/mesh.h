@@ -84,7 +84,7 @@ inline void xne_create_model(xne_Model_t* model, const char* path){
 void xne_draw_model(xne_Model_t* model);
 void xne_destroy_model(xne_Model_t* model);*/
 
-#ifdef XNE_INLUDE_MESH_GEN
+#ifdef XNE_INCLUDE_MESH_GEN
 
 inline static void xne_create_plane(xne_Mesh_t* dest, const float width, const float height){
     const xne_VertexAlignDesc_t align[] = {

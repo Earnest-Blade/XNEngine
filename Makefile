@@ -249,6 +249,30 @@ src/engine/engine.c.s:
 	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/engine.c.s
 .PHONY : src/engine/engine.c.s
 
+src/engine/grid.obj: src/engine/grid.c.obj
+.PHONY : src/engine/grid.obj
+
+# target to build an object file
+src/engine/grid.c.obj:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/grid.c.obj
+.PHONY : src/engine/grid.c.obj
+
+src/engine/grid.i: src/engine/grid.c.i
+.PHONY : src/engine/grid.i
+
+# target to preprocess a source file
+src/engine/grid.c.i:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/grid.c.i
+.PHONY : src/engine/grid.c.i
+
+src/engine/grid.s: src/engine/grid.c.s
+.PHONY : src/engine/grid.s
+
+# target to generate assembly for a file
+src/engine/grid.c.s:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/grid.c.s
+.PHONY : src/engine/grid.c.s
+
 src/engine/model.obj: src/engine/model.c.obj
 .PHONY : src/engine/model.obj
 
@@ -537,6 +561,9 @@ help:
 	@echo ... src/engine/engine.obj
 	@echo ... src/engine/engine.i
 	@echo ... src/engine/engine.s
+	@echo ... src/engine/grid.obj
+	@echo ... src/engine/grid.i
+	@echo ... src/engine/grid.s
 	@echo ... src/engine/model.obj
 	@echo ... src/engine/model.i
 	@echo ... src/engine/model.s

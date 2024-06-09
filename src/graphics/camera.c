@@ -75,7 +75,7 @@ void xne_create_camera(xne_Camera_t* camera, xne_Camera_Desc_t desc){
     xne__process_view(camera);
 }
 
-void xne_camera_moveat(xne_Camera_t* camera, float x, float y, float z){
+void xne_camera_move(xne_Camera_t* camera, float x, float y, float z){
     camera->eye[0] = x;
     camera->eye[1] = y;
     camera->eye[2] = z;
@@ -87,7 +87,7 @@ void xne_camera_moveto(xne_Camera_t* camera, float x, float y, float z){
     camera->eye[2] += z;
 }
 
-void xne_camera_rotateat(xne_Camera_t* camera, float roll, float yaw, float pitch){
+void xne_camera_rotate(xne_Camera_t* camera, float roll, float yaw, float pitch){
 #ifdef XNE_DISABLE_PITCH_FLIP
     if(pitch > 89.0f) pitch = 89.0f;
     if(pitch < -89.0f) pitch = -89.0f;

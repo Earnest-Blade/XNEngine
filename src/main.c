@@ -9,7 +9,7 @@
 
 #define XNE_CAMERA_DISTANCE 3
 
-static struct xne_GameState {
+static struct md_GameState {
     xne_Shader_t shader;
     xne_Texture_t texture;
 
@@ -81,8 +81,8 @@ static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics)
     xne_create_sprite(&state.sprite, "assets/objects/one_spritesheet.xneo");
     state.sprite.frame = 1;
 
-    xne_camera_rotateat(&state.scene.camera, 0.0f, -90.0f, 30.0f);
-    xne_camera_moveat(&state.scene.camera, 0, 0.5f, XNE_CAMERA_DISTANCE);
+    xne_camera_rotate(&state.scene.camera, 0.0f, -90.0f, 30.0f);
+    xne_camera_move(&state.scene.camera, 0, 0.5f, XNE_CAMERA_DISTANCE);
 }
 
 static void xne__destroy(xne_Device_t* window, xne_GraphicDevice_t* graphics){
@@ -92,7 +92,7 @@ static void xne__destroy(xne_Device_t* window, xne_GraphicDevice_t* graphics){
     
     xne_destroy_graphic_device(graphics);
     xne_destroy_device(window);
-    memset(&state, 0, sizeof(struct xne_GameState));
+    memset(&state, 0, sizeof(struct md_GameState));
 }
 
 int main(int argc, char** argv){
