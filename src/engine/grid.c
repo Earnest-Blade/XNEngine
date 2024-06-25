@@ -47,10 +47,10 @@ int xne_create_grid(xne_Grid_t* grid, uint32_t width, uint32_t height,
         "   return clamp(min(a.x, a.y), 0.0, 1.0);\n"
         "}"
         "void main(){\n"
-        "   vec2 uv = out_uv * 1000;\n"
+        "   vec2 uv = out_uv * 2000;\n"
         "   vec3 col = color;\n"
-        "   col *= 1 - grid(uv, 5.0f, 0.1f);\n"
-        "   gl_FragColor = vec4(col, 1.0);\n"
+        "   if(1 - grid(uv, 10.0f, 0.1f) > 0){gl_FragColor = vec4(col, 1.0);}\n"
+        "   else {discard;}\n"
         "}\n";
     
     xne_create_shaderfv(&grid->shader, vert_shr, frag_shr);

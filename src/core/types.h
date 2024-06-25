@@ -24,6 +24,7 @@
 typedef unsigned int xne_Enum_t;
 
 typedef uint8_t xne_Color_t[3];
+typedef float xne_Colorf_t[3];
 
 typedef enum xne_Types {
     XNE_BYTE = 0x1400,

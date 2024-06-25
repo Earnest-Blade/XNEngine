@@ -15,6 +15,10 @@ typedef struct xne_Material {
     float ambient_color[4];
 } xne_Material_t;
 
+static inline void xne_destroy_material(xne_Material_t* material){
+    xne_destroy_shader(&material->shader);
+}
+
 
 
 #endif

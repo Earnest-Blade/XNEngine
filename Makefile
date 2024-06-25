@@ -513,29 +513,53 @@ src/graphics/texture.c.s:
 	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/texture.c.s
 .PHONY : src/graphics/texture.c.s
 
-src/graphics/ui/ui.obj: src/graphics/ui/ui.c.obj
-.PHONY : src/graphics/ui/ui.obj
+src/graphics/ui/font.obj: src/graphics/ui/font.c.obj
+.PHONY : src/graphics/ui/font.obj
 
 # target to build an object file
-src/graphics/ui/ui.c.obj:
-	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/ui.c.obj
-.PHONY : src/graphics/ui/ui.c.obj
+src/graphics/ui/font.c.obj:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/font.c.obj
+.PHONY : src/graphics/ui/font.c.obj
 
-src/graphics/ui/ui.i: src/graphics/ui/ui.c.i
-.PHONY : src/graphics/ui/ui.i
+src/graphics/ui/font.i: src/graphics/ui/font.c.i
+.PHONY : src/graphics/ui/font.i
 
 # target to preprocess a source file
-src/graphics/ui/ui.c.i:
-	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/ui.c.i
-.PHONY : src/graphics/ui/ui.c.i
+src/graphics/ui/font.c.i:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/font.c.i
+.PHONY : src/graphics/ui/font.c.i
 
-src/graphics/ui/ui.s: src/graphics/ui/ui.c.s
-.PHONY : src/graphics/ui/ui.s
+src/graphics/ui/font.s: src/graphics/ui/font.c.s
+.PHONY : src/graphics/ui/font.s
 
 # target to generate assembly for a file
-src/graphics/ui/ui.c.s:
-	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/ui.c.s
-.PHONY : src/graphics/ui/ui.c.s
+src/graphics/ui/font.c.s:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/font.c.s
+.PHONY : src/graphics/ui/font.c.s
+
+src/graphics/ui/uix.obj: src/graphics/ui/uix.c.obj
+.PHONY : src/graphics/ui/uix.obj
+
+# target to build an object file
+src/graphics/ui/uix.c.obj:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/uix.c.obj
+.PHONY : src/graphics/ui/uix.c.obj
+
+src/graphics/ui/uix.i: src/graphics/ui/uix.c.i
+.PHONY : src/graphics/ui/uix.i
+
+# target to preprocess a source file
+src/graphics/ui/uix.c.i:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/uix.c.i
+.PHONY : src/graphics/ui/uix.c.i
+
+src/graphics/ui/uix.s: src/graphics/ui/uix.c.s
+.PHONY : src/graphics/ui/uix.s
+
+# target to generate assembly for a file
+src/graphics/ui/uix.c.s:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/ui/uix.c.s
+.PHONY : src/graphics/ui/uix.c.s
 
 # Help Target
 help:
@@ -594,9 +618,12 @@ help:
 	@echo ... src/graphics/texture.obj
 	@echo ... src/graphics/texture.i
 	@echo ... src/graphics/texture.s
-	@echo ... src/graphics/ui/ui.obj
-	@echo ... src/graphics/ui/ui.i
-	@echo ... src/graphics/ui/ui.s
+	@echo ... src/graphics/ui/font.obj
+	@echo ... src/graphics/ui/font.i
+	@echo ... src/graphics/ui/font.s
+	@echo ... src/graphics/ui/uix.obj
+	@echo ... src/graphics/ui/uix.i
+	@echo ... src/graphics/ui/uix.s
 .PHONY : help
 
 

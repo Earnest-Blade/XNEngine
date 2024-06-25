@@ -335,6 +335,21 @@ void xne_destroy_model(xne_Model_t* model){
     xne__model_destroy_node(&model->root);
     xne_destroy_tree(&model->root);
 
+    for (size_t i = 0; i < model->meshes.count; i++)
+    {
+        xne_destroy_mesh((xne_Mesh_t*) xne_vector_get(&model->meshes, i));
+    }
+
+    for (size_t i = 0; i < model->textures.count; i++)
+    {
+        xne_destroy_texture((xne_Texture_t*) xne_vector_get(&model->textures, i));
+    }
+
+    for (size_t i = 0; i < model->materials.count; i++)
+    {
+        xne_destroy_material((xne_Material_t*) xne_vector_get(&model->materials, i));
+    }
+    
     xne_destroy_vector(&model->meshes);
     xne_destroy_vector(&model->textures);
     xne_destroy_vector(&model->materials);

@@ -245,10 +245,8 @@ void xne_flip_image_vertically(xne_Image_t* src){
 
 void xne_destroy_image(xne_Image_t* src){
     if(!src) return;
-    
-    if(src->pixels){
-        free(src->pixels);
-    }
+    free(src->pixels);
+    memset(src, 0, sizeof(xne_Image_t));
 }
 
 static xne_TextureSizedFormat_t xne__get_sized_format(xne_TextureFormat_t format){
@@ -292,7 +290,8 @@ int xne_create_texturef(xne_Texture_t* texture, FILE* file, xne_TextureFilter_t 
     glGenerateMipmap(GL_TEXTURE_2D);
 
     glBindTexture(GL_TEXTURE_2D, 0);
-    free(texture->image.pixels);
+    xne_destroy_image(&texture->image);
+    
     return XNE_OK;
 }
 
@@ -403,7 +402,9 @@ void xne_texture_atlas_disable(xne_TextureAtlas_t* texture){
 }
 
 void xne_destroy_atlas_texture(xne_TextureAtlas_t* texture){
-    if(texture->target > 0){
+    assert(texture);
+    
+    if(texture->target){
         glDeleteTextures(1, &texture->target);
     }
 

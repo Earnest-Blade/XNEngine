@@ -310,7 +310,7 @@ void xne_draw_billboard_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
     xne_SpriteDirection_t direction = XNE_SPRITE_FORWARD;
 
     {
-        float plane[3], up[3], forward[3], cross[3];
+        xne_vec3 plane, up, forward, cross;
 
         xne_transform_direction_up(&sprite->transform, up);
         xne_transform_direction_forward(&sprite->transform, forward);

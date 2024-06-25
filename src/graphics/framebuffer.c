@@ -5,7 +5,6 @@
 
 #include <GL/glew.h>
 
-
 void xne_create_framebuffer(xne_Framebuffer_t* framebuffer, const char* shader, uint32_t width, uint32_t height){
     assert(framebuffer);
     assert(width > 0 && height > 0);

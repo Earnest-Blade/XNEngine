@@ -37,6 +37,11 @@ if( NOT EXISTS ${JSON_LIB})
     message(FATAL_ERROR "Cannot find JSON-C '${JSON_LIB}'")
 endif()
 
+set(FREETYPE_LIB ${LIB_DIR}/libfreetype.dll.a)
+if(NOT EXISTS ${FREETYPE_LIB})
+    message(FATAL_ERROR "cannot find freetype '${FREETYPE_LIB}")
+endif()
+
 if(${XNE_COMPILE_AS_LIB})
     add_library(xne SHARED)
 else()
@@ -52,6 +57,7 @@ target_link_libraries(xne PUBLIC
     ${Z_LIB}
     ${PNG_LIB}
     ${JSON_LIB}
+    ${FREETYPE_LIB}
 )
 
 target_include_directories(xne PUBLIC ${SOURCE_DIR})

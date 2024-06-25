@@ -21,7 +21,7 @@ xne_Shader_t* xne_get_active_shader(){ return __current_shader; }
 static int xne__compile_shader(uint32_t* shader, GLenum __type, const char* __value){
     *shader = glCreateShader(__type);
 
-    glShaderSource(*shader, 1, (char const * const *)&__value, NULL);
+    glShaderSource(*shader, 1, (const char * const *)&__value, NULL);
     glCompileShader(*shader);
 
     int s;
@@ -72,6 +72,8 @@ int xne_create_shaderf(xne_Shader_t* shader, FILE* file, const xne_ShaderDesc_t*
     assert(file);
     assert(desc);
 
+    memset(shader, 0, sizeof(xne_Shader_t));
+
     shader->count = 0;
     xne_ShaderDesc_t* shr = (xne_ShaderDesc_t*)&desc[0];
     while (shr->type != 0)
@@ -119,8 +121,8 @@ int xne_create_shaderf(xne_Shader_t* shader, FILE* file, const xne_ShaderDesc_t*
         
         glAttachShader(shader->program, shader->shaders[i]);
         
-        free((char*)strh);
-        free((char*)buffer);
+        free((char*) strh);
+        free((char*) buffer);
     }
 
     if(xne__link_program(shader->program) == XNE_FAILURE){
@@ -134,6 +136,11 @@ int xne_create_shaderf(xne_Shader_t* shader, FILE* file, const xne_ShaderDesc_t*
 }
 
 int xne_create_shaderfv(xne_Shader_t* shader, const char* vert, const char* frag){
+    assert(shader);
+    assert(vert && frag);
+
+    memset(shader, 0, sizeof(xne_Shader_t));
+
     shader->count = 2;
     shader->shaders = (uint32_t*) malloc(2 * sizeof(uint32_t));
     shader->program = glCreateProgram();
@@ -160,6 +167,8 @@ void xne_shader_disable(xne_Shader_t* shader) {
 }
 
 int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t* uniforms){
+    assert(shader);
+
     if(uniforms == NULL){
         return XNE_FAILURE;
     }
@@ -172,7 +181,13 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
         return XNE_FAILURE;
     }
     
-    shader->uniforms = (struct xne_ShaderUniform*) realloc(shader->uniforms, sizeof(struct xne_ShaderUniform) * shader->uniform_count);
+    if(shader->uniform_count > 0){
+        shader->uniforms = realloc(shader->uniforms, sizeof(struct xne_ShaderUniform) * shader->uniform_count);
+    }
+    else {
+        shader->uniforms = malloc(sizeof(struct xne_ShaderUniform) * shader->uniform_count);
+    }
+
     assert(shader->uniforms);
 
     for (size_t i = 0; i < shader->uniform_count; i++)
@@ -180,6 +195,10 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
         shader->uniforms[i].attrib = uniform[i].attrib;
         shader->uniforms[i].format = uniforms[i].format;
         shader->uniforms[i].location = glGetUniformLocation(shader->program, uniforms[i].name);
+
+        if(shader->uniforms[i].location == -1){
+            fprintf(stdout, "cannot find attribute '%s'\n", uniforms[i].name);
+        }
     }
 
     return XNE_OK;
