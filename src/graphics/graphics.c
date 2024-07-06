@@ -45,9 +45,10 @@ static void GLAPIENTRY xne__gl_callback(GLenum source, GLenum type, uint32_t id,
     };
 
     fprintf(stdout, "GL msg: (%i): %s\n%s\n%s\n", id, message, src, sev);*/
-    fprintf(stdout, "%s\n", message);
+    
+    xne_printf(message);
     if(severity == GL_DEBUG_SEVERITY_HIGH) {
-        assert(0);
+        xne_assert(0);
     }
 }
 
@@ -97,11 +98,11 @@ void xne_create_graphic_device(xne_GraphicDevice_t* device, xne_GraphicDeviceDes
 
     uint32_t status = glewInit();
     if(status != GLEW_OK){
-        fprintf(stderr, "Failed to initiliaze GLEW: %s\n", glewGetErrorString(status));
+        xne_vprintf("Failed to initiliaze GLEW: %s", glewGetErrorString(status));
     }
 
-    fprintf(stdout, "Using GLEW '%s'\n", glewGetString(GLEW_VERSION));
-    fprintf(stdout, "Using OpenGL '%s'\n", glGetString(GL_VERSION));
+    xne_vprintf("Using GLEW '%s'", glewGetString(GLEW_VERSION));
+    xne_vprintf("Using OpenGL '%s'", glGetString(GL_VERSION));
 
     glEnable(GL_DEBUG_OUTPUT);
     glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);

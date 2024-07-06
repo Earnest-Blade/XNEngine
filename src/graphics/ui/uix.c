@@ -4,6 +4,8 @@
 #define XNE_INCLUDE_MESH_GEN
 #include "graphics/graphics.h"
 
+#include "core/math.h"
+
 #include <string.h>
 #include <memory.h>
 #include <GL/glew.h>
@@ -23,11 +25,10 @@ static void xne__clear_texture_buffer(char r, char g, char b) {
             ptr[i] = r;
             ptr[i + 1] = g;
             ptr[i + 2] = b;
-            ptr[i + 3] = 1.0f;
+            ptr[i + 3] = 255;
         }
 
         glUnmapBuffer(GL_PIXEL_UNPACK_BUFFER);
-        
     }
 
     glBindTexture(GL_TEXTURE_2D, __context.texture_object);
@@ -37,20 +38,14 @@ static void xne__clear_texture_buffer(char r, char g, char b) {
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-static void xne__enable_shader(float* mat, float* color, uint32_t tex){
+static void xne__enable_shader(float* color){
     glUseProgram(__context.shader.dev);
-
-    if(tex) {
-        glUniform1i(__context.shader.texture_uniform, tex);
-    }
 
     if(color){
         glUniform3fv(__context.shader.color_uniform, 1, color);
     }
 
-    if(mat){
-        glUniformMatrix4fv(__context.shader.matrix_uniform, 1, GL_FALSE, mat);
-    }
+    glUniformMatrix4fv(__context.shader.matrix_uniform, 1, GL_FALSE, &__context.projection[0][0]);
 }
 
 static void xne__disable_shader(){
@@ -83,12 +78,11 @@ int xne_create_uix_instance(size_t default_buffer_size){
 
         const char* frag_shr = ""
             XNE_SHADER_VERSION
-            "precision mediump float;\n"
             "in vec2 Frag_Uv;\n"
             "in vec3 Frag_Color;\n"
             "uniform sampler2D image;\n"
             "void main(){\n"
-            "   vec4 sampled = texture(image, Frag_Uv);"
+            "   vec4 sampled = texture2D(image, Frag_Uv);"
             "   gl_FragColor = vec4(sampled.xyz, 1.0);\n"
             "}\n";
 
@@ -117,6 +111,7 @@ int xne_create_uix_instance(size_t default_buffer_size){
         __context.shader.matrix_uniform = glGetUniformLocation(__context.shader.dev, "projection");
         __context.shader.color_uniform = glGetUniformLocation(__context.shader.dev, "color");
         __context.shader.texture_uniform = glGetUniformLocation(__context.shader.dev, "image");
+        fprintf(stdout, "texid %i\n", __context.shader.texture_uniform);
     }
 
     {
@@ -140,7 +135,7 @@ int xne_create_uix_instance(size_t default_buffer_size){
 
     {
         // intialize shared texture data
-        __context.memory.elemsize = 1;
+        __context.memory.elemsize = sizeof(char);
         __context.memory.size = default_buffer_size * default_buffer_size * 4;
         __context.memory.ptr = calloc(__context.memory.size, sizeof(char));
         assert(__context.memory.ptr);
@@ -172,15 +167,42 @@ int xne_create_uix_instance(size_t default_buffer_size){
 }
 
 void xne_uix_new_frame(uint32_t width, uint32_t height){
-    xne__clear_texture_buffer(255.0f, 0.0f, 0.0f);
+    xne__clear_texture_buffer(255, 0, 0);
 
-    // xne_orthographic_projection(width, height, 0.0f, 1.0f, 1.0f, __context.projection);
     xne_orthographic_projection_off_center(0, width, height, 0.0, 0.0f, 1.0f, 1.0f, __context.projection);
 }
 
 void xne_draw_font_atlas(xne_Font_t* font){
     glBindVertexArray(__context.vertex_object);
     glBindBuffer(GL_ARRAY_BUFFER, __context.buffer_object);
+
+    if(1){
+        const xne_vec3i color = {255, 255, 255};
+        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, __context.pixel_object[0]);
+
+        char* dbuffer = glMapBuffer(GL_PIXEL_UNPACK_BUFFER, GL_WRITE_ONLY);
+        if(dbuffer){
+            for (size_t y = 0; y < font->atlas.height; y++)
+            {
+                for (size_t x = 0; x < font->atlas.width; x++)
+                {
+                    
+                }
+            }
+            
+            glUnmapBuffer(GL_PIXEL_UNPACK_BUFFER);
+        }
+
+        glBindTexture(GL_TEXTURE_2D, __context.texture_object);
+        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 
+            sqrt(__context.memory.size / 4), 
+            sqrt(__context.memory.size / 4),
+            GL_RGBA, GL_UNSIGNED_BYTE, NULL
+        );
+
+        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
+        glBindTexture(GL_TEXTURE_2D, 0);
+    }
 
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, __context.texture_object);
@@ -206,15 +228,19 @@ void xne_draw_font_atlas(xne_Font_t* font){
         glUnmapBuffer(GL_ARRAY_BUFFER);
     }
     
-    xne__enable_shader(&__context.projection[0][0], 0, __context.texture_object);
+    xne__enable_shader(NULL);
 
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
     xne__disable_shader();
+    
+    glBindVertexArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 void xne_draw_text_scaled(xne_Font_t* font, const char* text, float x, float y, float scale, xne_Colorf_t color){
-    xne_shader_enable(&font->shader);
+    /*xne_shader_enable(&font->shader);
     xne_shader_use_uniform(&font->shader, 0, NULL);
     xne_shader_use_uniform(&font->shader, 1, color);
 
@@ -258,7 +284,7 @@ void xne_draw_text_scaled(xne_Font_t* font, const char* text, float x, float y, 
     }
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
+    glBindVertexArray(0);*/
 }
 
 void xne_destroy_uix_instance(){

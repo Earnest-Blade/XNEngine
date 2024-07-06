@@ -71,7 +71,7 @@ int xne_create_font(xne_Font_t* font, const char* path, int size){
     xne_create_fixed_vector(&font->glyphs, sizeof(xne_Glyph_t), face->num_glyphs);
 
 #elif XNE_MAX_GLYPHS == 0
-    fprintf(stdout, "'XNE_MAX_GLYPHS == 0', no glyph has been loaded!\n");
+    fprintf(stdout, "preprocessor 'XNE_MAX_GLYPHS == 0', so no glyph has been loaded!\n");
     FT_Done_Face(face);
     FT_Done_FreeType(__ft_instance);
     
@@ -85,8 +85,10 @@ int xne_create_font(xne_Font_t* font, const char* path, int size){
     while(font->atlas.width < dimension) font->atlas.width <<= 1;
     font->atlas.height = font->atlas.width;
 
-    uint8_t* buffer = calloc(font->atlas.width * font->atlas.height, sizeof(uint8_t));
-    assert(buffer);
+    font->atlas.data.elemsize = sizeof(uint8_t);
+    font->atlas.data.size = font->atlas.width * font->atlas.height;
+    font->atlas.data.ptr = calloc(font->atlas.data.size, sizeof(uint8_t));
+    assert(font->atlas.data.ptr);
 
     // font atlas generation
     uint32_t pen_x = 0;
@@ -109,7 +111,7 @@ int xne_create_font(xne_Font_t* font, const char* path, int size){
         {
             for (size_t col = 0; col < face->glyph->bitmap.width; ++col)
             {
-                buffer[(pen_y + row) * font->atlas.width + (pen_x + col)] 
+                font->atlas.data.ptr[(pen_y + row) * font->atlas.width + (pen_x + col)] 
                     = face->glyph->bitmap.buffer[row * face->glyph->bitmap.pitch + col];
             }
         }
@@ -121,12 +123,11 @@ int xne_create_font(xne_Font_t* font, const char* path, int size){
         glyph->offset_x = face->glyph->bitmap_left;
         glyph->offset_y = face->glyph->bitmap_top;
         glyph->advance = face->glyph->advance.x >> 6;
-        glyph->target = font->atlas.target;
 
         pen_x += face->glyph->bitmap.width + 1;
     }
 
-    glGenTextures(0, &font->atlas.target);
+    /*glGenTextures(0, &font->atlas.target);
     glBindTexture(GL_TEXTURE_2D, font->atlas.target);
 
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
@@ -137,7 +138,7 @@ int xne_create_font(xne_Font_t* font, const char* path, int size){
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
     glTexImage2D(GL_TEXTURE_2D, 0, GL_R8, font->atlas.width, font->atlas.height, 0, GL_RED, GL_UNSIGNED_BYTE, buffer);
-    glBindTexture(GL_TEXTURE_2D, 0);
+    glBindTexture(GL_TEXTURE_2D, 0);*/
     
     FT_Done_Face(face);
     FT_Done_FreeType(__ft_instance);
@@ -151,5 +152,5 @@ void xne_destroy_font(xne_Font_t* font){
     xne_destroy_vector(&font->glyphs);
     xne_destroy_shader(&font->shader);
 
-    glDeleteTextures(1, &font->atlas.target);
+    free(font->atlas.data.ptr);
 }

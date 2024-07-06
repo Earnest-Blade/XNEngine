@@ -177,6 +177,30 @@ src/core/compression.c.s:
 	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/compression.c.s
 .PHONY : src/core/compression.c.s
 
+src/core/debug.obj: src/core/debug.c.obj
+.PHONY : src/core/debug.obj
+
+# target to build an object file
+src/core/debug.c.obj:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/debug.c.obj
+.PHONY : src/core/debug.c.obj
+
+src/core/debug.i: src/core/debug.c.i
+.PHONY : src/core/debug.i
+
+# target to preprocess a source file
+src/core/debug.c.i:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/debug.c.i
+.PHONY : src/core/debug.c.i
+
+src/core/debug.s: src/core/debug.c.s
+.PHONY : src/core/debug.s
+
+# target to generate assembly for a file
+src/core/debug.c.s:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/core/debug.c.s
+.PHONY : src/core/debug.c.s
+
 src/core/file.obj: src/core/file.c.obj
 .PHONY : src/core/file.obj
 
@@ -296,6 +320,30 @@ src/engine/model.s: src/engine/model.c.s
 src/engine/model.c.s:
 	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/model.c.s
 .PHONY : src/engine/model.c.s
+
+src/engine/scene.obj: src/engine/scene.c.obj
+.PHONY : src/engine/scene.obj
+
+# target to build an object file
+src/engine/scene.c.obj:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/scene.c.obj
+.PHONY : src/engine/scene.c.obj
+
+src/engine/scene.i: src/engine/scene.c.i
+.PHONY : src/engine/scene.i
+
+# target to preprocess a source file
+src/engine/scene.c.i:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/scene.c.i
+.PHONY : src/engine/scene.c.i
+
+src/engine/scene.s: src/engine/scene.c.s
+.PHONY : src/engine/scene.s
+
+# target to generate assembly for a file
+src/engine/scene.c.s:
+	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/engine/scene.c.s
+.PHONY : src/engine/scene.c.s
 
 src/engine/sprite.obj: src/engine/sprite.c.obj
 .PHONY : src/engine/sprite.obj
@@ -576,6 +624,9 @@ help:
 	@echo ... src/core/compression.obj
 	@echo ... src/core/compression.i
 	@echo ... src/core/compression.s
+	@echo ... src/core/debug.obj
+	@echo ... src/core/debug.i
+	@echo ... src/core/debug.s
 	@echo ... src/core/file.obj
 	@echo ... src/core/file.i
 	@echo ... src/core/file.s
@@ -591,6 +642,9 @@ help:
 	@echo ... src/engine/model.obj
 	@echo ... src/engine/model.i
 	@echo ... src/engine/model.s
+	@echo ... src/engine/scene.obj
+	@echo ... src/engine/scene.i
+	@echo ... src/engine/scene.s
 	@echo ... src/engine/sprite.obj
 	@echo ... src/engine/sprite.i
 	@echo ... src/engine/sprite.s

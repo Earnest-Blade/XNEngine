@@ -5,6 +5,7 @@ extern "C" {
 #endif
 
 #include "types.h"
+#include "debug.h"
 
 #ifdef XNE_CORE_FILE
     #include "file.h"

@@ -48,6 +48,10 @@ else()
     add_executable(xne ${MAIN})
 endif()
 
+if(${XNE_DEBUG_COMPILE})
+    set (CMAKE_CXX_FLAGS "-g")
+endif()
+
 find_package(OpenGL REQUIRED)
 
 target_link_libraries(xne PUBLIC

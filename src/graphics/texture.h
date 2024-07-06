@@ -39,9 +39,11 @@ typedef enum xne_TextureSizedFormat {
     XNE_RED8 = 0x8229,
     XNE_RG8 = 0x822B,
     XNE_RGB8 = 0x8051,
-    XNE_BGR8 = 0x8051,
     XNE_RGBA8 = 0x8058,
-    XNE_BGRA8 = 0x8058
+    XNE_RED16 = 0x822A,
+    XNE_RG16 = 0x822C,
+    XNE_RGB16 = 0x8054,
+    XNE_RGBA16 = 0x805B
 } xne_TextureSizedFormat_t;
 
 typedef enum xne_TextureUnit {

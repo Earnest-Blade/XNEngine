@@ -78,11 +78,19 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
         return XNE_FAILURE;
     }
 
+    // uncompress
     if(header){
         xne_inflate(&fstr, &fsize);
         fstr[fsize] = '\0';
     }
 
+    const xne_VertexAlignDesc_t vertex_align[] = {
+        {XNE_VERTEX_POSITION, XNE_FLOAT, 0},
+        {XNE_VERTEX_TEXCOORD, XNE_FLOAT, 8},
+        {XNE_VERTEX_ALIGN_END(16)}
+    };
+
+    // open json parser context
     __json_context = json_tokener_parse(fstr);
     if(!__json_context){
         fprintf(stderr, "failed to parse file!\n");
@@ -91,14 +99,15 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
         return XNE_FAILURE;
     }
 
-    const json_object* json_scene = json_object_object_get(json_object_object_get(__json_context, "Asset"), "Value");
-    if(json_object_get_type(json_scene) == json_type_null){
-        fprintf(stderr, "cannot find scene object!\n");
+    // check if the type is correct.
+    if(xne__object_is_type_of(__json_context, XNE_OBJECT_SPRITE) != XNE_OK){
+        fprintf(stderr, "object's type is incorrect or is corrupted !\n");
         json_object_put(__json_context);
         free(fstr);
-
         return XNE_FAILURE;
     }
+
+    const json_object* json_scene = json_object_object_get(json_object_object_get(__json_context, "Asset"), "Value");
 
     const json_object* json_sprite = json_object_object_get(json_scene, "Sprite");
     const json_object* json_atlas = json_object_object_get(json_scene, "Atlas");
@@ -150,12 +159,6 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
         sprite->width = (float)json_object_get_double(json_object_object_get(json_sprite, "PlaneWidth"));
         sprite->height = (float)json_object_get_double(json_object_object_get(json_sprite, "PlaneHeight"));
 
-        const xne_VertexAlignDesc_t align[] = {
-            {XNE_VERTEX_POSITION, XNE_FLOAT, 0},
-            {XNE_VERTEX_TEXCOORD, XNE_FLOAT, 8},
-            {XNE_VERTEX_ALIGN_END(16)}
-        };
-
         const float vertices[16] = {
             -sprite->width,  sprite->height, 1, 0,
             -sprite->width, -sprite->height, 1, 1, 
@@ -167,7 +170,7 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
         xne_MeshDesc_t mesh_desc;
         mesh_desc.vertices = vertices;
         mesh_desc.elements = elements;
-        mesh_desc.vertex_align = align;
+        mesh_desc.vertex_align = vertex_align;
         mesh_desc.vertices_count = 4;
         mesh_desc.elements_count = 6;
         mesh_desc.primitive = XNE_MESH_PRIMITIVE_TRIANGLE;

@@ -7,9 +7,6 @@
 #include <stddef.h>
 #include <stdbool.h>
 
-#define XNE_OK 0
-#define XNE_FAILURE 1
-
 #ifndef XNE_GET_SIZE
 #define XNE_GET_SIZE(x)                                                        \
     ({size_t SIZE; switch(x){                                                  \

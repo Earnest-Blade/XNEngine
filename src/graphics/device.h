@@ -5,6 +5,7 @@
 #define XNE_TARGET_OPENGL
 
 #include "core/core.h"
+#include "core/math.h"
 
 #include <memory.h>
 #include <string.h>
@@ -172,9 +173,9 @@ typedef struct xne_Device {
     void* handle;
     char* title;
 
-    int clientPosition[2];
-    int clientSize[2];
-    int framebufferSize[2];
+    xne_vec2i client_position;
+    xne_vec2i client_size;
+    xne_vec2i framebuffer_size;
 } xne_Device_t;
 
 void xne_create_device(xne_Device_t* device, const int width, const int height, const char* title, uint32_t flags);

@@ -59,8 +59,8 @@ static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics)
     
     xne_GraphicDeviceDesc_t graphic_device_desc;
     graphic_device_desc.device = window;
-    graphic_device_desc.buffer_width = window->framebufferSize[0];
-    graphic_device_desc.buffer_height = window->framebufferSize[1];
+    graphic_device_desc.buffer_width = window->framebuffer_size[0];
+    graphic_device_desc.buffer_height = window->framebuffer_size[1];
     graphic_device_desc.framebuffer_shader = "shaders/framebuffer.glsl";
     xne_set_color_rgb(graphic_device_desc.clear_color, 0, 0, 0);
     
@@ -68,8 +68,8 @@ static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics)
 
     xne_Camera_Desc_t camera_desc;
     camera_desc.projection = XNE_CAMERA_ORTHO;
-    camera_desc.width = (int*) &window->framebufferSize[0];
-    camera_desc.height = (int*) &window->framebufferSize[1];
+    camera_desc.width = (int*) &window->framebuffer_size[0];
+    camera_desc.height = (int*) &window->framebuffer_size[1];
     camera_desc.fov = 60.0f;
     camera_desc.far = 100.0f;
     camera_desc.near = 0.0f;

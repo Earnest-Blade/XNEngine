@@ -32,8 +32,8 @@ static void xne__model_create_node(json_object* json, xne_Model_t* model, xne_Tr
     }
 
     if(json_object_get_type(transform) != json_type_null){
-        float position[3], scale[3];
-        float rotation[4];
+        xne_vec3 position, scale;
+        xne_vec4 rotation;
         xne__object_create_vec3(json_object_object_get(transform, "Position"), position);
         xne__object_create_vec3(json_object_object_get(transform, "Scale"), scale);
         xne__object_create_quat(json_object_object_get(transform, "Rotation"), rotation);
@@ -120,6 +120,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
 
     memset(model, 0, sizeof(xne_Model_t));
 
+    // read the hole file
     fseek(file, 0, SEEK_SET);
     char header = xne_freadw8(file);
 
@@ -135,6 +136,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         return XNE_FAILURE;
     }
 
+    // uncompress
     if(header){
         xne_inflate(&fstr, &fsize);
         fstr[fsize] = '\0';
@@ -147,6 +149,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         { XNE_VERTEX_ATTRIB_END, XNE_FLOAT, sizeof(xne_Vertex_t) }
     };
 
+    // open json parser
     __json_context = json_tokener_parse(fstr);
     if(!__json_context){
         fprintf(stderr, "failed to parse file!\n");
@@ -155,19 +158,23 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         return XNE_FAILURE;
     }
 
-    const json_object* json_scene = json_object_object_get(json_object_object_get(__json_context, "Asset"), "Value");
-    if(json_object_get_type(json_scene) == json_type_null){
-        fprintf(stderr, "cannot find scene object!\n");
+    // check if this is the correct type
+    if(xne__object_is_type_of(__json_context, XNE_OBJECT_MODEL) != XNE_OK){
+        fprintf(stderr, "object's type is incorrect or is corrupted!\n");
         json_object_put(__json_context);
         free(fstr);
-
         return XNE_FAILURE;
     }
 
-    const json_object* json_mesh_array = json_object_object_get(json_scene, "Meshes");
-    const json_object* json_texture_array = json_object_object_get(json_scene, "Textures");
-    const json_object* json_materials_array = json_object_object_get(json_scene, "Materials");
+    // root point of the data
+    const json_object* json_data_holder = json_object_object_get(json_object_object_get(__json_context, "Asset"), "Value");
 
+    // initialize root of each types
+    const json_object* json_mesh_array = json_object_object_get(json_data_holder, "Meshes");
+    const json_object* json_texture_array = json_object_object_get(json_data_holder, "Textures");
+    const json_object* json_materials_array = json_object_object_get(json_data_holder, "Materials");
+
+    // create and allocate meshes datas
     if(json_object_get_type(json_mesh_array) != json_type_null){
         xne_create_vector(&model->meshes, sizeof(xne_Mesh_t), json_object_array_length(json_mesh_array));
         model->meshes.count = model->meshes.capacity;
@@ -178,6 +185,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
             json_mesh = json_object_array_get_idx(json_mesh_array, i);
             assert(json_mesh); // @TODO: replace with return XNE_FAILTURE type
 
+            // read vertices and elements buffers
             json_vertices = json_object_object_get(json_mesh, "Vertices");
             json_elements = json_object_object_get(json_mesh, "Elements");
             const size_t vertices_count = json_object_array_length(json_vertices);
@@ -186,16 +194,19 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
             float* vertices = (float*) malloc(vertices_count * sizeof(float));
             uint32_t* elements = (uint32_t*) malloc(elements_count * sizeof(uint32_t));
 
+            // copy each vertices
             for (size_t y = 0; y < vertices_count; y++)
             {
                 vertices[y] = (float) json_object_get_double(json_object_array_get_idx(json_vertices, y));
             }
 
+            // copy each elements
             for (size_t y = 0; y < elements_count; y++)
             {
                 elements[y] = (uint32_t) json_object_get_uint64(json_object_array_get_idx(json_elements, y));
             }
-            
+
+            // create the new mesh            
             xne_MeshDesc_t mesh_desc;
             mesh_desc.vertices = vertices;
             mesh_desc.vertex_align = vertex_align;
@@ -217,6 +228,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         return XNE_FAILURE;
     }
 
+    // initialize and allocate textures
     if(json_object_get_type(json_texture_array) != json_type_null){
         xne_create_vector(&model->textures, sizeof(xne_Texture_t), json_object_array_length(json_texture_array));
         model->textures.count = model->textures.capacity;
@@ -224,6 +236,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         json_object* json_texture;
         for (size_t i = 0; i < model->textures.count; i++)
         {
+            // simply load each textures
             json_texture = json_object_array_get_idx(json_texture_array, i);
             assert(json_texture);
 
@@ -243,6 +256,9 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         return XNE_FAILURE;
     }
 
+    fprintf(stdout, "finised loading model!\n");
+
+    // initialize and allocate materials and shaders
     if(json_object_get_type(json_materials_array) != json_type_null){
         xne_create_vector(&model->materials, sizeof(xne_Material_t), json_object_array_length(json_materials_array));
         model->materials.count = model->materials.capacity;
@@ -251,13 +267,16 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         json_object* json_material, *json_shader, *json_shaders, *json_uniforms;
         for (size_t i = 0; i < model->materials.count; i++)
         {
+            // get json elements
             json_material = json_object_array_get_idx(json_materials_array, i);
             json_shader = json_object_object_get(json_material, "Shader");
             json_shaders = json_object_object_get(json_shader, "Shaders");
             json_uniforms = json_object_object_get(json_shader, "Uniforms");
 
+            // create an empty material struct
             material = (xne_Material_t*) xne_vector_get(&model->materials, i);
 
+            // load shader's sub shaders
             xne_ShaderDesc_t* shader_desc = (xne_ShaderDesc_t*) calloc(json_object_array_length(json_shaders), sizeof(xne_ShaderDesc_t));
             for (size_t y = 0; y < json_object_array_length(json_shaders); y++)
             {
@@ -273,6 +292,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
             );
             free(shader_desc);
 
+            // load shader's uniforms
             xne_ShaderUniformDesc_t* uniform_desc = (xne_ShaderUniformDesc_t*) calloc(json_object_array_length(json_uniforms), sizeof(xne_ShaderUniformDesc_t));
             for (size_t y = 0; y < json_object_array_length(json_uniforms); y++)
             {
@@ -285,9 +305,11 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
             xne_link_shader_uniforms(&material->shader, uniform_desc);
             free(uniform_desc);
 
+            // load materials colors
             xne__object_create_vec4(json_object_object_get(json_material, "AmbientColor"), material->ambient_color);
             xne__object_create_vec4(json_object_object_get(json_material, "DiffuseColor"), material->diffuse_color);
 
+            // load materials textures
             material->ambient_texture = NULL;
             material->diffuse_texture = NULL;
 
@@ -318,8 +340,9 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         return XNE_FAILURE;
     }
 
+    // initialize the tree and create each node with recursives calls
     xne_create_tree(&model->root, NULL, sizeof(xne_ModelNode_t));
-    xne__model_create_node(json_object_object_get(json_scene, "Root"), model, &model->root);
+    xne__model_create_node(json_object_object_get(json_data_holder, "Root"), model, &model->root);
 
     free(fstr);
     json_object_put(__json_context);

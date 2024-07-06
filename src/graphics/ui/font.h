@@ -15,7 +15,6 @@
 #endif
 
 typedef struct xne_Glyph {
-    uint32_t target;
     uint16_t width, height;
     uint16_t offset_x, offset_y;
     uint16_t pen_x, pen_y;
@@ -23,7 +22,7 @@ typedef struct xne_Glyph {
 } xne_Glyph_t;
 
 typedef struct xne_FontAtlas {
-    uint32_t target;
+    struct xne_Buffer data;
     size_t width, height;
 } xne_FontAtlas_t;
 

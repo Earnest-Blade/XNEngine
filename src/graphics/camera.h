@@ -15,8 +15,8 @@ typedef enum xne_Camera_Projection {
 
 typedef struct xne_Camera_Desc {
     xne_Camera_Projection_t projection;
-    int* width; 
-    int *height;
+    int width; 
+    int height;
     float fov;
     float near;
     float far;
@@ -24,8 +24,8 @@ typedef struct xne_Camera_Desc {
 
 typedef struct xne_Camera {
     xne_Camera_Projection_t mode;
-    int* width;
-    int* height;
+    int width;
+    int height;
     float fov, near, far;
     xne_vec3 eye;
     xne_vec3 look;

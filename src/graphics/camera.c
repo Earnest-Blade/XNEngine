@@ -12,13 +12,13 @@ static void xne__process_projection(xne_Camera_t* camera){
     memset(camera->screen, 0, sizeof(xne_mat4));
 
     if(camera->mode == XNE_CAMERA_PERSPECTIVE){
-        const float aspect = (float)*camera->width / (float)*camera->height;
+        const float aspect = (float)camera->width / (float)camera->height;
         xne_perpective_projection(aspect, camera->fov, camera->near, camera->far, camera->screen);
         return;
     }
 
     if(camera->mode == XNE_CAMERA_ORTHO){
-        xne_orthographic_projection(*camera->width, *camera->height, camera->near, camera->far, camera->fov, camera->screen);
+        xne_orthographic_projection(camera->width, camera->height, camera->near, camera->far, camera->fov, camera->screen);
         return;
     }
 }

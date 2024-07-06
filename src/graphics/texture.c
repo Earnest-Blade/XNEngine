@@ -4,7 +4,6 @@
 #define XNE_CORE_STRING
 #include "core/core.h"
 
-#include <assert.h>
 #include <stdlib.h>
 
 #include <GL/glew.h>
@@ -32,7 +31,7 @@ static int xne__is_png(FILE* __file){
 }
 
 static void xne__png_error(png_structp sptr, png_const_charp cc){
-    fprintf(stderr, "%s\n", cc);
+    xne_vprintf("%s", cc);
 }
 
 static int xne__load_png(xne_Image_t* __dest, FILE* __file){
@@ -40,10 +39,10 @@ static int xne__load_png(xne_Image_t* __dest, FILE* __file){
     __dest->alignment = 1;
 
     png_structp pngldr = png_create_read_struct(PNG_LIBPNG_VER_STRING, NULL, xne__png_error, NULL);
-    assert(pngldr);
+    xne_assert(pngldr);
 
     png_infop pnginfo = png_create_info_struct(pngldr);
-    assert(pnginfo);
+    xne_assert(pnginfo);
 
     if(setjmp(png_jmpbuf(pngldr))){
         png_destroy_read_struct(&pngldr, &pnginfo, NULL);
@@ -55,18 +54,16 @@ static int xne__load_png(xne_Image_t* __dest, FILE* __file){
     png_init_io(pngldr, __file);
     png_set_sig_bytes(pngldr, XNE_PNG_HEADER_SIZE);
     png_read_info(pngldr, pnginfo);
-    // png_get_IHDR(pngldr, pnginfo, (uint32_t*)&__dest->width, (uint32_t*)&__dest->height, &__dest->depth, 
-    //            &clrType, NULL, NULL, NULL);
 
     __dest->width = png_get_image_width(pngldr, pnginfo);
     __dest->height = png_get_image_width(pngldr, pnginfo);
-    int clrType = png_get_color_type(pngldr, pnginfo);
+    int color_type = png_get_color_type(pngldr, pnginfo);
     __dest->depth = png_get_bit_depth(pngldr, pnginfo);
 
-    if(clrType == PNG_COLOR_TYPE_PALETTE){
+    if(color_type == PNG_COLOR_TYPE_PALETTE){
         png_set_palette_to_rgb(pngldr);
     }
-    if(clrType == PNG_COLOR_TYPE_GRAY && __dest->depth < 8){
+    if(color_type == PNG_COLOR_TYPE_GRAY && __dest->depth < 8){
         png_set_expand_gray_1_2_4_to_8(pngldr);
     }
     if(png_get_valid(pngldr, pnginfo, PNG_INFO_tRNS)){
@@ -81,9 +78,9 @@ static int xne__load_png(xne_Image_t* __dest, FILE* __file){
     }
 
     png_read_update_info(pngldr, pnginfo);
-    clrType = png_get_color_type(pngldr, pnginfo);
+    color_type = png_get_color_type(pngldr, pnginfo);
 
-    switch (clrType)
+    switch (color_type)
     {
     case PNG_COLOR_TYPE_RGBA:
         __dest->format = XNE_RGBA;
@@ -95,25 +92,25 @@ static int xne__load_png(xne_Image_t* __dest, FILE* __file){
         break;
 
     default:
-        fprintf(stderr, "Color type %i not supported!\n", clrType);
+        xne_vprintf("color type %i not supported!", color_type);
         png_destroy_read_struct(&pngldr, &pnginfo, NULL);
         return 0;
     }
-    fprintf(stdout, "image used %i channels!\n", __dest->channels);
 
     size_t rowbytes = png_get_rowbytes(pngldr, pnginfo);
     __dest->pixels = (uint8_t*) malloc(__dest->width * __dest->height * __dest->channels * sizeof(uint8_t));
 
     if(!__dest->pixels){
-        fprintf(stderr, "Cannot alloc pixels\n", clrType);
+        xne_printf("failed to allocate pixels");
         png_destroy_read_struct(&pngldr, &pnginfo, NULL);
         // alloc error
         return 0;
     }
+    memset(__dest->pixels, 0, sizeof(__dest->pixels));
 
     uint8_t** rowp = (uint8_t**) malloc(__dest->height * sizeof(uint8_t*));
     if(!rowp){
-        fprintf(stderr, "Cannot alloc rowp\n", clrType);
+        xne_printf("failed to allocate rows");
         png_destroy_read_struct(&pngldr, &pnginfo, NULL);
         // alloc error
         return 0;
@@ -127,6 +124,8 @@ static int xne__load_png(xne_Image_t* __dest, FILE* __file){
     png_read_image(pngldr, rowp);
 
     free(rowp);
+    png_destroy_read_struct(&pngldr, &pnginfo, NULL);
+
     return __dest->pixels != NULL;
 }
 
@@ -177,7 +176,7 @@ static int xne__load_bmp(xne_Image_t* __dest, FILE* __file){
 
     xne_fread32(__file); // x per meters
     xne_fread32(__file); // y per meters
-    uint32_t clrType = xne_freadw32(__file); // color used
+    uint32_t color_type = xne_freadw32(__file); // color used
     xne_freadw32(__file); // color important
 
     if(isize == 0) isize = __dest->width * __dest->height * __dest->channels;
@@ -185,7 +184,7 @@ static int xne__load_bmp(xne_Image_t* __dest, FILE* __file){
 
     __dest->pixels = (uint8_t*) malloc(isize * sizeof(uint8_t));
     if(!__dest->pixels){
-        fprintf(stderr, "Cannot alloc pixels!\n");
+        xne_printf("failed to allocate pixels!");
         // alloc error
         return 0;
     }
@@ -198,8 +197,8 @@ static int xne__load_bmp(xne_Image_t* __dest, FILE* __file){
 #endif
 
 int xne_create_image(xne_Image_t* dest, FILE* file){
-    assert(dest);
-    assert(file);
+    xne_assert(dest);
+    xne_assert(file);
     fseek(file, 0, SEEK_SET);
 
     int status = 0;
@@ -215,6 +214,9 @@ int xne_create_image(xne_Image_t* dest, FILE* file){
 #ifndef XNE_NO_FLIP
     xne_flip_image_vertically(dest);
 #endif
+
+    xne_vprintf("new image (%ix%i c%i d%i) loaded !", dest->width, dest->height, dest->channels, dest->depth);
+
     return status;
 }
 
@@ -246,10 +248,28 @@ void xne_flip_image_vertically(xne_Image_t* src){
 void xne_destroy_image(xne_Image_t* src){
     if(!src) return;
     free(src->pixels);
+
     memset(src, 0, sizeof(xne_Image_t));
 }
 
-static xne_TextureSizedFormat_t xne__get_sized_format(xne_TextureFormat_t format){
+/*
+    Convert a base internal format (RED, RG, RGB, RGBA) to an internal sized format (R8, R16, RG8...).
+*/
+static xne_TextureSizedFormat_t xne__get_sized_format(xne_TextureFormat_t format, int depth){
+    // 16 bits formats
+    if(depth == 16){
+        switch (format)
+        {
+        case XNE_RED: return XNE_RED16;
+        case XNE_RG: return XNE_RG16;
+        case XNE_RGB: case XNE_BGR: return XNE_RGB16;
+        case XNE_RGBA: case XNE_BGRA: return XNE_RGBA16;
+        default:
+            return XNE_RED16;
+        }
+    }
+
+    // 8 bits formats
     switch (format)
     {
     case XNE_RED: return XNE_RED8;
@@ -262,8 +282,11 @@ static xne_TextureSizedFormat_t xne__get_sized_format(xne_TextureFormat_t format
 }
 
 int xne_create_texturef(xne_Texture_t* texture, FILE* file, xne_TextureFilter_t filter, xne_TextureWrap_t wrap){
-    assert(texture);
-    assert(file);
+    xne_assert(texture);
+    xne_assert(file);
+    
+    memset(texture, 0, sizeof(xne_Texture_t));
+
     texture->filter = filter;
     texture->wrap = wrap;
     texture->target = 0;
@@ -271,36 +294,41 @@ int xne_create_texturef(xne_Texture_t* texture, FILE* file, xne_TextureFilter_t 
     /* loading image */
     xne_create_image(&texture->image, file);
     if(!texture->image.pixels) {
-        fprintf(stderr, "invalid image!\n");
+        xne_printf("invalid image!");
         return XNE_FAILURE;
     }
 
     glGenTextures(1, &texture->target);
     glBindTexture(GL_TEXTURE_2D, texture->target);
 
-    glPixelStorei(GL_UNPACK_ALIGNMENT, texture->image.alignment);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, texture->image.channels);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, (int)texture->wrap);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, (int)texture->wrap);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, (int)texture->filter);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, (int)texture->filter);
 
-    glTexImage2D(GL_TEXTURE_2D, 0, texture->image.channels, texture->image.width, 
-                texture->image.height, 0, texture->image.format, GL_UNSIGNED_BYTE, texture->image.pixels);
+    xne_vprintf("pixel ptr %p", texture->image.pixels);
+
+    glTexStorage2D(GL_TEXTURE_2D, 1, xne__get_sized_format(texture->image.format, texture->image.depth), texture->image.width, texture->image.height);
+    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, texture->image.width, texture->image.height, texture->image.format, GL_UNSIGNED_BYTE, texture->image.pixels);
+
     glGenerateMipmap(GL_TEXTURE_2D);
 
     glBindTexture(GL_TEXTURE_2D, 0);
-    xne_destroy_image(&texture->image);
+
+    free(texture->image.pixels);
+    texture->image.pixels = NULL;
     
     return XNE_OK;
 }
 
 int xne_link_texture(xne_Texture_t* texture, const char* name, uint32_t program){
-    assert(texture);
+    xne_assert(texture);
     
     texture->texture_location = glGetUniformLocation(program, name);
     if(texture->texture_location == -1){
-        fprintf(stderr, "failed to link texture '%s' to shader '%i'!\n", name, program);
+        xne_vprintf("failed to link texture '%s' to shader '%i'!", name, program);
         return XNE_FAILURE;
     }
 
@@ -323,19 +351,20 @@ void xne_destroy_texture(xne_Texture_t* texture){
     if(texture->target > 0){
         glDeleteTextures(1, &texture->target);
     }
+
     xne_destroy_image(&texture->image);
 }
 
 int xne_create_texture_atlasf(xne_TextureAtlas_t* texture, FILE* file, const uint32_t tilex, const uint32_t tiley,
                            xne_TextureFilter_t filter, xne_TextureWrap_t wrap){
-    assert(texture);
-    assert(file);
+    xne_assert(texture);
+    xne_assert(file);
     texture->filter = filter;
     texture->wrap = wrap;
 
     xne_create_image(&texture->image, file);
     if(!texture->image.pixels) {
-        fprintf(stderr, "invalid image!\n");
+        xne_printf("invalid image!");
         return 0;
     }
 
@@ -344,7 +373,7 @@ int xne_create_texture_atlasf(xne_TextureAtlas_t* texture, FILE* file, const uin
 
     glGenTextures(1, &texture->target);
     glBindTexture(GL_TEXTURE_2D_ARRAY, texture->target);
-    glPixelStorei(GL_UNPACK_ALIGNMENT, texture->image.alignment);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, texture->image.channels);
 
     glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_BASE_LEVEL, 0);
     glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAX_LEVEL, 1);
@@ -353,7 +382,7 @@ int xne_create_texture_atlasf(xne_TextureAtlas_t* texture, FILE* file, const uin
     glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MIN_FILTER, (int)texture->filter);
     glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAG_FILTER, (int)texture->filter);
 
-    glTexStorage3D(GL_TEXTURE_2D_ARRAY, 1, xne__get_sized_format(texture->image.format), texture->tile_width, texture->tile_height, tilex * tiley);
+    glTexStorage3D(GL_TEXTURE_2D_ARRAY, 1, xne__get_sized_format(texture->image.format, texture->image.depth), texture->tile_width, texture->tile_height, tilex * tiley);
 
     glPixelStorei(GL_UNPACK_ROW_LENGTH, texture->image.width);
     glPixelStorei(GL_UNPACK_IMAGE_HEIGHT, texture->image.height);
@@ -369,13 +398,15 @@ int xne_create_texture_atlasf(xne_TextureAtlas_t* texture, FILE* file, const uin
     }
     
     glBindTexture(GL_TEXTURE_2D_ARRAY, 0);
+    
     free(texture->image.pixels);
+    texture->image.pixels = NULL;
 }
 
 int xne_link_texture_atlas(xne_TextureAtlas_t* texture, const char* name, uint32_t program){
     texture->texture_location = glGetUniformLocation(program, name);
     if(texture->texture_location == -1){
-        fprintf(stderr, "failed to link the shader!\n");
+        xne_printf("failed to link the shader!");
         return 0;
     }
     return 1;
@@ -384,7 +415,7 @@ int xne_link_texture_atlas(xne_TextureAtlas_t* texture, const char* name, uint32
 int xne_link_texture_atlas_layer(xne_TextureAtlas_t* texture, const char* name, uint32_t program){
     texture->layer_location = glGetUniformLocation(program, name);
     if(texture->layer_location == -1){
-        fprintf(stderr, "failed to link the altas layer uniform to the shader!\n");
+        xne_printf("failed to link the altas layer uniform to the shader!");
         return 0;
     }
     return 1;
@@ -402,7 +433,7 @@ void xne_texture_atlas_disable(xne_TextureAtlas_t* texture){
 }
 
 void xne_destroy_atlas_texture(xne_TextureAtlas_t* texture){
-    assert(texture);
+    xne_assert(texture);
     
     if(texture->target){
         glDeleteTextures(1, &texture->target);

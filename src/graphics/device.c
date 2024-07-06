@@ -49,18 +49,18 @@ static void xne__focus_callback(GLFWwindow* window, int focused){
 }
 
 static void xne__client_size_callback(GLFWwindow* window, int width, int height){
-    __glfw.window->clientSize[0] = width;
-    __glfw.window->clientSize[1] = height;
+    __glfw.window->client_size[0] = width;
+    __glfw.window->client_size[1] = height;
 }
 
 static void xne__client_pos_callback(GLFWwindow* window, int x, int y){
-    __glfw.window->clientPosition[0] = x;
-    __glfw.window->clientPosition[1] = y;
+    __glfw.window->client_position[0] = x;
+    __glfw.window->client_position[1] = y;
 }
 
 static void xne__framebuffer_callback(GLFWwindow* window, int width, int height){
-    __glfw.window->framebufferSize[0] = width;
-    __glfw.window->framebufferSize[1] = height;
+    __glfw.window->framebuffer_size[0] = width;
+    __glfw.window->framebuffer_size[1] = height;
 }
 
 void xne_create_device(xne_Device_t* device, const int width, const int height, const char* title, uint32_t flags){
@@ -112,10 +112,10 @@ void xne_create_device(xne_Device_t* device, const int width, const int height, 
     device->title = (char*) malloc(strlen(title) + 1);
     strcpy(device->title, title);
 
-    device->clientSize[0] = (int)width;
-    device->clientSize[1] = (int)height;
-    glfwGetWindowPos((GLFWwindow*)device->handle, &device->clientPosition[0], &device->clientPosition[1]);
-    glfwGetFramebufferSize((GLFWwindow*)device->handle, &device->framebufferSize[0], &device->framebufferSize[1]);
+    device->client_size[0] = (int)width;
+    device->client_size[1] = (int)height;
+    glfwGetWindowPos((GLFWwindow*)device->handle, &device->client_position[0], &device->client_position[1]);
+    glfwGetFramebufferSize((GLFWwindow*)device->handle, &device->framebuffer_size[0], &device->framebuffer_size[1]);
     glfwSetWindowUserPointer((GLFWwindow*)device->handle, device);
 
     if((flags & (int)XNE_WINDOW_FULLSCREEN) == XNE_WINDOW_FULLSCREEN){
@@ -176,8 +176,8 @@ void xne_set_device_client_size(xne_Device_t* device, const int width, const int
     assert(width > 0);
     assert(height > 0);
     
-    device->clientSize[0] = width;
-    device->clientSize[1] = height;
+    device->client_size[0] = width;
+    device->client_size[1] = height;
     glfwSetWindowSize((GLFWwindow*)device->handle, width, height);
 }
 
@@ -185,8 +185,8 @@ void xne_set_device_client_position(xne_Device_t* device, const int x, const int
     assert(x > 0);
     assert(y > 0);
 
-    device->clientPosition[0] = x;
-    device->clientPosition[1] = y;
+    device->client_position[0] = x;
+    device->client_position[1] = y;
     glfwSetWindowPos((GLFWwindow*)device->handle, x, y);
 }
 

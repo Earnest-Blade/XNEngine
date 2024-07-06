@@ -17,10 +17,16 @@ typedef float xne_vec2[2];
 typedef float xne_vec3[3];
 typedef float xne_vec4[4];
 
+typedef int xne_vec2i[2];
+typedef int xne_vec3i[3];
+typedef int xne_vec4i[4];
+
 typedef xne_vec3 xne_mat3[3];
 typedef xne_vec4 xne_mat4[4];
 
 #endif
+
+#define XNE_CLAMP(val, low, high) (val < low) ? low : ((val > high) ? high : val)
 
 #define XNE_IDENTITY_MATRIX3(mat){              \
         memset(mat, 0, sizeof(xne_mat3));       \
