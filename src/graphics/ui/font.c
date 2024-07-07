@@ -39,8 +39,8 @@ static int xne__create_default_shader(xne_Font_t* font){
     }
 
     const xne_ShaderUniformDesc_t shader_uniforms[] = {
-        {1, XNE_UNIFORM_MAT4, "projection"},
-        {1, XNE_UNIFORM_VEC3, "color"},
+        {1, 0, XNE_UNIFORM_MAT4, "projection"},
+        {1, 0, XNE_UNIFORM_VEC3, "color"},
         XNE_SHADER_UNIFORM_END()
     };
 

@@ -184,6 +184,7 @@ void xne_draw_font_atlas(xne_Font_t* font){
         if(dbuffer){
             for (size_t y = 0; y < font->atlas.height; y++)
             {
+                dbuffer[y + 1] = 255;
                 for (size_t x = 0; x < font->atlas.width; x++)
                 {
                     

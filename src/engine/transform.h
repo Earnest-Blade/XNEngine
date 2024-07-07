@@ -43,6 +43,15 @@ void xne_transform_sub(xne_Transform_t* dest, const xne_Transform_t* other);
 void xne_transform_move(xne_Transform_t* transform, float x, float y, float z);
 
 /*
+    Define new transform's position.
+    @param transform Pointer to the target transform.
+    @param position New x, y, z values.
+*/
+static inline void xne_transform_movevf(xne_Transform_t* transform, float position[3]){
+    xne_transform_move(transform, position[0], position[1], position[2]);
+}
+
+/*
     Add values to transform's position.
     @param transform Pointer to the target transform.
     @param x X position value.
@@ -50,6 +59,15 @@ void xne_transform_move(xne_Transform_t* transform, float x, float y, float z);
     @param z Z position value.
 */
 void xne_transform_move_to(xne_Transform_t* transform, float x, float y, float z);
+
+/*
+    Add values to transform's position.
+    @param transform Pointer to the target transform.
+    @param position x, y, z values.
+*/
+static inline void xne_transform_move_tovf(xne_Transform_t* transform, float position[3]){
+    xne_transform_move_to(transform, position[0], position[1], position[2]);
+}
 
 /*
     Define new transform's scale.
@@ -61,6 +79,24 @@ void xne_transform_move_to(xne_Transform_t* transform, float x, float y, float z
 void xne_transform_scale(xne_Transform_t* transform, float x, float y, float z);
 
 /*
+    Define new transform's scale.
+    @param transform Pointer to the target transform.
+    @param v x, y, z value
+*/
+static inline void xne_transform_scalef(xne_Transform_t* transform, float v){
+    xne_transform_scale(transform, v, v, v);
+}
+
+/*
+    Define new transform's scale.
+    @param transform Pointer to the target transform.
+    @param v x, y, z values
+*/
+static inline void xne_transform_scalefv(xne_Transform_t* transform, float values[3]){
+    xne_transform_scale(transform, values[0], values[1], values[2]);
+}
+
+/*
     Add values to transform's scale.
     @param transform Pointer to the target transform.
     @param x X scale value.
@@ -68,6 +104,24 @@ void xne_transform_scale(xne_Transform_t* transform, float x, float y, float z);
     @param z Z scale value.
 */
 void xne_transform_scale_to(xne_Transform_t* transform, float x, float y, float z);
+
+/*
+    Add values to transform's scale.
+    @param transform Pointer to the target transform.
+    @param x x, y, z scale value.
+*/
+static inline void xne_transform_scale_tof(xne_Transform_t* transform, float v){
+    xne_transform_scale_to(transform, v, v, v);
+}
+
+/*
+    Add values to transform's scale.
+    @param transform Pointer to the target transform.
+    @param x x, y, z scale values.
+*/
+static inline void xne_transform_scale_tofv(xne_Transform_t* transform, float values[3]){
+    xne_transform_scale_to(transform, values[0], values[1], values[2]);
+}
 
 /*
     Define new transform's rotation using euler angles.
@@ -79,6 +133,15 @@ void xne_transform_scale_to(xne_Transform_t* transform, float x, float y, float 
 void xne_transform_rotate(xne_Transform_t* transform, float roll, float pitch, float yaw);
 
 /*
+    Define new transform's rotation using euler angles.
+    @param transform Pointer to the target transform.
+    @param values Roll, Pitch and Yaw values.
+*/
+static inline void xne_transform_rotatefv(xne_Transform_t* transform, float values[3]){
+    xne_transform_rotate(transform, values[0], values[1], values[2]);
+}
+
+/*
     Add values to transform's rotation using euler angles.
     @param transform Pointer to the target transform.
     @param roll X angle value.
@@ -86,6 +149,15 @@ void xne_transform_rotate(xne_Transform_t* transform, float roll, float pitch, f
     @param yaw Z angle value.
 */
 void xne_transform_rotate_to(xne_Transform_t* transform, float roll, float pitch, float yaw);
+
+/*
+    Add values to transform's rotation using euler angles.
+    @param transform Pointer to the target transform.
+    @param values Roll, Pitch and Yaw values.
+*/
+static inline void xne_transform_rotate_tofv(xne_Transform_t* transform, float values[3]){
+    xne_transform_rotate_to(transform, values[0], values[1], values[2]);
+}
 
 void xne_transform_direction_forward(xne_Transform_t* transform, float dest[3]);
 void xne_transform_direction_up(xne_Transform_t* transform, float dest[3]);

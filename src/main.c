@@ -74,7 +74,7 @@ static void xne__initialize(xne_Device_t* window, xne_GraphicDevice_t* graphics)
     camera_desc.far = 100.0f;
     camera_desc.near = 0.0f;
 
-    xne_create_scene(&state.scene, "Hello scene", &camera_desc);
+    xne_create_scened(&state.scene, "Hello scene", &camera_desc);
 
     xne_create_model(&state.model, "assets/objects/floor.xneo");
 

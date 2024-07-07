@@ -16,6 +16,8 @@
 #endif
 
 #include "scene.h"
+#include "graphics/device.h"
+#include "graphics/graphics.h"
 
 typedef struct xne_RuntimeState {
     double delta_time, late_time, interop;
@@ -25,6 +27,8 @@ typedef struct xne_RuntimeState {
 
 typedef struct xne_Engine {
     xne_RuntimeState_t state;
+    xne_Device_t device;
+    xne_GraphicDevice_t graphics;
 } xne_Engine_t;
 
 xne_Engine_t* xne_create_engine_instance();

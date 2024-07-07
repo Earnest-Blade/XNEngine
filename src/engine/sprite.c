@@ -72,7 +72,7 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
     size_t fsize0 = fread(fstr, sizeof(char), fsize, file);
 
     if(fsize > fsize0 + 1){
-        fprintf(stderr, "could not load the entire file!\n");
+        xne_printf("could not load the entire file!");
         free(fstr);
 
         return XNE_FAILURE;
@@ -93,7 +93,7 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
     // open json parser context
     __json_context = json_tokener_parse(fstr);
     if(!__json_context){
-        fprintf(stderr, "failed to parse file!\n");
+        xne_printf("failed to parse the file!");
         free(fstr);
 
         return XNE_FAILURE;
@@ -101,7 +101,7 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
 
     // check if the type is correct.
     if(xne__object_is_type_of(__json_context, XNE_OBJECT_SPRITE) != XNE_OK){
-        fprintf(stderr, "object's type is incorrect or is corrupted !\n");
+        xne_printf("object's type is incorrect or is corrupted !");
         json_object_put(__json_context);
         free(fstr);
         return XNE_FAILURE;
@@ -228,14 +228,14 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
             timeline->duration = json_object_get_int(json_object_object_get(json_timeline, "Duration"));
             timeline->current_marker = 0;
 
-            size_t absolute_duration = 0;
+            double absolute_duration = 0;
             for (size_t y = 0; y < timeline->markers.count; y++)
             {
                 json_timeline_marker = json_object_array_get_idx(json_timeline_list, y);
 
                 xne_SpriteAnimationTimelineMarker_t* marker = xne_vector_get(&timeline->markers, y);
                 marker->frame = json_object_get_int(json_object_object_get(json_timeline_marker, "Frame"));
-                marker->duration = json_object_get_int(json_object_object_get(json_timeline_marker, "Duration"));
+                marker->duration = json_object_get_double(json_object_object_get(json_timeline_marker, "Duration"));
                 marker->absolute_duration = absolute_duration + marker->duration;
 
                 absolute_duration += marker->duration;
@@ -277,7 +277,6 @@ static inline void xne__update_sprite(xne_Sprite_t* sprite){
                 timeline->current_marker += 1;
             }
         }
-
     }
 }
 

@@ -56,11 +56,11 @@ int xne_create_grid(xne_Grid_t* grid, uint32_t width, uint32_t height,
     xne_create_shaderfv(&grid->shader, vert_shr, frag_shr);
     
     const xne_ShaderUniformDesc_t shader_uniforms[] = {
-        {1, XNE_UNIFORM_MAT4, "projection"},
-        {1, XNE_UNIFORM_MAT4, "transform"},
-        {1, XNE_UNIFORM_FLOAT, "tile_w"},
-        {1, XNE_UNIFORM_FLOAT, "tile_h"},
-        {1, XNE_UNIFORM_VEC3, "color"},
+        {1, 0, XNE_UNIFORM_MAT4, "projection"},
+        {1, 0, XNE_UNIFORM_MAT4, "transform"},
+        {1, 0, XNE_UNIFORM_FLOAT, "tile_w"},
+        {1, 0, XNE_UNIFORM_FLOAT, "tile_h"},
+        {1, 0, XNE_UNIFORM_VEC3, "color"},
         XNE_SHADER_UNIFORM_END()
     };
 

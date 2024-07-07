@@ -1,15 +1,15 @@
 #include "buffer.h"
+#include "debug.h"
 
 #include <stdio.h>
 #include <memory.h>
 #include <malloc.h>
-#include <assert.h>
 
 #define XNE_GROWTH_FACTOR 2
 
 void xne_create_vector(xne_Vector_t* vector, size_t elemsize, size_t capacity){
-    assert(vector);
-    assert(capacity >= 0 && elemsize > 0);
+    xne_assert(vector);
+    xne_assert(capacity >= 0 && elemsize > 0);
 
     memset(vector, 0, sizeof(xne_Vector_t));
     vector->count = 0;
@@ -21,22 +21,22 @@ void xne_create_vector(xne_Vector_t* vector, size_t elemsize, size_t capacity){
     /* If the vector has a default capacity, a new memory location is allocated */
     if(capacity){
         vector->memory.ptr = malloc(vector->memory.size);
-        assert(vector->memory.ptr);
+        xne_assert(vector->memory.ptr);
 
         memset(vector->memory.ptr, 0, vector->memory.size);
     }
 }
 
 void* xne_vector_push_back(xne_Vector_t* vector, void* element){
-    assert(vector);
-    assert(element);
+    xne_assert(vector);
+    xne_assert(element);
 
     /* allocate new memory if the capacity is reached */
     if(vector->count >= vector->capacity){
         const size_t capacity = (vector->capacity + 1) * XNE_GROWTH_FACTOR;
 
         vector->memory.ptr = realloc(vector->memory.ptr, capacity * vector->memory.elemsize);
-        assert(vector->memory.ptr);
+        xne_assert(vector->memory.ptr);
         
         vector->memory.size = capacity * vector->memory.elemsize;
         vector->capacity = capacity;
@@ -49,7 +49,7 @@ void* xne_vector_push_back(xne_Vector_t* vector, void* element){
 }
 
 void* xne_vector_get(xne_Vector_t* vector, size_t index){
-    assert(vector->capacity > 0 && vector->capacity > index);
+    xne_assert(vector->capacity > 0 && vector->capacity > index);
     return &vector->memory.ptr[index * vector->memory.elemsize];
 }
 
@@ -59,13 +59,13 @@ void xne_destroy_vector(xne_Vector_t* vector){
 
     /* try to free allocated memory */
     if(vector->memory.size){
-        fprintf(stdout, "freeing a chunk of %i bits.\n", vector->memory.size);
+        xne_vprintf("freeing a chunk of %i bits.", vector->memory.size);
         free(vector->memory.ptr);
     }
 }
 
 void xne_create_tree(xne_Tree_t* tree, void* value, size_t elemsize){
-    assert(tree);
+    xne_assert(tree);
 
     memset(tree, 0, sizeof(xne_Tree_t));
     tree->root = tree;
@@ -80,7 +80,7 @@ void xne_create_tree(xne_Tree_t* tree, void* value, size_t elemsize){
 }
 
 void xne_tree_fixed_childrens(xne_Tree_t* parent, size_t count){
-    assert(parent);
+    xne_assert(parent);
 
     parent->childs = malloc(sizeof(xne_Tree_t) * count);
     parent->child_count = count;
@@ -102,15 +102,15 @@ void xne_tree_fixed_childrens(xne_Tree_t* parent, size_t count){
 }
 
 xne_Tree_t* xne_tree_add_child(xne_Tree_t* parent, void* value){
-    assert(parent);
+    xne_assert(parent);
 
     if(parent->child_count > 0){
         parent->childs = realloc(parent->childs, sizeof(xne_Tree_t) * (parent->child_count + 1));
-        assert(parent->childs);
+        xne_assert(parent->childs);
     }
     else {
         parent->childs = malloc(sizeof(xne_Tree_t));
-        assert(parent->childs);
+        xne_assert(parent->childs);
     }
 
     parent->child_count++;
@@ -129,7 +129,7 @@ xne_Tree_t* xne_tree_add_child(xne_Tree_t* parent, void* value){
 }
 
 xne_Tree_t* xne_tree_get_child(xne_Tree_t* tree, size_t child){
-    assert(child >= 0 && child <= tree->child_count);
+    xne_assert(child >= 0 && child <= tree->child_count);
     return &tree->childs[child];
 }
 
@@ -137,7 +137,7 @@ void xne_tree_set_value(xne_Tree_t* tree, void* value){
     if(!tree->memory.ptr){
         if(tree->memory.size){
             tree->memory.ptr = malloc(tree->memory.size);
-            assert(tree->memory.ptr);
+            xne_assert(tree->memory.ptr);
             memset(tree->memory.ptr, 0, tree->memory.size);
         }
     }
@@ -148,7 +148,7 @@ void xne_tree_set_value(xne_Tree_t* tree, void* value){
 }
 
 void* xne_tree_get_value(xne_Tree_t* tree){
-    assert(tree);
+    xne_assert(tree);
     return tree->memory.ptr;
 }
 

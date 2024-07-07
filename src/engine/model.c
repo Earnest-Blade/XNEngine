@@ -297,9 +297,19 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
             for (size_t y = 0; y < json_object_array_length(json_uniforms); y++)
             {
                 json_object* suniform = json_object_array_get_idx(json_uniforms, y);
-                uniform_desc[y].attrib = json_object_get_int(json_object_object_get(suniform, "Attribute"));
+                uniform_desc[y].attrib = (xne_UniformAttrib_t) json_object_get_uint64(json_object_object_get(suniform, "Attribute"));
                 uniform_desc[y].format = (xne_UniformType_t) json_object_get_int(json_object_object_get(suniform, "Format"));
                 uniform_desc[y].name = json_object_get_string(json_object_object_get(suniform, "Name"));
+
+                if(uniform_desc[y].attrib & XNE_UNIFORM_ATTRIB_ARRAY) {
+                    const json_object* json_length_uniform = json_object_object_get(suniform, "Length");
+                    if(json_object_get_type(json_length_uniform) != json_type_null){
+                        uniform_desc[y].length = json_object_get_int(json_length_uniform);
+                    }
+                    else {
+                        xne_printf("missing length uniform (due to attrib of type XNE_UNIFORM_ATTRIB_ARRAY)!");
+                    }
+                }
             }
 
             xne_link_shader_uniforms(&material->shader, uniform_desc);

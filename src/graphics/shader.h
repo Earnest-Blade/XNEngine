@@ -10,8 +10,11 @@
 #include <stdio.h>
 #include <assert.h>
 
-typedef enum xne_UniformAttrib {
+// flags
+typedef enum xne_UniformAttrib { 
     XNE_UNIFORM_ATTRIB_UNIFORM = 1,
+    XNE_UNIFORM_ATTRIB_STRUCT = 2,
+    XNE_UNIFORM_ATTRIB_ARRAY = 4
 } xne_UniformAttrib_t;
 
 typedef enum xne_UniformType {
@@ -20,7 +23,8 @@ typedef enum xne_UniformType {
     XNE_UNIFORM_VEC2,
     XNE_UNIFORM_VEC3,
     XNE_UNIFORM_VEC4,
-    XNE_UNIFORM_MAT4
+    XNE_UNIFORM_MAT4,
+    XNE_UNIFORM_LIGHT
 } xne_UniformType_t;
 
 typedef enum xne_ShaderType {
@@ -35,17 +39,18 @@ typedef struct xne_ShaderDesc {
     const char* name;
 } xne_ShaderDesc_t;
 
-#define XNE_SHADER_UNIFORM_END() 0, XNE_UNIFORM_FLOAT, ""
+#define XNE_SHADER_UNIFORM_END() 0, 0, XNE_UNIFORM_FLOAT, ""
 typedef struct xne_ShaderUniformDesc {
-    int attrib;
+    xne_UniformAttrib_t attrib;
+    int length;
     xne_UniformType_t format;
     const char* name;
 } xne_ShaderUniformDesc_t;
 
 typedef struct xne_Shader {
     struct xne_ShaderUniform {
-        xne_Enum_t attrib;
-        xne_Enum_t format;
+        xne_UniformAttrib_t attrib;
+        xne_UniformType_t format;
         uint32_t location;   
     } *uniforms;
     uint32_t* shaders;

@@ -4,6 +4,8 @@
 #define XNE_SCENE_IMPL
 
 #define XNE_CORE_BUFFER
+#define XNE_CORE_FILE
+#define XNE_CORE_COMPRESSION
 #include "core/core.h"
 
 #include "graphics/camera.h"
@@ -27,13 +29,34 @@ typedef struct xne_Scene {
 } xne_Scene_t;
 
 /*
-    Create a new scene into a previous allocated struct.
+    Create manually a new scene into a previous allocated struct.
     @param scene Pointer to the scene structure.
     @param name Scene's name.
     @param camera Camera descriptor structure use to create the default scene's camera.
     @return XNE_OK if the scene is successfully created, XNE_FAILTURE otherwise.
 */
-int xne_create_scene(xne_Scene_t* scene, const char* name, xne_Camera_Desc_t* camera);
+int xne_create_scened(xne_Scene_t* scene, const char* name, xne_Camera_Desc_t* camera);
+
+/*
+    Create a new scene from a file, into a previous allocated struct.
+    @param scene Pointer to the scene structure.
+    @param file File's pointer.
+    @return XNE_OK if the scene is successfully created, XNE_FAILTURE otherwise.
+*/
+int xne_create_scenef(xne_Scene_t* scene, FILE* file);
+
+/*
+    Create a new scene with a path, into a previous allocated struct.
+    @param scene Pointer to the scene structure.
+    @param path Path to read the scene from.
+    @return XNE_OK if the scene is successfully created, XNE_FAILTURE otherwise.
+*/
+static inline int xne_create_scene(xne_Scene_t* scene, const char* path){
+    FILE* f = fopen(path, "rb");
+    int success = xne_create_scenef(scene, f);
+    fclose(f);
+    return success;
+}
 
 /*
     Allocate a new memory chunck use to store scene's data. 

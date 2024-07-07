@@ -18,8 +18,9 @@ typedef enum xne_SpriteDirection {
 } xne_SpriteDirection_t;
 
 typedef struct xne_SpriteAnimationTimelineMarker {
-    uint32_t frame, duration;
-    size_t absolute_duration;
+    uint32_t frame;
+    float duration;
+    double absolute_duration;
 } xne_SpriteAnimationTimelineMarker_t;
 
 typedef struct xne_SpriteAnimationTimeline {
