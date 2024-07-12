@@ -9,6 +9,8 @@
 #include <memory.h>
 #include <assert.h>
 
+#define XNE__FIND_MAT_UNIFORM_HOLDER(x, y) { if(strcmp(uniform_desc[y].name, #x) == 0) { material->uniforms_holder.x = y; } }
+
 int xne_create_sprited(xne_Sprite_t* sprite, xne_SpriteDesc_t desc){
     assert(sprite);
     memset(sprite, 0, sizeof(xne_Sprite_t));
@@ -137,10 +139,12 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
         xne_ShaderUniformDesc_t* uniform_desc = (xne_ShaderUniformDesc_t*) calloc(json_object_array_length(json_uniforms), sizeof(xne_ShaderUniformDesc_t));
         for (size_t y = 0; y < json_object_array_length(json_uniforms); y++)
         {
-            json_object* suniform = json_object_array_get_idx(json_uniforms, y);
-            uniform_desc[y].attrib = json_object_get_int(json_object_object_get(suniform, "Attribute"));
-            uniform_desc[y].format = (xne_UniformType_t) json_object_get_int(json_object_object_get(suniform, "Format"));
-            uniform_desc[y].name = json_object_get_string(json_object_object_get(suniform, "Name"));
+            json_object* json_sub_uniform = json_object_array_get_idx(json_uniforms, y);
+            uniform_desc[y].attrib = json_object_get_int(json_object_object_get(json_sub_uniform, "Attribute"));
+            uniform_desc[y].format = json_object_get_int(json_object_object_get(json_sub_uniform, "Format"));
+            uniform_desc[y].name = json_object_get_string(json_object_object_get(json_sub_uniform, "Name"));
+
+            xne_vprintf("%d - %s", y, uniform_desc[y].name);
         }
 
         xne_link_shader_uniforms(&sprite->shader, uniform_desc);

@@ -10,6 +10,8 @@
 #define XNE_OK 0
 #define XNE_FAILURE 1
 
+#define XNE_INVALID_VALUE 0xFFFFFFFFu
+
 #if _WIN32
     #define XNE_FILE (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__)
 #else

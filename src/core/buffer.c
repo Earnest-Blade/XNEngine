@@ -44,7 +44,10 @@ void* xne_vector_push_back(xne_Vector_t* vector, void* element){
 
     vector->count += 1;
 
-    memcpy(&vector->memory.ptr[vector->count * vector->memory.elemsize], element, vector->memory.elemsize);
+    if(element){
+        memcpy(&vector->memory.ptr[vector->count * vector->memory.elemsize], element, vector->memory.elemsize);
+    }
+    
     return &vector->memory.ptr[vector->count * vector->memory.elemsize];
 }
 
