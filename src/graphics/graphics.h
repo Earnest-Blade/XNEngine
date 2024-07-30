@@ -12,6 +12,7 @@
 #include "mesh.h"
 #include "framebuffer.h"
 #include "camera.h"
+#include "material.h"
 
 typedef struct xne_GraphicDeviceDesc {
     void* device;

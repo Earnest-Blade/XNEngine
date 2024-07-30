@@ -166,6 +166,17 @@ void xne_shader_disable(xne_Shader_t* shader) {
     glUseProgram(0); 
 }
 
+static size_t xne__get_uniform_desc_length(const xne_ShaderUniformDesc_t* uniforms){
+    size_t count = 0;
+    xne_ShaderUniformDesc_t* ptr = (xne_ShaderUniformDesc_t*)&uniforms[0];
+    while (ptr->attrib != 0)
+    {
+        ptr = (xne_ShaderUniformDesc_t*)&uniforms[++count];
+    }
+
+    return count;
+}
+
 int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t* uniforms){
     assert(shader);
 
@@ -173,29 +184,35 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
         return XNE_FAILURE;
     }
 
-    xne_ShaderUniformDesc_t* uniform = (xne_ShaderUniformDesc_t*)&uniforms[0];
-    while (uniform->attrib != 0)
-        uniform = (xne_ShaderUniformDesc_t*)&uniforms[++shader->uniform_count];
+    size_t count = xne__get_uniform_desc_length(uniforms);
+    xne_vprintf("count %i", count);
 
-    if(!shader->uniform_count){
+    if(!count){
         return XNE_FAILURE;
     }
     
     if(shader->uniform_count > 0){
+        shader->uniform_count += count;
         shader->uniforms = realloc(shader->uniforms, sizeof(struct xne_ShaderUniform) * shader->uniform_count);
     }
     else {
+        shader->uniform_count = count;
         shader->uniforms = malloc(sizeof(struct xne_ShaderUniform) * shader->uniform_count);
     }
 
     xne_assert(shader->uniforms);
-    memset(shader->uniforms, 0, sizeof(struct xne_ShaderUniform) * shader->uniform_count);
+    //memset(shader->uniforms, 0, sizeof(struct xne_ShaderUniform) * shader->uniform_count);
 
     for (size_t i = 0; i < shader->uniform_count; i++)
     {
-        shader->uniforms[i].attrib = (xne_UniformAttrib_t) uniform[i].attrib;
+        shader->uniforms[i].attrib = (xne_UniformAttrib_t) uniforms[i].attrib;
         shader->uniforms[i].format = (xne_UniformType_t) uniforms[i].format;
         shader->uniforms[i].location = glGetUniformLocation(shader->program, uniforms[i].name);
+
+        shader->uniforms[i].length = 1;
+        if(uniforms[i].length != XNE_INVALID_VALUE){
+            //shader->uniforms[i].length = (uint32_t) uniforms[i].length;
+        }
 
         /*shader->uniforms[i].location = -1;
         if(shader->uniforms[i].attrib & XNE_UNIFORM_ATTRIB_STRUCT) {
@@ -207,12 +224,12 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
             //free((char*) temp);
         }*/
 
-        xne_vprintf("cannot find attribute '%i'", uniform[i].attrib);
+        /*xne_vprintf("cannot find attribute '%i'", uniform[i].attrib);
         if(shader->uniforms[i].attrib == XNE_UNIFORM_ATTRIB_UNIFORM) {
             shader->uniforms[i].location = glGetUniformLocation(shader->program, uniforms[i].name);
-        }
+        }*/
 
-        if(shader->uniforms[i].location == -1){
+        if(shader->uniforms[i].location == XNE_INVALID_VALUE){
             xne_vprintf("cannot find attribute '%s'", uniforms[i].name);
         }
     }
@@ -222,17 +239,39 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
 
 void xne_shader_use_uniform(xne_Shader_t* shader, uint32_t index, const void* value){    
     if(index < shader->uniform_count){
+        if(shader->uniforms[index].location == XNE_INVALID_VALUE){
+            return;
+        }
+
         switch (shader->uniforms[index].format)
         {
-        case XNE_UNIFORM_FLOAT: glUniform1fv(shader->uniforms[index].location, 1, (float*)value);   return;
-        case XNE_UNIFORM_INT:   glUniform1iv(shader->uniforms[index].location, 1, (int*)value);     return;
-        case XNE_UNIFORM_VEC2:  glUniform2fv(shader->uniforms[index].location, 1, (float*)value);   return;
-        case XNE_UNIFORM_VEC3:  glUniform3fv(shader->uniforms[index].location, 1, (float*)value);   return;
-        case XNE_UNIFORM_VEC4:  glUniform4fv(shader->uniforms[index].location, 1, (float*)value);   return;
-        case XNE_UNIFORM_MAT4:  glUniformMatrix4fv(shader->uniforms[index].location, 1, GL_FALSE, (float*)value);   return;
+        case XNE_UNIFORM_FLOAT: 
+            glUniform1fv(shader->uniforms[index].location, shader->uniforms[index].length, (float*)value);   
+            break;
+
+        case XNE_UNIFORM_INT:   
+            glUniform1iv(shader->uniforms[index].location, shader->uniforms[index].length, (int*)value);     
+            break;
+
+        case XNE_UNIFORM_VEC2:  
+            glUniform2fv(shader->uniforms[index].location, shader->uniforms[index].length, (float*)value);   
+            break;
+
+        case XNE_UNIFORM_VEC3:  
+            glUniform3fv(shader->uniforms[index].location, shader->uniforms[index].length, (float*)value);   
+            break;
+
+        case XNE_UNIFORM_VEC4:  
+            glUniform4fv(shader->uniforms[index].location, shader->uniforms[index].length, (float*)value);   
+            break;
+
+        case XNE_UNIFORM_MAT4:  
+            glUniformMatrix4fv(shader->uniforms[index].location, shader->uniforms[index].length, GL_FALSE, (float*)value);   
+            break;
+
         case XNE_UNIFORM_LIGHT:
 
-            return;
+            break;
         default: return;
         }
     }

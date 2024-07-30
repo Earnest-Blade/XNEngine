@@ -1,11 +1,11 @@
 #include "model.h"
 #include "objects.h" 
-#include "material.h"
 
 #include "engine/engine.h"
 
 #include "graphics/mesh.h"
 #include "graphics/texture.h"
+#include "graphics/material.h"
 
 #include <assert.h>
 #include <string.h>
@@ -297,9 +297,10 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
             for (size_t y = 0; y < json_object_array_length(json_uniforms); y++)
             {
                 json_object* suniform = json_object_array_get_idx(json_uniforms, y);
-                uniform_desc[y].attrib = (xne_UniformAttrib_t) json_object_get_uint64(json_object_object_get(suniform, "Attribute"));
+                uniform_desc[y].attrib = (xne_UniformAttrib_t) json_object_get_int(json_object_object_get(suniform, "Attribute"));
                 uniform_desc[y].format = (xne_UniformType_t) json_object_get_int(json_object_object_get(suniform, "Format"));
                 uniform_desc[y].name = json_object_get_string(json_object_object_get(suniform, "Name"));
+                uniform_desc[y].length = XNE_INVALID_VALUE;
 
                 if(uniform_desc[y].attrib & XNE_UNIFORM_ATTRIB_ARRAY) {
                     const json_object* json_length_uniform = json_object_object_get(suniform, "Length");

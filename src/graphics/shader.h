@@ -18,13 +18,15 @@ typedef enum xne_UniformAttrib {
 } xne_UniformAttrib_t;
 
 typedef enum xne_UniformType {
+    XNE_UNIFORM_UNKNOWN,
     XNE_UNIFORM_FLOAT,
     XNE_UNIFORM_INT,
     XNE_UNIFORM_VEC2,
     XNE_UNIFORM_VEC3,
     XNE_UNIFORM_VEC4,
     XNE_UNIFORM_MAT4,
-    XNE_UNIFORM_LIGHT
+    XNE_UNIFORM_LIGHT,
+    XNE_UNIFORM_MATERIAL
 } xne_UniformType_t;
 
 typedef enum xne_ShaderType {
@@ -52,6 +54,7 @@ typedef struct xne_Shader {
         xne_UniformAttrib_t attrib;
         xne_UniformType_t format;
         uint32_t location;   
+        uint32_t length;
     } *uniforms;
     uint32_t* shaders;
     uint32_t program;
