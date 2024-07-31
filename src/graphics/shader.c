@@ -177,6 +177,15 @@ static size_t xne__get_uniform_desc_length(const xne_ShaderUniformDesc_t* unifor
     return count;
 }
 
+static void xne__print_shader_status(const xne_Shader_t* shader) {
+    xne_vprintf("- shader %d", shader->program);
+    for (size_t i = 0; i < shader->uniform_count; i++) {
+        xne_vprintf("0x%p -  attribute=%d ; location=%d ; format=%d ; length=%d", 
+            &shader->uniforms[i], shader->uniforms[i].attrib, shader->uniforms[i].location, 
+            shader->uniforms[i].format, shader->uniforms[i].length);
+    }
+}
+
 int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t* uniforms){
     assert(shader);
 
@@ -185,7 +194,6 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
     }
 
     size_t count = xne__get_uniform_desc_length(uniforms);
-    xne_vprintf("count %i", count);
 
     if(!count){
         return XNE_FAILURE;
@@ -198,6 +206,7 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
     else {
         shader->uniform_count = count;
         shader->uniforms = malloc(sizeof(struct xne_ShaderUniform) * shader->uniform_count);
+        //memset(shader->uniforms, 0, sizeof(struct xne_ShaderUniform) * shader->uniform_count);
     }
 
     xne_assert(shader->uniforms);
@@ -238,7 +247,7 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
 }
 
 void xne_shader_use_uniform(xne_Shader_t* shader, uint32_t index, const void* value){    
-    if(index < shader->uniform_count){
+    if(index < shader->uniform_count || index != XNE_INVALID_VALUE){
         if(shader->uniforms[index].location == XNE_INVALID_VALUE){
             return;
         }
@@ -266,7 +275,7 @@ void xne_shader_use_uniform(xne_Shader_t* shader, uint32_t index, const void* va
             break;
 
         case XNE_UNIFORM_MAT4:  
-            glUniformMatrix4fv(shader->uniforms[index].location, shader->uniforms[index].length, GL_FALSE, (float*)value);   
+            glUniformMatrix4fv(shader->uniforms[index].location, shader->uniforms[index].length, GL_FALSE, (float*)value);
             break;
 
         case XNE_UNIFORM_LIGHT:

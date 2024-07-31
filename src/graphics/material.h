@@ -7,6 +7,11 @@
 
 typedef struct xne_Material {
     xne_Shader_t shader;
+    struct {
+        uint32_t projection;
+        uint32_t transform;
+        uint32_t world;
+    } uniforms;
     
     struct xne_Texture* diffuse_texture;
     struct xne_Texture* ambient_texture;

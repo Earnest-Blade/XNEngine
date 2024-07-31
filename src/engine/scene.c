@@ -13,7 +13,7 @@ int xne_create_scened(xne_Scene_t* scene, const char* name, xne_Camera_Desc_t* c
     scene->name = (char*) malloc(strlen(name) + 1);
     strcpy(scene->name, name);
 
-    xne_create_camera(&scene->camera, *camera);
+    xne_create_camera(&scene->camera, camera);
     xne_get_engine_instance()->state.scene = scene;
 
     return XNE_OK;
@@ -71,11 +71,19 @@ int xne_create_scenef(xne_Scene_t* scene, FILE* file){
         camera_desc.far = json_object_get_double(json_object_object_get(json_camera, "Far"));
         camera_desc.near = json_object_get_double(json_object_object_get(json_camera, "Near"));
         
+        xne_assert(xne_get_engine_instance()->graphics.draw.framebuffer.shader.program);
+        
         camera_desc.width = xne_get_engine_instance()->graphics.draw.framebuffer.width;
         camera_desc.height = xne_get_engine_instance()->graphics.draw.framebuffer.height;
-        xne_create_camera(&scene->camera, camera_desc);
+        
+        xne_create_camera(&scene->camera, &camera_desc);
     }
-
+    else {
+        xne_printf("failed to create scene's camera!");
+        json_object_put(__json_context);
+        free(fstr);
+        return XNE_FAILURE;
+    }
 
     xne_get_engine_instance()->state.scene = scene;
 

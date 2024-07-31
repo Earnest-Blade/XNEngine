@@ -59,14 +59,14 @@ static void xne__process_view(xne_Camera_t* camera){
     camera->view[3][3] = 1.0f;
 }
 
-void xne_create_camera(xne_Camera_t* camera, xne_Camera_Desc_t desc){
+void xne_create_camera(xne_Camera_t* camera, xne_Camera_Desc_t* desc){
     assert(camera);
-    camera->mode = desc.projection;
-    camera->width = desc.width;
-    camera->height = desc.height;
-    camera->fov = desc.fov;
-    camera->near = desc.near;
-    camera->far = desc.far;
+    camera->mode = desc->projection;
+    camera->width = desc->width;
+    camera->height = desc->height;
+    camera->fov = desc->fov;
+    camera->near = desc->near;
+    camera->far = desc->far;
 
     memset(camera->eye, 0, sizeof(camera->eye));
     memset(camera->direction, 0, sizeof(camera->direction));

@@ -40,19 +40,20 @@ int xne_create_sprited(xne_Sprite_t* sprite, xne_SpriteDesc_t desc){
     mdesc.primitive = XNE_MESH_PRIMITIVE_TRIANGLE;
 
     xne_create_mesh(&sprite->plane, mdesc);
-    if(xne_create_shader(&sprite->shader, desc.shader, desc.shader_desc) != XNE_OK){
+
+    if(xne_create_shader(&sprite->material.shader, desc.shader, desc.shader_desc) != XNE_OK){
         fprintf(stderr, "failed to create sprite shader!");
         return XNE_FAILURE;
     }
 
-    if(xne_link_shader_uniforms(&sprite->shader, desc.uniform_desc) != XNE_OK){
+    if(xne_link_shader_uniforms(&sprite->material.shader, desc.uniform_desc) != XNE_OK){
         fprintf(stderr, "failed to create sprite shader's uniforms!");
         return XNE_FAILURE;
     }
 
     xne_create_texture_atlas(&sprite->atlas, desc.path, desc.tile_width_count, 
         desc.tile_height_count, desc.filter, desc.wrap);
-    xne_link_texture_atlas(&sprite->atlas, "texture0", sprite->shader.program);
+    xne_link_texture_atlas(&sprite->atlas, "texture0", sprite->material.shader.program);
     xne_create_transform(&sprite->transform);
 
     return XNE_OK;
@@ -115,7 +116,8 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
     const json_object* json_material = json_object_object_get(json_scene, "Material");
 
     if(json_object_get_type(json_material) != json_type_null){
-        json_object* json_shader = json_object_object_get(json_material, "Shader");
+        xne__create_material_from_object(json_material, &sprite->material);
+        /*json_object* json_shader = json_object_object_get(json_material, "Shader");
         json_object* json_shaders = json_object_object_get(json_shader, "Shaders");
         json_object* json_uniforms = json_object_object_get(json_shader, "Uniforms");
 
@@ -144,7 +146,7 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
         }
 
         xne_link_shader_uniforms(&sprite->shader, uniform_desc);
-        free(uniform_desc);
+        free(uniform_desc);*/
     }
     else{
         fprintf(stdout, "cannot find material object!\n");
@@ -177,7 +179,7 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
 
         xne_create_mesh(&sprite->plane, mesh_desc);
 
-        xne_link_texture_atlas_layer(&sprite->atlas, json_object_get_string(json_object_object_get(json_sprite, "Layer")), sprite->shader.program);
+        xne_link_texture_atlas_layer(&sprite->atlas, json_object_get_string(json_object_object_get(json_sprite, "Layer")), sprite->material.shader.program);
     }
     else{
         fprintf(stdout, "cannot find sprite object!\n");
@@ -197,7 +199,7 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
             (xne_TextureWrap_t)json_object_get_int(json_object_object_get(json_atlas, "Wrap"))
         );
 
-        xne_link_texture_atlas(&sprite->atlas, json_object_get_string(json_object_object_get(json_atlas, "Name")), sprite->shader.program);
+        xne_link_texture_atlas(&sprite->atlas, json_object_get_string(json_object_object_get(json_atlas, "Name")), sprite->material.shader.program);
     }
     else{
         fprintf(stdout, "cannot find texture atlas object!\n");
@@ -283,13 +285,13 @@ static inline void xne__update_sprite(xne_Sprite_t* sprite){
 void xne_draw_sprite(xne_Sprite_t* sprite){
     xne__update_sprite(sprite);
 
-    xne_shader_enable(&sprite->shader);
+    xne_shader_enable(&sprite->material.shader);
 
     glBindTexture(GL_TEXTURE_2D_ARRAY, sprite->atlas.target);
     glUniform1i(sprite->atlas.layer_location, sprite->frame);
 
-    xne_shader_use_uniform(&sprite->shader, 0, xne_get_camera_projection(&xne_get_engine_instance()->state.scene->camera));
-    xne_shader_use_uniform(&sprite->shader, 1, xne_transform_matrix(&sprite->transform));
+    xne_shader_use_uniform(&sprite->material.shader, sprite->material.uniforms.projection, xne_get_camera_projection(&xne_get_engine_instance()->state.scene->camera));
+    xne_shader_use_uniform(&sprite->material.shader, sprite->material.uniforms.transform, xne_transform_matrix(&sprite->transform));
 
     xne_draw_mesh(&sprite->plane);
 
@@ -301,7 +303,7 @@ void xne_draw_sprite(xne_Sprite_t* sprite){
 void xne_draw_billboard_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
     xne__update_sprite(sprite);
 
-    xne_shader_enable(&sprite->shader);
+    xne_shader_enable(&sprite->material.shader);
 
     glBindTexture(GL_TEXTURE_2D_ARRAY, sprite->atlas.target);
     //glUniform1i(sprite->textures.texture_location, XNE_TEXTURE_UNIT0);
@@ -347,9 +349,10 @@ void xne_draw_billboard_sprite(xne_Sprite_t* sprite, xne_Camera_t* camera){
 
     glUniform1i(sprite->atlas.layer_location, sprite->frame);
 
-    xne_shader_use_uniform(&sprite->shader, 0, xne_get_camera_projection(camera));
-    xne_shader_use_uniform(&sprite->shader, 1, xne_transform_lookat(&sprite->transform, camera->eye));
-    xne_shader_use_uniform(&sprite->shader, 2, camera->eye);
+    // TODO: replace with material uniforms holder
+    xne_shader_use_uniform(&sprite->material.shader, 0, xne_get_camera_projection(camera));
+    xne_shader_use_uniform(&sprite->material.shader, 1, xne_transform_lookat(&sprite->transform, camera->eye));
+    xne_shader_use_uniform(&sprite->material.shader, 2, camera->eye);
 
     xne_draw_mesh(&sprite->plane);
 
@@ -376,6 +379,6 @@ void xne_destroy_sprite(xne_Sprite_t* sprite){
     }
 
     xne_destroy_mesh(&sprite->plane);
-    xne_destroy_shader(&sprite->shader);
+    xne_destroy_material(&sprite->material);
     xne_destroy_atlas_texture(&sprite->atlas);
 }

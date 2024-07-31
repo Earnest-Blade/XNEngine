@@ -23,6 +23,8 @@ void xne__wmessage(FILE* stream, const int line, const char* file, const char* _
 void xne__wassert(const char* __message, const char* __file, unsigned long long __line);
 int xne__werror(const char* __message, int code);
 
+void xne__break();
+
 #define xne_printf(message) (void)(xne__wmessage(stdout, __LINE__, XNE_FILE, message))
 #define xne_vprintf(message, ...) (void)(xne__wmessage(stdout, __LINE__, XNE_FILE, message, __VA_ARGS__))
 
@@ -31,6 +33,6 @@ int xne__werror(const char* __message, int code);
 )
 #define xne_error(message, code) (void) (xne__werror(#message, code))
 
-#define xne_break() (void)(raise(SIGABRT))
+#define xne_break() xne__break()
 
 #endif
