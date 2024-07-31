@@ -8,15 +8,11 @@
 typedef struct xne_Material {
     xne_Shader_t shader;
     struct {
-        unsigned int projection;
-        unsigned int transform;
-        unsigned int world;
-        unsigned int material;
-        unsigned int directional_light; 
-        unsigned int point_lights; 
-        unsigned int spot_lights; 
-    } uniforms_holder;
-
+        uint32_t projection;
+        uint32_t transform;
+        uint32_t world;
+    } uniforms;
+    
     struct xne_Texture* diffuse_texture;
     struct xne_Texture* ambient_texture;
 

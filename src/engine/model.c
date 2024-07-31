@@ -1,5 +1,4 @@
 #include "model.h"
-#include "objects.h" 
 
 #include "engine/engine.h"
 
@@ -7,21 +6,23 @@
 #include "graphics/texture.h"
 #include "graphics/material.h"
 
+#include "objects.h" 
+
 #include <assert.h>
 #include <string.h>
 #include <memory.h>
 
 // crapy macro 
 // TODO: should I find a replacer ? or a more elegent way of doing this shit ?
-#define XNE__FIND_MAT_UNIFORM_HOLDER(x, y) { if(strcmp(uniform_desc[y].name, #x) == 0) { material->uniforms_holder.x = y; } }
+#define XNE__FIND_MAT_UNIFORM_HOLDER(x, y) { if(strcmp(uniform_desc[y].name, #x) == 0) { material->uniforms.x = y; } }
 
 static void xne__model_create_node(json_object* json, xne_Model_t* model, xne_Tree_t* tree){
-    xne_assert(json);
-    xne_assert(model);
-    xne_assert(tree);
+    assert(json);
+    assert(model);
+    assert(tree);
 
     xne_ModelNode_t* node = (xne_ModelNode_t*) xne_tree_get_value(tree);
-    xne_assert(node);
+    assert(node);
 
     const json_object* childs = json_object_object_get(json, "Childs");
     const json_object* mesh = json_object_object_get(json, "Mesh");
@@ -78,17 +79,12 @@ static void xne__model_draw_node(xne_Tree_t* tree){
 
     xne_ModelNode_t* node = (xne_ModelNode_t*) xne_tree_get_value(tree);
     if(!node || !node->mesh || !node->material) return;
-    
 
     xne_shader_enable(&node->material->shader);
-
-    xne_shader_use_uniform(&node->material->shader, node->material->uniforms_holder.projection, xne_get_camera_projection(&xne_get_engine_instance()->state.scene->camera));
-    xne_shader_use_uniform(&node->material->shader, node->material->uniforms_holder.transform, xne_transform_matrix(&node->transform));
-    xne_shader_use_uniform(&node->material->shader, node->material->uniforms_holder.world, xne_transform_world_matrix(&node->transform));
-
-    //xne_shader_use_uniform(&node->material->shader, node->material->uniforms_holder.material, &node->material);
-
-    xne_shader_use_uniform(&node->material->shader, node->material->uniforms_holder.directional_light, &xne_get_engine_instance()->state.scene->directional_light);
+    
+    xne_shader_use_uniform(&node->material->shader, node->material->uniforms.projection, xne_get_camera_projection(&xne_get_engine_instance()->state.scene->camera));
+    xne_shader_use_uniform(&node->material->shader, node->material->uniforms.transform, xne_transform_matrix(&node->transform));
+    xne_shader_use_uniform(&node->material->shader, node->material->uniforms.world, xne_transform_world_matrix(&node->transform));
 
     // in order to keep an ordered unit, units aren't fixed but dynamics.
     // So, if a texture isn't use, it's unit will be use by the next texture.
@@ -124,8 +120,8 @@ static void xne__model_destroy_node(xne_Tree_t* tree){
 }
 
 int xne_create_modelf(xne_Model_t* model, FILE* file){
-    xne_assert(model);
-    xne_assert(file);
+    assert(model);
+    assert(file);
 
     memset(model, 0, sizeof(xne_Model_t));
 
@@ -192,7 +188,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         for (size_t i = 0; i < model->meshes.count; i++)
         {
             json_mesh = json_object_array_get_idx(json_mesh_array, i);
-            xne_assert(json_mesh); // @TODO: replace with return XNE_FAILTURE type
+            assert(json_mesh); // @TODO: replace with return XNE_FAILTURE type
 
             // read vertices and elements buffers
             json_vertices = json_object_object_get(json_mesh, "Vertices");
@@ -247,7 +243,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         {
             // simply load each textures
             json_texture = json_object_array_get_idx(json_texture_array, i);
-            xne_assert(json_texture);
+            assert(json_texture);
 
             xne_create_texture(
                 (xne_Texture_t*) xne_vector_get(&model->textures, i),
@@ -265,6 +261,8 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         return XNE_FAILURE;
     }
 
+    fprintf(stdout, "finised loading model!\n");
+
     // initialize and allocate materials and shaders
     if(json_object_get_type(json_materials_array) != json_type_null){
         xne_create_vector(&model->materials, sizeof(xne_Material_t), json_object_array_length(json_materials_array));
@@ -276,19 +274,20 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
         {
             // get json elements
             json_material = json_object_array_get_idx(json_materials_array, i);
-            json_shader = json_object_object_get(json_material, "Shader");
+            material = (xne_Material_t*) xne_vector_get(&model->materials, i);
+
+            xne__create_material_from_object(json_material, material);
+
+            /*json_shader = json_object_object_get(json_material, "Shader");
             json_shaders = json_object_object_get(json_shader, "Shaders");
             json_uniforms = json_object_object_get(json_shader, "Uniforms");
 
             // create an empty material struct
             material = (xne_Material_t*) xne_vector_get(&model->materials, i);
-            material->uniforms_holder.projection = XNE_INVALID_VALUE;
-            material->uniforms_holder.transform = XNE_INVALID_VALUE;
-            material->uniforms_holder.world = XNE_INVALID_VALUE;
-            material->uniforms_holder.material = XNE_INVALID_VALUE;
-            material->uniforms_holder.directional_light = XNE_INVALID_VALUE;
-            material->uniforms_holder.point_lights = XNE_INVALID_VALUE;
-            material->uniforms_holder.spot_lights = XNE_INVALID_VALUE;
+
+            material->uniforms.projection = XNE_INVALID_VALUE;
+            material->uniforms.transform = XNE_INVALID_VALUE;
+            material->uniforms.world = XNE_INVALID_VALUE;
 
             // load shader's sub shaders
             xne_ShaderDesc_t* shader_desc = (xne_ShaderDesc_t*) calloc(json_object_array_length(json_shaders), sizeof(xne_ShaderDesc_t));
@@ -307,25 +306,25 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
             free(shader_desc);
 
             // load shader's uniforms
-            xne_ShaderUniformDesc_t* uniform_desc = (xne_ShaderUniformDesc_t*) calloc(json_object_array_length(json_uniforms), sizeof(xne_ShaderUniformDesc_t));
-            for (size_t y = 0; y < json_object_array_length(json_uniforms); y++)
+            const size_t uniform_count = json_object_array_length(json_uniforms);
+            xne_ShaderUniformDesc_t* uniform_desc = (xne_ShaderUniformDesc_t*) calloc(uniform_count + 1, sizeof(xne_ShaderUniformDesc_t));
+
+            for (size_t y = 0; y < uniform_count; y++)
             {
-                json_object* json_sub_uniform = json_object_array_get_idx(json_uniforms, y);
-                uniform_desc[y].attrib = json_object_get_int(json_object_object_get(json_sub_uniform, "Attribute"));
-                uniform_desc[y].format = json_object_get_int(json_object_object_get(json_sub_uniform, "Format"));
-                uniform_desc[y].name = json_object_get_string(json_object_object_get(json_sub_uniform, "Name"));
+                json_object* suniform = json_object_array_get_idx(json_uniforms, y);
+                uniform_desc[y].attrib = (xne_UniformAttrib_t) json_object_get_int(json_object_object_get(suniform, "Attribute"));
+                uniform_desc[y].format = (xne_UniformType_t) json_object_get_int(json_object_object_get(suniform, "Format"));
+                uniform_desc[y].name = json_object_get_string(json_object_object_get(suniform, "Name"));
+                uniform_desc[y].length = XNE_INVALID_VALUE;
 
                 xne_vprintf("%d - %s", y, uniform_desc[y].name);
 
                 XNE__FIND_MAT_UNIFORM_HOLDER(projection, y);
                 XNE__FIND_MAT_UNIFORM_HOLDER(transform, y);
                 XNE__FIND_MAT_UNIFORM_HOLDER(world, y);
-                XNE__FIND_MAT_UNIFORM_HOLDER(material, y);
-                XNE__FIND_MAT_UNIFORM_HOLDER(directional_light, y);
-                XNE__FIND_MAT_UNIFORM_HOLDER(point_lights, y);
 
-                if((uniform_desc[y].attrib & XNE_UNIFORM_ATTRIB_ARRAY) || (uniform_desc[y].attrib & XNE_UNIFORM_ATTRIB_STRUCT)) {
-                    const json_object* json_length_uniform = json_object_object_get(json_sub_uniform, "Length");
+                if(uniform_desc[y].attrib & XNE_UNIFORM_ATTRIB_ARRAY) {
+                    const json_object* json_length_uniform = json_object_object_get(suniform, "Length");
                     if(json_object_get_type(json_length_uniform) != json_type_null){
                         uniform_desc[y].length = json_object_get_int(json_length_uniform);
                     }
@@ -334,6 +333,8 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
                     }
                 }
             }
+
+            memset(&uniform_desc[uniform_count], 0, sizeof(xne_ShaderUniformDesc_t));
 
             xne_link_shader_uniforms(&material->shader, uniform_desc);
             free(uniform_desc);
@@ -344,7 +345,7 @@ int xne_create_modelf(xne_Model_t* model, FILE* file){
 
             // load materials textures
             material->ambient_texture = NULL;
-            material->diffuse_texture = NULL;
+            material->diffuse_texture = NULL;*/
 
             if(json_object_get_type(json_object_object_get(json_material, "AmbientTexture")) != json_type_null){
                 material->ambient_texture = (xne_Texture_t*) xne_vector_get(&model->textures, json_object_get_int(json_object_object_get(json_material, "AmbientTexture")));

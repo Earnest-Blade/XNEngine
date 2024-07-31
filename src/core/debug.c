@@ -3,6 +3,12 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+#ifdef _WIN32
+    #include <windows.h>
+#else
+    #include <signal.h>
+#endif
+
 void xne__wmessage(FILE* stream, const int line, const char* file, const char* __message, ...){
     va_list arg_list;
     int finised;
@@ -30,4 +36,14 @@ int xne__werror(const char* __message, int code){
     xne__wmessage(stderr, -1, 0, "exited with code (%i) : %s\n", code, __message);
     
     exit(code);
+}
+
+void xne__break(){
+#ifdef _MSC_VER
+    __debugbreak();
+#elif _WIN32
+    DebugBreak();
+#else
+    raise(SIGABRT);
+#endif
 }

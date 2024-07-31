@@ -10,18 +10,10 @@ int xne_create_scened(xne_Scene_t* scene, const char* name, xne_Camera_Desc_t* c
     assert(scene);
 
     memset(scene, 0, sizeof(xne_Scene_t));
-    
-    if(name){
-        scene->name = (char*) malloc(strlen(name) + 1);
-        strcpy(scene->name, name);
-    }
-    
-    if(camera){
-        xne_create_camera(&scene->camera, *camera);
-    }
+    scene->name = (char*) malloc(strlen(name) + 1);
+    strcpy(scene->name, name);
 
-    xne_create_vector(&scene->point_lights, sizeof(xne_Light_t), 1);
-    xne_create_vector(&scene->spot_lights, sizeof(xne_Light_t), 1);
+    xne_create_camera(&scene->camera, camera);
     xne_get_engine_instance()->state.scene = scene;
 
     return XNE_OK;
@@ -32,7 +24,6 @@ int xne_create_scenef(xne_Scene_t* scene, FILE* file){
     assert(file);
 
     memset(scene, 0, sizeof(xne_Scene_t));
-
     fseek(file, 0, SEEK_SET);
     char header = xne_freadw8(file);
 
@@ -56,7 +47,7 @@ int xne_create_scenef(xne_Scene_t* scene, FILE* file){
     // open json parser context
     __json_context = json_tokener_parse(fstr);
     if(!__json_context){
-        xne_printf("failed to parse file!");
+        fprintf(stderr, "failed to parse file!\n");
         free(fstr);
 
         return XNE_FAILURE;
@@ -72,7 +63,6 @@ int xne_create_scenef(xne_Scene_t* scene, FILE* file){
     const json_object* json_scene = json_object_object_get(json_object_object_get(__json_context, "Asset"), "Value");
 
     const json_object* json_camera = json_object_object_get(json_scene, "Camera");
-    const json_object* json_lights = json_object_object_get(json_scene, "Lights");
     
     if(json_object_get_type(json_camera) != json_type_null){
         xne_Camera_Desc_t camera_desc;
@@ -81,31 +71,20 @@ int xne_create_scenef(xne_Scene_t* scene, FILE* file){
         camera_desc.far = json_object_get_double(json_object_object_get(json_camera, "Far"));
         camera_desc.near = json_object_get_double(json_object_object_get(json_camera, "Near"));
         
+        xne_assert(xne_get_engine_instance()->graphics.draw.framebuffer.shader.program);
+        
         camera_desc.width = xne_get_engine_instance()->graphics.draw.framebuffer.width;
         camera_desc.height = xne_get_engine_instance()->graphics.draw.framebuffer.height;
-        xne_create_camera(&scene->camera, camera_desc);
+        
+        xne_create_camera(&scene->camera, &camera_desc);
     }
     else {
-        xne_printf("cannot find camera's node !");
+        xne_printf("failed to create scene's camera!");
         json_object_put(__json_context);
         free(fstr);
         return XNE_FAILURE;
     }
 
-    if(json_object_get_type(json_lights) != json_type_null) {
-        const json_object* json_dir_light = json_object_object_get(json_lights, "DirectionalLight");
-
-        if(json_object_get_type(json_dir_light) != json_type_null){
-            scene->directional_light.type = XNE_LIGHT_DIRECTIONAL;
-            
-            xne__object_create_vec3(json_object_object_get(json_dir_light, "Position"), scene->directional_light.position);
-            xne__object_create_vec3(json_object_object_get(json_dir_light, "Direction"), scene->directional_light.light.directional.direction);
-            xne__object_create_vec3(json_object_object_get(json_dir_light, "Color"), scene->directional_light.light.directional.color);
-        }
-    }
-    
-    xne_create_vector(&scene->point_lights, sizeof(xne_Light_t), 1);
-    xne_create_vector(&scene->spot_lights, sizeof(xne_Light_t), 1);
     xne_get_engine_instance()->state.scene = scene;
 
     return XNE_OK;
@@ -167,29 +146,6 @@ int xne_scene_register_function(xne_Scene_t* scene, xne_SceneFunctionType_t type
     }
 }
 
-xne_Light_t* xne_scene_create_light(xne_Scene_t* scene, xne_LightType_t type){
-    xne_Light_t* light;
-
-    switch (type)
-    {
-    case XNE_LIGHT_DIRECTIONAL:
-        scene->directional_light.type = type; 
-        return &scene->directional_light;
-    
-    case XNE_LIGHT_POINT:
-        light = (xne_Light_t*) xne_vector_push_back(&scene->point_lights, NULL);
-        xne_create_light(light, type);
-        return light;
-
-    case XNE_LIGHT_SPOT:
-        light = (xne_Light_t*) xne_vector_push_back(&scene->spot_lights, NULL);
-        xne_create_light(light, type);
-        return light; 
-
-    default:
-        break;
-    }
-}
 
 void xne_destroy_scene(xne_Scene_t* scene){
     free(scene->name);
@@ -197,9 +153,6 @@ void xne_destroy_scene(xne_Scene_t* scene){
     if(scene->memory.size){
         free(scene->memory.ptr);
     }
-
-    xne_destroy_vector(&scene->point_lights);
-    xne_destroy_vector(&scene->spot_lights);
 
     scene->update_func = NULL;
     scene->draw_func = NULL;

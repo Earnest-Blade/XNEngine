@@ -38,7 +38,7 @@ typedef struct xne_SpriteAnimationHandler {
 typedef struct xne_Sprite {
     xne_TextureAtlas_t atlas;
     xne_SpriteAnimationHandler_t animations;
-    xne_Shader_t shader;
+    xne_Material_t material;
     xne_Mesh_t plane;
     xne_Transform_t transform;
 

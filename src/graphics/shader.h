@@ -10,27 +10,23 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define XNE_MAX_UNIFORM 512
-#define XNE_MAX_BLOCK_UNIFORM 254
-
 // flags
 typedef enum xne_UniformAttrib { 
-    XNE_UNIFORM_ATTRIB_NONE = 0,
     XNE_UNIFORM_ATTRIB_UNIFORM = 1,
     XNE_UNIFORM_ATTRIB_STRUCT = 2,
     XNE_UNIFORM_ATTRIB_ARRAY = 4
 } xne_UniformAttrib_t;
 
 typedef enum xne_UniformType {
-    XNE_UNIFORM_FLOAT = 0,
-    XNE_UNIFORM_INT = 1,
-    XNE_UNIFORM_VEC2 = 2,
-    XNE_UNIFORM_VEC3 = 3,
-    XNE_UNIFORM_VEC4 = 4,
-    XNE_UNIFORM_MAT4 = 5,
-    XNE_UNIFORM_DATA = 6,
-    XNE_UNIFORM_LIGHT = 7,
-    XNE_UNIFORM_MATERIAL = 8
+    XNE_UNIFORM_UNKNOWN,
+    XNE_UNIFORM_FLOAT,
+    XNE_UNIFORM_INT,
+    XNE_UNIFORM_VEC2,
+    XNE_UNIFORM_VEC3,
+    XNE_UNIFORM_VEC4,
+    XNE_UNIFORM_MAT4,
+    XNE_UNIFORM_LIGHT,
+    XNE_UNIFORM_MATERIAL
 } xne_UniformType_t;
 
 typedef enum xne_ShaderType {
@@ -57,9 +53,8 @@ typedef struct xne_Shader {
     struct xne_ShaderUniform {
         xne_UniformAttrib_t attrib;
         xne_UniformType_t format;
-        uint32_t location;
-        uint16_t length;
-        uint8_t binding_point;
+        uint32_t location;   
+        uint32_t length;
     } *uniforms;
     uint32_t* shaders;
     uint32_t program;
@@ -86,7 +81,7 @@ static inline int xne_create_shader(xne_Shader_t* shader, const char* path, cons
     FILE* f = fopen(path, "rb");
     int s = xne_create_shaderf(shader, f, desc);
     fclose(f);
-    xne_assert(!s);
+    assert(!s);
     return s;
 }
 
@@ -124,14 +119,8 @@ int xne_shader_is_valid(xne_Shader_t* shader);
 */
 xne_Shader_t* xne_get_active_shader();
 
-/*
-    Bind shader's uniforms from a shader uniform descriptor's array.
-*/
 int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t* uniforms);
 
-/*
-
-*/
 void xne_shader_use_uniform(xne_Shader_t* shader, uint32_t index, const void* value);
 
 #endif

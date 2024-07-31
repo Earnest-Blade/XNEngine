@@ -8,7 +8,6 @@
 #define XNE_CORE_COMPRESSION
 #include "core/core.h"
 
-#include "graphics/light.h"
 #include "graphics/camera.h"
 
 typedef enum xne_SceneFunctionType {
@@ -22,10 +21,6 @@ typedef struct xne_Scene {
     char* name;
     struct xne_Buffer memory;
     xne_Camera_t camera;
-
-    xne_Light_t directional_light;
-    xne_Vector_t spot_lights;
-    xne_Vector_t point_lights;
 
     void (*initialization_func)(struct xne_Scene*);
     void (*update_func)(struct xne_Scene*, float);
@@ -60,7 +55,6 @@ static inline int xne_create_scene(xne_Scene_t* scene, const char* path){
     FILE* f = fopen(path, "rb");
     int success = xne_create_scenef(scene, f);
     fclose(f);
-    xne_assert(!success);
     return success;
 }
 
@@ -90,7 +84,6 @@ void* xne_scene_get_buffer(xne_Scene_t* scene);
 */
 int xne_scene_register_function(xne_Scene_t* scene, xne_SceneFunctionType_t type, void* func);
 
-xne_Light_t* xne_scene_create_light(xne_Scene_t* scene, xne_LightType_t type);
 
 void xne_destroy_scene(xne_Scene_t* scene);
 
