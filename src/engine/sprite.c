@@ -117,36 +117,6 @@ int xne_create_spritef(xne_Sprite_t* sprite, FILE* file){
 
     if(json_object_get_type(json_material) != json_type_null){
         xne__create_material_from_object(json_material, &sprite->material);
-        /*json_object* json_shader = json_object_object_get(json_material, "Shader");
-        json_object* json_shaders = json_object_object_get(json_shader, "Shaders");
-        json_object* json_uniforms = json_object_object_get(json_shader, "Uniforms");
-
-        xne_ShaderDesc_t* shader_desc = (xne_ShaderDesc_t*) calloc(json_object_array_length(json_shaders), sizeof(xne_ShaderDesc_t));
-        for (size_t y = 0; y < json_object_array_length(json_shaders); y++)
-        {
-            json_object* json_sub_shader = json_object_array_get_idx(json_shaders, y);
-            shader_desc[y].type = json_object_get_int(json_object_object_get(json_sub_shader, "Type"));
-            shader_desc[y].name = json_object_get_string(json_object_object_get(json_sub_shader, "Name"));
-        }
-
-        xne_create_shader(
-            &sprite->shader,
-            json_object_get_string(json_object_object_get(json_shader, "Path")),
-            shader_desc
-        );
-        free(shader_desc);
-
-        xne_ShaderUniformDesc_t* uniform_desc = (xne_ShaderUniformDesc_t*) calloc(json_object_array_length(json_uniforms), sizeof(xne_ShaderUniformDesc_t));
-        for (size_t y = 0; y < json_object_array_length(json_uniforms); y++)
-        {
-            json_object* suniform = json_object_array_get_idx(json_uniforms, y);
-            uniform_desc[y].attrib = json_object_get_int(json_object_object_get(suniform, "Attribute"));
-            uniform_desc[y].format = (xne_UniformType_t) json_object_get_int(json_object_object_get(suniform, "Format"));
-            uniform_desc[y].name = json_object_get_string(json_object_object_get(suniform, "Name"));
-        }
-
-        xne_link_shader_uniforms(&sprite->shader, uniform_desc);
-        free(uniform_desc);*/
     }
     else{
         fprintf(stdout, "cannot find material object!\n");

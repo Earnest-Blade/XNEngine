@@ -38,7 +38,8 @@ int xne__werror(const char* __message, int code){
     exit(code);
 }
 
-void xne__break(){
+void xne__break(const char* __file, unsigned long long __line){
+    xne__wmessage(stderr, __line, __file, "program break.");
 #ifdef _MSC_VER
     __debugbreak();
 #elif _WIN32

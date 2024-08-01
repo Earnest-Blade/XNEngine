@@ -513,30 +513,6 @@ src/graphics/graphics.c.s:
 	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/graphics.c.s
 .PHONY : src/graphics/graphics.c.s
 
-src/graphics/light.obj: src/graphics/light.c.obj
-.PHONY : src/graphics/light.obj
-
-# target to build an object file
-src/graphics/light.c.obj:
-	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/light.c.obj
-.PHONY : src/graphics/light.c.obj
-
-src/graphics/light.i: src/graphics/light.c.i
-.PHONY : src/graphics/light.i
-
-# target to preprocess a source file
-src/graphics/light.c.i:
-	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/light.c.i
-.PHONY : src/graphics/light.c.i
-
-src/graphics/light.s: src/graphics/light.c.s
-.PHONY : src/graphics/light.s
-
-# target to generate assembly for a file
-src/graphics/light.c.s:
-	cd /d E:\Code\MDreams\Source && $(MAKE) $(MAKESILENT) -f extern\xnengine\CMakeFiles\xne.dir\build.make extern/xnengine/CMakeFiles/xne.dir/src/graphics/light.c.s
-.PHONY : src/graphics/light.c.s
-
 src/graphics/mesh.obj: src/graphics/mesh.c.obj
 .PHONY : src/graphics/mesh.obj
 
@@ -714,9 +690,6 @@ help:
 	@echo ... src/graphics/graphics.obj
 	@echo ... src/graphics/graphics.i
 	@echo ... src/graphics/graphics.s
-	@echo ... src/graphics/light.obj
-	@echo ... src/graphics/light.i
-	@echo ... src/graphics/light.s
 	@echo ... src/graphics/mesh.obj
 	@echo ... src/graphics/mesh.i
 	@echo ... src/graphics/mesh.s

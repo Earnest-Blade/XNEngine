@@ -48,7 +48,7 @@ static void GLAPIENTRY xne__gl_callback(GLenum source, GLenum type, uint32_t id,
     
     xne_printf(message);
     if(severity == GL_DEBUG_SEVERITY_HIGH) {
-        xne_assert(0);
+        xne_break();
     }
 }
 

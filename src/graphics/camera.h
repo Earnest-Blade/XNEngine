@@ -37,10 +37,27 @@ typedef struct xne_Camera {
 } xne_Camera_t;
 
 void xne_create_camera(xne_Camera_t* camera, xne_Camera_Desc_t* desc);
+
 void xne_camera_move(xne_Camera_t* camera, float x, float y, float z);
-void xne_camera_moveto(xne_Camera_t* camera, float x, float y, float z);
+static inline void xne_camera_movevf(xne_Camera_t* camera, float* values){
+    xne_camera_move(camera, values[0], values[1], values[2]);
+}
+
+void xne_camera_move_to(xne_Camera_t* camera, float x, float y, float z);
+static inline void xne_camera_move_tovf(xne_Camera_t* camera, float* values){
+    xne_camera_move_to(camera, values[0], values[1], values[2]);
+}
+
 void xne_camera_rotate(xne_Camera_t* camera, float roll, float yaw, float pitch);
-void xne_camera_rotateto(xne_Camera_t* camera, float roll, float yaw, float pitch);
+static inline void xne_camera_rotatevf(xne_Camera_t* camera, float* values){
+    xne_camera_rotate(camera, values[0], values[1], values[2]);
+}
+
+void xne_camera_rotate_to(xne_Camera_t* camera, float roll, float yaw, float pitch);
+static inline void xne_camera_rotate_tovf(xne_Camera_t* camera, float* values){
+    xne_camera_rotate_to(camera, values[0], values[1], values[2]);
+}
+
 float* xne_get_camera_projection(xne_Camera_t* camera);
 
 #endif

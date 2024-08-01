@@ -1,5 +1,6 @@
 #include "objects.h"
 
+#include "transform.h"
 #include "graphics/graphics.h"
 
 #include <malloc.h>
@@ -9,7 +10,28 @@
 // TODO: should I find a replacer ? or a more elegent way of doing this shit ?
 #define XNE__FIND_MAT_UNIFORM_HOLDER(x, y) { if(strcmp(uniform_descriptor[y].name, #x) == 0) { material->uniforms.x = y; } }
 
-int xne__create_material_from_object(json_object* root, void* dest){
+int xne__create_transform_from_object(const json_object* root, void* dest){
+    if(json_object_get_type(root) != json_type_null){
+        xne_vec3 position, scale;
+        xne_vec4 rotation;
+        xne__object_create_vec3(json_object_object_get(root, "Position"), position);
+        xne__object_create_vec3(json_object_object_get(root, "Scale"), scale);
+        xne__object_create_quat(json_object_object_get(root, "Rotation"), rotation);
+
+        xne_Transform_t* transform = (xne_Transform_t*) dest;
+
+        memcpy(transform->position, position, sizeof(xne_vec3));
+        memcpy(transform->scale, scale, sizeof(xne_vec3));
+        memcpy(transform->rotation, rotation, sizeof(xne_vec4));
+        xne_transform_move_to(transform, 0, 0, 0);
+
+        return XNE_OK;
+    }
+
+    return XNE_FAILURE;
+}
+
+int xne__create_material_from_object(const json_object* root, void* dest){
     xne_Material_t* material = (xne_Material_t*) dest;
 
     const json_object* json_material = root;
@@ -20,6 +42,7 @@ int xne__create_material_from_object(json_object* root, void* dest){
     material->uniforms.projection = XNE_INVALID_VALUE;
     material->uniforms.transform = XNE_INVALID_VALUE;
     material->uniforms.world = XNE_INVALID_VALUE;
+    material->uniforms.directional_light = XNE_INVALID_VALUE;
 
     xne_ShaderDesc_t* shader_descriptor = (xne_ShaderDesc_t*) calloc(json_object_array_length(json_shaders), sizeof(xne_ShaderDesc_t));
     json_object* json_sub_shader;
@@ -55,6 +78,7 @@ int xne__create_material_from_object(json_object* root, void* dest){
         XNE__FIND_MAT_UNIFORM_HOLDER(projection, i);
         XNE__FIND_MAT_UNIFORM_HOLDER(transform, i);
         XNE__FIND_MAT_UNIFORM_HOLDER(world, i);
+        XNE__FIND_MAT_UNIFORM_HOLDER(directional_light, i);
 
         if( (uniform_descriptor[i].attrib & XNE_UNIFORM_ATTRIB_ARRAY) || 
             (uniform_descriptor[i].attrib & XNE_UNIFORM_ATTRIB_STRUCT)) {
@@ -79,4 +103,6 @@ int xne__create_material_from_object(json_object* root, void* dest){
 
     material->ambient_texture = NULL;
     material->diffuse_texture = NULL;
+
+    return XNE_OK;
 }

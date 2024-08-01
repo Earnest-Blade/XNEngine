@@ -73,6 +73,7 @@ static inline int xne__object_is_type_of(json_object* root, xne_ObjectTypes_t ty
     return !json_object_get_int(json_object_object_get(scene, "Type")) == type;
 }
 
-int xne__create_material_from_object(json_object* root, void* dest);
+int xne__create_transform_from_object(const json_object* root, void* dest);
+int xne__create_material_from_object(const json_object* root, void* dest);
 
 #endif

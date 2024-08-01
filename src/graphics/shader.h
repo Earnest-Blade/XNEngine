@@ -10,6 +10,9 @@
 #include <stdio.h>
 #include <assert.h>
 
+#define XNE_MAX_UNIFORM 512
+#define XNE_MAX_BLOCK_UNIFORM 254
+
 // flags
 typedef enum xne_UniformAttrib { 
     XNE_UNIFORM_ATTRIB_UNIFORM = 1,
@@ -55,6 +58,7 @@ typedef struct xne_Shader {
         xne_UniformType_t format;
         uint32_t location;   
         uint32_t length;
+        uint32_t binding_point;
     } *uniforms;
     uint32_t* shaders;
     uint32_t program;

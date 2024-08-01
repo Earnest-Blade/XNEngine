@@ -5,12 +5,11 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <signal.h>
 
 #define XNE_OK 0
 #define XNE_FAILURE 1
 
-#define XNE_INVALID_VALUE -1
+#define XNE_INVALID_VALUE (unsigned short)0xffff
 
 #if _WIN32
     #define XNE_FILE (strrchr(__FILE__, '\\') ? strrchr(__FILE__, '\\') + 1 : __FILE__)
@@ -23,7 +22,7 @@ void xne__wmessage(FILE* stream, const int line, const char* file, const char* _
 void xne__wassert(const char* __message, const char* __file, unsigned long long __line);
 int xne__werror(const char* __message, int code);
 
-void xne__break();
+void xne__break(const char* __file, unsigned long long __line);
 
 #define xne_printf(message) (void)(xne__wmessage(stdout, __LINE__, XNE_FILE, message))
 #define xne_vprintf(message, ...) (void)(xne__wmessage(stdout, __LINE__, XNE_FILE, message, __VA_ARGS__))
@@ -33,6 +32,6 @@ void xne__break();
 )
 #define xne_error(message, code) (void) (xne__werror(#message, code))
 
-#define xne_break() xne__break()
+#define xne_break() xne__break(XNE_FILE, __LINE__);
 
 #endif

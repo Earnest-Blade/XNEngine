@@ -8,9 +8,10 @@
 typedef struct xne_Material {
     xne_Shader_t shader;
     struct {
-        uint32_t projection;
-        uint32_t transform;
-        uint32_t world;
+        uint16_t projection;
+        uint16_t transform;
+        uint16_t world;
+        uint16_t directional_light;
     } uniforms;
     
     struct xne_Texture* diffuse_texture;

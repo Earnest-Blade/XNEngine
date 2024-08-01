@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef XNE_LIGHT_IMPL
-#define XNE_LIGHT_IMPL
+#ifndef XNE_LIGHTS_IMPL
+#define XNE_LIGHTS_IMPL
 
 #include "core/core.h"
 #include "core/math.h"
@@ -40,7 +40,5 @@ typedef struct xne_Light {
 
     xne_vec3 position;
 } xne_Light_t;
-
-void xne_create_light(xne_Light_t* light, xne_LightType_t type);
 
 #endif

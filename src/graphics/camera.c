@@ -81,7 +81,7 @@ void xne_camera_move(xne_Camera_t* camera, float x, float y, float z){
     camera->eye[2] = z;
 }
 
-void xne_camera_moveto(xne_Camera_t* camera, float x, float y, float z){
+void xne_camera_move_to(xne_Camera_t* camera, float x, float y, float z){
     camera->eye[0] += x;
     camera->eye[1] += y;
     camera->eye[2] += z;
@@ -102,7 +102,7 @@ void xne_camera_rotate(xne_Camera_t* camera, float roll, float yaw, float pitch)
     camera->direction[2] = sin(glm_rad(camera->look[1])) * cos(glm_rad(camera->look[2]));
 }
 
-void xne_camera_rotateto(xne_Camera_t* camera, float roll, float yaw, float pitch){
+void xne_camera_rotate_to(xne_Camera_t* camera, float roll, float yaw, float pitch){
 #ifdef XNE_DISABLE_PITCH_FLIP
     if(pitch > 89.0f) pitch = 89.0f;
     if(pitch < -89.0f) pitch = -89.0f;

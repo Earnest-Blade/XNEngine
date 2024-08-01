@@ -11,12 +11,16 @@
 #include <GL/glew.h>
 
 #include "texture.h"
+#include "lights.h"
 
 #define XNE_BUFFER_SIZE 1024
 
-static xne_Shader_t* __current_shader = NULL;
+static struct {
+    xne_Shader_t* current;
+    size_t bindings_count;
+} __shader_state;
 
-xne_Shader_t* xne_get_active_shader(){ return __current_shader; }
+xne_Shader_t* xne_get_active_shader(){ return __shader_state.current; }
 
 static int xne__compile_shader(uint32_t* shader, GLenum __type, const char* __value){
     *shader = glCreateShader(__type);
@@ -155,14 +159,14 @@ int xne_create_shaderfv(xne_Shader_t* shader, const char* vert, const char* frag
 }
 
 void xne_shader_enable(xne_Shader_t* shader) { 
-    if(__current_shader == shader) return;
+    if(__shader_state.current == shader) return;
 
-    __current_shader = shader;
+    __shader_state.current = shader;
     glUseProgram(shader->program); 
 }
 
 void xne_shader_disable(xne_Shader_t* shader) { 
-    __current_shader = NULL;
+    __shader_state.current = NULL;
     glUseProgram(0); 
 }
 
@@ -195,7 +199,8 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
 
     size_t count = xne__get_uniform_desc_length(uniforms);
 
-    if(!count){
+    if(!count || shader->uniform_count + count > XNE_MAX_UNIFORM){
+        xne_printf("either add no new uniforms, or uniform count is reach!");
         return XNE_FAILURE;
     }
     
@@ -206,7 +211,7 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
     else {
         shader->uniform_count = count;
         shader->uniforms = malloc(sizeof(struct xne_ShaderUniform) * shader->uniform_count);
-        //memset(shader->uniforms, 0, sizeof(struct xne_ShaderUniform) * shader->uniform_count);
+        memset(shader->uniforms, 0, sizeof(struct xne_ShaderUniform) * shader->uniform_count);
     }
 
     xne_assert(shader->uniforms);
@@ -216,38 +221,62 @@ int xne_link_shader_uniforms(xne_Shader_t* shader, const xne_ShaderUniformDesc_t
     {
         shader->uniforms[i].attrib = (xne_UniformAttrib_t) uniforms[i].attrib;
         shader->uniforms[i].format = (xne_UniformType_t) uniforms[i].format;
-        shader->uniforms[i].location = glGetUniformLocation(shader->program, uniforms[i].name);
-
+        shader->uniforms[i].location = XNE_INVALID_VALUE;
+        shader->uniforms[i].binding_point = XNE_INVALID_VALUE;
         shader->uniforms[i].length = 1;
+
         if(uniforms[i].length != XNE_INVALID_VALUE){
-            //shader->uniforms[i].length = (uint32_t) uniforms[i].length;
+            shader->uniforms[i].length = (uint32_t) uniforms[i].length;
         }
 
-        /*shader->uniforms[i].location = -1;
-        if(shader->uniforms[i].attrib & XNE_UNIFORM_ATTRIB_STRUCT) {
+        if((shader->uniforms[i].attrib == XNE_UNIFORM_ATTRIB_UNIFORM)){
+            shader->uniforms[i].location = glGetUniformLocation(shader->program, uniforms[i].name);
+            shader->uniforms[i].length = 1;
+        }
+
+        if((shader->uniforms[i].attrib & XNE_UNIFORM_ATTRIB_ARRAY)) {
+            xne_assert(shader->uniforms[i].length);
             shader->uniforms[i].location = glGetUniformLocation(shader->program, uniforms[i].name);
         }
-        if(shader->uniforms[i].attrib & XNE_UNIFORM_ATTRIB_ARRAY) {
-            //const char* temp = xne_string_merge((const char*) uniforms[i].name, "[0]");
-            //shader->uniforms[i].location = glGetUniformLocation(shader->program, temp);
-            //free((char*) temp);
-        }*/
 
-        /*xne_vprintf("cannot find attribute '%i'", uniform[i].attrib);
-        if(shader->uniforms[i].attrib == XNE_UNIFORM_ATTRIB_UNIFORM) {
-            shader->uniforms[i].location = glGetUniformLocation(shader->program, uniforms[i].name);
-        }*/
+        if((shader->uniforms[i].attrib & XNE_UNIFORM_ATTRIB_STRUCT)) {
+            xne_assert(shader->uniforms[i].length);
+
+            if(__shader_state.bindings_count + 1 >= XNE_MAX_BLOCK_UNIFORM) {
+                xne_printf("cannot add new blocked uniforms : the maximum number of binding points is reached!");
+                return XNE_FAILURE;
+            }
+
+            glGenBuffers(1, &shader->uniforms[i].location);
+            glBindBuffer(GL_UNIFORM_BUFFER, shader->uniforms[i].location);
+            glBufferData(GL_UNIFORM_BUFFER, shader->uniforms[i].length, NULL, GL_DYNAMIC_DRAW);
+
+            uint32_t block = glGetUniformBlockIndex(shader->program, uniforms[i].name);
+            if(block == XNE_INVALID_VALUE) {
+                xne_vprintf("cannot find uniform block '%s'", uniforms[i].name);
+                return XNE_FAILURE;
+            }
+
+            shader->uniforms[i].binding_point = __shader_state.bindings_count++;
+            glUniformBlockBinding(shader->program, block, shader->uniforms[i].binding_point);
+            glBindBufferBase(GL_UNIFORM_BUFFER, shader->uniforms[i].binding_point, shader->uniforms[i].location);
+            glBindBuffer(GL_UNIFORM_BUFFER, 0);
+        }
 
         if(shader->uniforms[i].location == XNE_INVALID_VALUE){
             xne_vprintf("cannot find attribute '%s'", uniforms[i].name);
         }
+
     }
+    
+    xne__print_shader_status(shader);
 
     return XNE_OK;
 }
 
 void xne_shader_use_uniform(xne_Shader_t* shader, uint32_t index, const void* value){    
     if(index < shader->uniform_count || index != XNE_INVALID_VALUE){
+        //xne_vprintf("location %d", shader->uniforms[index].format);
         if(shader->uniforms[index].location == XNE_INVALID_VALUE){
             return;
         }
@@ -279,7 +308,20 @@ void xne_shader_use_uniform(xne_Shader_t* shader, uint32_t index, const void* va
             break;
 
         case XNE_UNIFORM_LIGHT:
+            {
+                xne_assert(shader->uniforms[index].attrib & XNE_UNIFORM_ATTRIB_STRUCT);
 
+                xne_Light_t* light = (xne_Light_t*) value;
+                if(light->type == XNE_LIGHT_DIRECTIONAL) {
+                    xne_assert(shader->uniforms[index].length == 48);
+
+                    glBindBuffer(GL_UNIFORM_BUFFER, shader->uniforms[index].location);
+                    glBufferSubData(GL_UNIFORM_BUFFER, 0 * sizeof(xne_vec4), sizeof(xne_vec3), &light->position[0]);
+                    glBufferSubData(GL_UNIFORM_BUFFER, 1 * sizeof(xne_vec4), sizeof(xne_vec3), &light->light.directional.direction[0]);
+                    glBufferSubData(GL_UNIFORM_BUFFER, 2 * sizeof(xne_vec4), sizeof(xne_vec3), &light->light.directional.color[0]);
+                    glBindBuffer(GL_UNIFORM_BUFFER, 0);
+                }
+            }
             break;
         default: return;
         }
