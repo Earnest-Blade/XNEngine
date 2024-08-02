@@ -43,6 +43,7 @@ int xne__create_material_from_object(const json_object* root, void* dest){
     material->uniforms.transform = XNE_INVALID_VALUE;
     material->uniforms.world = XNE_INVALID_VALUE;
     material->uniforms.directional_light = XNE_INVALID_VALUE;
+    material->uniforms.material = XNE_INVALID_VALUE;
 
     xne_ShaderDesc_t* shader_descriptor = (xne_ShaderDesc_t*) calloc(json_object_array_length(json_shaders), sizeof(xne_ShaderDesc_t));
     json_object* json_sub_shader;
@@ -79,6 +80,7 @@ int xne__create_material_from_object(const json_object* root, void* dest){
         XNE__FIND_MAT_UNIFORM_HOLDER(transform, i);
         XNE__FIND_MAT_UNIFORM_HOLDER(world, i);
         XNE__FIND_MAT_UNIFORM_HOLDER(directional_light, i);
+        XNE__FIND_MAT_UNIFORM_HOLDER(material, i);
 
         if( (uniform_descriptor[i].attrib & XNE_UNIFORM_ATTRIB_ARRAY) || 
             (uniform_descriptor[i].attrib & XNE_UNIFORM_ATTRIB_STRUCT)) {

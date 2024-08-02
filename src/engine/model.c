@@ -75,6 +75,7 @@ static void xne__model_draw_node(xne_Tree_t* tree){
     xne_shader_use_uniform(&node->material->shader, node->material->uniforms.transform, xne_transform_matrix(&node->transform));
     xne_shader_use_uniform(&node->material->shader, node->material->uniforms.world, xne_transform_world_matrix(&node->transform));
     xne_shader_use_uniform(&node->material->shader, node->material->uniforms.directional_light, &xne_get_engine_instance()->state.scene->directional_light);
+    xne_shader_use_uniform(&node->material->shader, node->material->uniforms.material, node->material);
 
     // in order to keep an ordered unit, units aren't fixed but dynamics.
     // So, if a texture isn't use, it's unit will be use by the next texture.

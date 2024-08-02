@@ -12,6 +12,7 @@
 
 #include "texture.h"
 #include "lights.h"
+#include "material.h"
 
 #define XNE_BUFFER_SIZE 1024
 
@@ -321,6 +322,18 @@ void xne_shader_use_uniform(xne_Shader_t* shader, uint32_t index, const void* va
                     glBufferSubData(GL_UNIFORM_BUFFER, 2 * sizeof(xne_vec4), sizeof(xne_vec3), &light->light.directional.color[0]);
                     glBindBuffer(GL_UNIFORM_BUFFER, 0);
                 }
+            }
+            break;
+        case XNE_UNIFORM_MATERIAL:
+            {
+                xne_assert(shader->uniforms[index].attrib & XNE_UNIFORM_ATTRIB_STRUCT);
+
+                xne_Material_t* material = (xne_Material_t*) value;
+                
+                glBindBuffer(GL_UNIFORM_BUFFER, shader->uniforms[index].location);
+                glBufferSubData(GL_UNIFORM_BUFFER, 0 * sizeof(xne_vec4), sizeof(xne_vec4), material->ambient_color);
+                glBufferSubData(GL_UNIFORM_BUFFER, 1 * sizeof(xne_vec4), sizeof(xne_vec4), material->diffuse_color);
+                glBindBuffer(GL_UNIFORM_BUFFER, 0);
             }
             break;
         default: return;
