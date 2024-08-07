@@ -22,18 +22,13 @@ typedef struct xne_UserInterface {
     struct xne_Buffer memory;
 
     uint32_t vertex_object, buffer_object;
-
-    // 0 -> unpack buffer
-    // 1 -> pack buffer 
-    uint32_t pixel_object[2];
-    
     uint32_t texture_object;
     
     xne_mat4 projection;
 } xne_UserInterface_t;
  
 int xne_create_uix_instance(size_t default_buffer_size);
-void xne_uix_new_frame(uint32_t width, uint32_t height);
+void xne_uix_new_frame();
 
 void xne_draw_font_atlas(xne_Font_t* font);
 

@@ -1,0 +1,12 @@
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\bin\Debug\net7.0\xne-assets.deps.json
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\bin\Debug\net7.0\xne-assets.dll
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\bin\Debug\net7.0\xne-assets.pdb
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\obj\Debug\net7.0\xne-assets.csproj.AssemblyReference.cache
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\obj\Debug\net7.0\xne-assets.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\obj\Debug\net7.0\xne-assets.AssemblyInfoInputs.cache
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\obj\Debug\net7.0\xne-assets.AssemblyInfo.cs
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\obj\Debug\net7.0\xne-assets.csproj.CoreCompileInputs.cache
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\obj\Debug\net7.0\xne-assets.dll
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\obj\Debug\net7.0\refint\xne-assets.dll
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\obj\Debug\net7.0\xne-assets.pdb
+E:\Code\MDreams\Source\extern\xnengine\tools\xne-assets\obj\Debug\net7.0\ref\xne-assets.dll

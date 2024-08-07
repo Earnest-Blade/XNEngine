@@ -10,8 +10,12 @@ The use of OpenGL facilitates the creation of high-quality 3D graphics. The engi
 
 ## XNE's Tools 
 XNEngine comes with development tools :
-- [XNE Assets](tools/xne-tools-assets/)
+- [XNE Assets](tools/xne-assets/)
 <br>XNE Assets is a tool used for converting 3d file formats (such as ```.fbx```, ```.dae```or ```.obj```) into a custom format that can be loaded into XNEngine.
+- [XNE CLI](tools/xne-cli/)
+<br>XNE CLI is a little terminal based application that you can use to create .xneo models from universal formats.
+- [XNE Blender](tools/xne-blender/)
+<br>XNE Blender is an easy to use Blender extension to convert your scene into .xneo models.
 
 ## Third Party
 - [CGLM](https://github.com/recp/cglm)
@@ -26,4 +30,4 @@ XNEngine comes with development tools :
 See also [Licence](./LICENSE.md)
 
 <br>XNEngine - Version 0.0.0
-<br>Ernest - 25.01.2024
+<br>Ernest - 07.08.2024

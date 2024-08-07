@@ -5,6 +5,7 @@
 #include "graphics/graphics.h"
 
 #include "core/math.h"
+#include "engine/engine.h"
 
 #include <string.h>
 #include <memory.h>
@@ -15,26 +16,14 @@
 
 static xne_UserInterface_t __context;
 
-static void xne__clear_texture_buffer(char r, char g, char b) {
-    glBindBuffer(GL_PIXEL_UNPACK_BUFFER, __context.pixel_object[0]);
-
-    char* ptr = glMapBuffer(GL_PIXEL_UNPACK_BUFFER, GL_WRITE_ONLY);
-    if(ptr){
-        for (size_t i = 0; i < __context.memory.size; i += 4)
-        {
-            ptr[i] = r;
-            ptr[i + 1] = g;
-            ptr[i + 2] = b;
-            ptr[i + 3] = 255;
-        }
-
-        glUnmapBuffer(GL_PIXEL_UNPACK_BUFFER);
-    }
-
+static void xne__push_memory_to_tex(){
     glBindTexture(GL_TEXTURE_2D, __context.texture_object);
-    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, sqrt(__context.memory.size / 4), sqrt(__context.memory.size / 4), GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 
+        __context.scissors.width, 
+        __context.scissors.height,
+        GL_RGBA, GL_UNSIGNED_BYTE,
+        __context.memory.ptr);
 
-    glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
@@ -152,57 +141,38 @@ int xne_create_uix_instance(size_t default_buffer_size){
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, default_buffer_size, default_buffer_size, 0, GL_RGBA, GL_UNSIGNED_BYTE, __context.memory.ptr);
 
         // create a new pixel object buffer
-        glGenBuffers(2, &__context.pixel_object[0]);
-        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, __context.pixel_object[0]);
-        glBindBuffer(GL_PIXEL_PACK_BUFFER, __context.pixel_object[1]);
-        glBufferData(GL_PIXEL_UNPACK_BUFFER, __context.memory.size, NULL, GL_DYNAMIC_DRAW);
-        glBufferData(GL_PIXEL_PACK_BUFFER, __context.memory.size, NULL, GL_DYNAMIC_READ);
 
-        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
-        glBindBuffer(GL_PIXEL_PACK_BUFFER, 0);
         glBindTexture(GL_TEXTURE_2D, 0);
     }
 
     return XNE_OK;
 }
 
-void xne_uix_new_frame(uint32_t width, uint32_t height){
-    xne__clear_texture_buffer(255, 0, 0);
-
-    xne_orthographic_projection_off_center(0, width, height, 0.0, 0.0f, 1.0f, 1.0f, __context.projection);
+void xne_uix_new_frame(){
+    xne_orthographic_projection_off_center(0, 
+        xne_get_engine_instance()->graphics.draw.framebuffer.width, 
+        xne_get_engine_instance()->graphics.draw.framebuffer.height, 
+    0.0, 0.0f, 1.0f, 1.0f, __context.projection);
 }
 
 void xne_draw_font_atlas(xne_Font_t* font){
     glBindVertexArray(__context.vertex_object);
     glBindBuffer(GL_ARRAY_BUFFER, __context.buffer_object);
 
-    if(1){
-        const xne_vec3i color = {255, 255, 255};
-        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, __context.pixel_object[0]);
-
-        char* dbuffer = glMapBuffer(GL_PIXEL_UNPACK_BUFFER, GL_WRITE_ONLY);
-        if(dbuffer){
-            for (size_t y = 0; y < font->atlas.height; y++)
+    // copying font atlas to uix buffer
+    {
+        for (size_t y = 0; y < font->atlas.height; y++)
+        {
+            for (size_t x = 0; x < font->atlas.width; x++)
             {
-                dbuffer[y + 1] = 255;
-                for (size_t x = 0; x < font->atlas.width; x++)
-                {
-                    
-                }
+                __context.memory.ptr[(y * __context.scissors.width + x) * 4 + 0] = 255;   
+                __context.memory.ptr[(y * __context.scissors.width + x) * 4 + 1] = 255;   
+                __context.memory.ptr[(y * __context.scissors.width + x) * 4 + 2] = 255;   
+                __context.memory.ptr[(y * __context.scissors.width + x) * 4 + 3] = 255;   
             }
-            
-            glUnmapBuffer(GL_PIXEL_UNPACK_BUFFER);
         }
-
-        glBindTexture(GL_TEXTURE_2D, __context.texture_object);
-        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 
-            sqrt(__context.memory.size / 4), 
-            sqrt(__context.memory.size / 4),
-            GL_RGBA, GL_UNSIGNED_BYTE, NULL
-        );
-
-        glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
-        glBindTexture(GL_TEXTURE_2D, 0);
+        
+        xne__push_memory_to_tex();
     }
 
     glActiveTexture(GL_TEXTURE0);
@@ -291,7 +261,6 @@ void xne_draw_text_scaled(xne_Font_t* font, const char* text, float x, float y, 
 void xne_destroy_uix_instance(){
     glDeleteVertexArrays(1, &__context.vertex_object);
     glDeleteBuffers(1, &__context.buffer_object);
-    glDeleteBuffers(2, &__context.pixel_object[0]);
     glDeleteTextures(1, &__context.texture_object);
 
     if(__context.shader.dev){

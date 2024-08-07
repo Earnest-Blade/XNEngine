@@ -5,6 +5,8 @@
 
 #include "core/types.h"
 
+#define XNE_DEFAULT_BUFFER_SIZE 1024
+
 typedef enum xne_BufferTarget {
     XNE_BUFFER_TARGET_ARRAY = 0x8892, // GL_ARRAY_BUFFER
     XNE_BUFFER_TARGET_ATOMIC_COUNTER = 0x92C0, // GL_ATOMIC_COUNTER_BUFFER
